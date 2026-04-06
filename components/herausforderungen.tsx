@@ -68,7 +68,7 @@ const challenges = [
 
 export function Herausforderungen() {
   return (
-    <section className="bg-hero-bg py-20 px-4 md:px-8">
+    <section className="bg-transparent py-20 px-4 md:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

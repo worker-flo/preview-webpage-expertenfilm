@@ -29,7 +29,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)] py-20 md:py-28">
+    <section id="services" className="bg-[#000336]/0 py-20 md:py-28">
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16">
