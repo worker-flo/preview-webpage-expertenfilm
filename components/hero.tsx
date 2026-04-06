@@ -1,10 +1,11 @@
 "use client"
 
 import { ChevronRight, ChevronsDown, FileText } from "lucide-react"
+import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen bg-[#000336] overflow-hidden">
+    <section className="relative min-h-screen bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)] overflow-hidden">
       {/* Background Network Lines */}
       <div className="absolute inset-0 pointer-events-none">
         <svg
@@ -43,11 +44,13 @@ export function Hero() {
       </div>
 
       {/* Camera Image - Left Side */}
-      <div className="absolute left-0 bottom-0 w-[45%] h-[85%] pointer-events-none">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-90"
+      <div className="absolute left-0 bottom-0 w-[45%] h-[85%] pointer-events-none overflow-hidden">
+        <Image
+          src="/images/section-hero/camera_and_rig.webp"
+          alt="Camera Rig"
+          fill
+          className="object-cover opacity-90"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1598387846419-4c0c3a372e07?w=800&q=80')`,
             maskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
           }}
@@ -55,13 +58,15 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="absolute right-0 bottom-0 w-[40%] h-[80%] pointer-events-none">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-70"
+      <div className="absolute right-0 bottom-0 w-[45%] h-[85%] pointer-events-none overflow-hidden">
+        <Image
+          src="/images/section-hero/roboter_hand_black_eigenes_logo.webp"
+          alt="Robot Hand"
+          fill
+          className="object-cover opacity-90"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&q=80')`,
-            maskImage: 'linear-gradient(to left, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to left, black 60%, transparent 100%)',
+            maskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
           }}
         />
       </div>
@@ -81,11 +86,11 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center mt-8 md:mt-16">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="text-white italic">Das Beste aus</span>
+            <span className="text-white">Das Beste aus</span>
             <br />
-            <span className="text-[#00ffc4] italic">Videoproduktion und KI</span>
+            <span className="text-[#00ffc4]">Videoproduktion und KI</span>
             <br />
-            <span className="text-white italic">für Ihr KMU-Marketing</span>
+            <span className="text-white">für Ihr KMU-Marketing</span>
           </h1>
 
           {/* Subheadline */}

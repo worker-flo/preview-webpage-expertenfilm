@@ -2,30 +2,25 @@
 
 import { useState } from "react"
 import { Menu, X } from "lucide-react"
+import Image from "next/image"
+
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
     <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-      <div className="bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl border border-white/10 px-6 py-4">
+      <div className="bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl border border-white/10 px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2">
-            <svg
-              viewBox="0 0 40 40"
-              className="w-8 h-8 text-white"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path d="M20 5 L5 15 L5 30 L20 40 L35 30 L35 15 Z" />
-              <path d="M12 18 L12 28 L20 33 L28 28 L28 18 L20 13 Z" />
-              <circle cx="20" cy="23" r="3" fill="currentColor" />
-            </svg>
-            <span className="text-white font-semibold text-lg tracking-wide">
-              EXPERTENFILM
-            </span>
+            <Image
+              src="/images/logo/logo-white.webp"
+              alt="Logo"
+              width={175}
+              height={50} // Ein Schätzwert als Fallback (wird durch Tailwind überschrieben)
+              className="w-[175px] h-auto object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}
