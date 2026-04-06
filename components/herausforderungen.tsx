@@ -69,7 +69,7 @@ const challenges = [
 export function Herausforderungen() {
   return (
     <section className="bg-transparent py-20 px-4 md:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -81,28 +81,30 @@ export function Herausforderungen() {
         </div>
 
         {/* Challenge Cards */}
-        <div className="flex flex-col gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {challenges.map((challenge, index) => (
             <div
               key={index}
-              className="flex flex-col md:flex-row items-center md:items-start gap-6"
+              className="h-full"
             >
-              {/* Icon Box */}
-              <div className="flex-shrink-0 w-24 h-24 bg-slate-900/80 border border-slate-700/50 rounded-xl flex items-center justify-center">
-                {challenge.icon}
-              </div>
-
               {/* Content Card */}
-              <div className="flex-1 bg-slate-900/60 border border-slate-700/50 rounded-xl p-6 md:p-8 relative max-w-xl md:ml-auto">
+              <div className="h-full flex flex-col bg-slate-900/40 border border-white/10 backdrop-blur-md rounded-xl p-6 md:p-8 relative">
                 {/* Power Icon */}
                 <div className="absolute top-6 right-6">
                   <Power className="h-5 w-5 text-slate-500" />
                 </div>
 
+                {/* Icon Box */}
+                <div className="mb-6">
+                  <div className="w-20 h-20 bg-slate-900/60 border border-white/10 rounded-xl flex items-center justify-center">
+                    {challenge.icon}
+                  </div>
+                </div>
+
                 <h3 className="text-xl font-semibold text-white mb-4 pr-8">
                   {challenge.title}
                 </h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed mt-auto">
                   {challenge.description}
                 </p>
               </div>
