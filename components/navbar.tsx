@@ -8,6 +8,7 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
+  SheetDescription,
 } from "@/components/ui/sheet"
 
 export function Navbar() {
@@ -52,6 +53,9 @@ export function Navbar() {
               <SheetContent className="bg-[#0a0d3a] border-white/10">
                 <SheetHeader>
                   <SheetTitle className="text-white">Navigation</SheetTitle>
+                  <SheetDescription className="sr-only">
+                    Navigationsmenü mit Links zu verschiedenen Seiten
+                  </SheetDescription>
                 </SheetHeader>
                 <nav className="flex flex-col gap-4 mt-6 px-4">
                   <a
@@ -102,6 +106,9 @@ export function Navbar() {
             <SheetContent className="bg-[#0a0d3a] border-white/10">
               <SheetHeader>
                 <SheetTitle className="text-white">Navigation</SheetTitle>
+                <SheetDescription className="sr-only">
+                  Navigationsmenü mit Links zu verschiedenen Seiten
+                </SheetDescription>
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-6 px-4">
                 <a
