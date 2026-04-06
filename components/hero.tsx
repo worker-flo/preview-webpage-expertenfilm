@@ -73,15 +73,6 @@ export function Hero() {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
-        {/* Socials Link */}
-        <a
-          href="#socials"
-          className="inline-flex items-center gap-1 text-white/80 hover:text-[#00ffc4] transition-colors duration-300 mb-16 group"
-        >
-          <span className="font-medium">Socials</span>
-          <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-        </a>
-
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center mt-8 md:mt-16">
           {/* Headline */}

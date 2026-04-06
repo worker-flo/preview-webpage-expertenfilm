@@ -161,7 +161,7 @@ export function Navbar() {
               {isMenuOpen && (
                 <div
                   ref={menuRef}
-                  className="absolute top-full right-0 mt-4 w-64 bg-white/95 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute top-full right-0 mt-12 w-64 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
                   <nav className="flex flex-col">
                     {menuItems.map((item, index) => (
@@ -169,7 +169,7 @@ export function Navbar() {
                         key={index}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="px-6 py-3 text-right text-[#0a0d3a] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        className="px-6 py-3 text-right text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
                       >
                         {item.label}
                       </a>
