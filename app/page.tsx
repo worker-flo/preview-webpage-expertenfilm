@@ -1,7 +1,9 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
+import { Leistungen } from "@/components/leistungen"
 import { Herausforderungen } from "@/components/herausforderungen"
+import { Prozess } from "@/components/prozess"
 
 export default function Home() {
   return (
@@ -17,6 +19,9 @@ export default function Home() {
       <Hero />
       <Services />
       <Herausforderungen />
+      <Prozess />
+      <Leistungen />
+
     </main>
   )
 }
