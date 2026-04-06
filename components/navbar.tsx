@@ -85,7 +85,7 @@ export function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center content-center gap-8">
             {/* Socials Dropdown */}
             <div ref={socialsRef} className="relative flex items-center">
               <div
@@ -146,11 +146,11 @@ export function Navbar() {
             >
               Team
             </a>
-            <div className="relative">
+            <div className="relative mt-1 transition-all duration-300 ease">
               <button
                 ref={buttonRef}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white/90 hover:text-[#00ffc4] transition-colors duration-300"
+                className="text-white/90 hover:text-[#00ffc4] transition-all duration-300"
                 aria-label="Menü öffnen"
                 aria-expanded={isMenuOpen}
               >
