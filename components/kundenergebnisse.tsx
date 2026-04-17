@@ -10,6 +10,10 @@ import {
   WeitereTestimonialsSlider,
   type WeitereTestimonialSlide,
 } from "@/components/weitere-testimonials-slider"
+import {
+  VideobeispieleKundenprojekteGrid,
+  type VideobeispielKundeItem,
+} from "@/components/videobeispiele-kundenprojekte-grid"
 
 const fallstudienSlides: KundenergebnisSlide[] = [
   {
@@ -88,6 +92,41 @@ const weitereTestimonialsSlides: WeitereTestimonialSlide[] = [
   },
 ]
 
+const videobeispieleKundenItems: VideobeispielKundeItem[] = [
+  {
+    title: "Spa & GolfResort Weimarer Land",
+    category: "Hotellerie- und Tourismusbranche",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1542317851-edeaba95315d?w=960&q=80&auto=format&fit=crop",
+  },
+  {
+    title: "Rheincare GmbH",
+    category: "Ambulanter Pflegedienst",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=960&q=80&auto=format&fit=crop",
+  },
+  {
+    title: "Personal Coach Rene Fischer",
+    category: "Fitness- und Sport-Coaching",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=960&q=80&auto=format&fit=crop",
+  },
+  {
+    title: "Günter Haag – Transporte & Montagen OHG",
+    category: "Bautransportunternehmen",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=960&q=80&auto=format&fit=crop",
+  },
+]
+
 export function Kundenergebnisse() {
   return (
     <section
@@ -141,6 +180,21 @@ export function Kundenergebnisse() {
           </h3>
           <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
             <WeitereTestimonialsSlider slides={weitereTestimonialsSlides} />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 w-full border-t border-white/10 bg-[radial-gradient(circle_at_50%_25%,#1e293b_0%,#0a0a0a_72%)] py-14 md:mt-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <h3 className="text-center text-3xl font-medium text-white md:text-4xl">
+            Videobeispiele aus Kundenprojekten
+          </h3>
+          <p className="mx-auto mt-4 max-w-3xl text-center text-base text-white/75 md:mt-5 md:text-lg">
+            Natürlich erfordert jedes Projekt unterschiedliche Inhalte. Dies sind
+            lediglich einige Auszüge unserer Arbeit.
+          </p>
+          <div className="mt-10 md:mt-12">
+            <VideobeispieleKundenprojekteGrid items={videobeispieleKundenItems} />
           </div>
         </div>
       </div>
