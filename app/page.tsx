@@ -5,6 +5,7 @@ import { Arbeitsweise } from "@/components/arbeitsweise"
 import { Kundenergebnisse } from "@/components/kundenergebnisse"
 import { Herausforderungen } from "@/components/herausforderungen"
 import { Prozess } from "@/components/prozess"
+import { Produktion } from "@/components/produktion"
 
 export default function Home() {
   return (
@@ -23,6 +24,8 @@ export default function Home() {
       <Prozess />
       <Arbeitsweise />
       <Kundenergebnisse />
+      <Produktion />
+
 
     </main>
   )
