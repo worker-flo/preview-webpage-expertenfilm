@@ -14,6 +14,10 @@ import {
   VideobeispieleKundenprojekteGrid,
   type VideobeispielKundeItem,
 } from "@/components/videobeispiele-kundenprojekte-grid"
+import {
+  KundenergebnisProjektSlider,
+  type KundenergebnisProjektHighlightSlide,
+} from "@/components/kundenergebnisse-projekt-slider"
 
 const fallstudienSlides: KundenergebnisSlide[] = [
   {
@@ -127,6 +131,35 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
   },
 ]
 
+const projektHighlightSlides: KundenergebnisProjektHighlightSlide[] = [
+  {
+    title: "WT Plus Weimar GmbH",
+    category: "Kampfsportsschule",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1555597673-b21d5c935866?w=800&q=80&auto=format&fit=crop",
+    highlights: [
+      "Kampfsport ist oft noch behaftet von Vorurteilen oder Angst davor",
+      "Wir haben Videos produziert, die in unseren Meta-Kampagnen einschlugen und Vertrauen generierten",
+      "Dadurch konnten wir zahlreiche Neukundenanfragen für die Schule akquirieren, was zu einem ROI von 1:4 führte",
+    ],
+  },
+  {
+    title: "Weimarer Tanzakademie",
+    category: "Tanzstudio & Events",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80&auto=format&fit=crop",
+    highlights: [
+      "Sichtbarkeit in der lokalen Zielgruppe war zersplittert und schwer erklärbar",
+      "Mit stimmigen Kurzvideos und klaren Hooks haben wir Aufmerksamkeit und Buchungen gesteigert",
+      "Die Kampagnen liefern seitdem planbare Anfragen mit nachvollziehbarem Werbebudget",
+    ],
+  },
+]
+
 export function Kundenergebnisse() {
   return (
     <section
@@ -195,6 +228,14 @@ export function Kundenergebnisse() {
           </p>
           <div className="mt-10 md:mt-12">
             <VideobeispieleKundenprojekteGrid items={videobeispieleKundenItems} />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 w-full border-t border-white/10 bg-[#020617] py-14 md:mt-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
+            <KundenergebnisProjektSlider slides={projektHighlightSlides} />
           </div>
         </div>
       </div>
