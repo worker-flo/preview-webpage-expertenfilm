@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { Services } from "@/components/services"
 import { Arbeitsweise } from "@/components/arbeitsweise"
+import { Kundenergebnisse } from "@/components/kundenergebnisse"
 import { Herausforderungen } from "@/components/herausforderungen"
 import { Prozess } from "@/components/prozess"
 
@@ -21,6 +22,7 @@ export default function Home() {
       <Herausforderungen />
       <Prozess />
       <Arbeitsweise />
+      <Kundenergebnisse />
 
     </main>
   )

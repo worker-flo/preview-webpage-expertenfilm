@@ -1,0 +1,135 @@
+import Link from "next/link"
+import { ChevronRight, ClipboardList } from "lucide-react"
+
+import {
+  KundenergebnisseCarousel,
+  type KundenergebnisSlide,
+} from "@/components/kundenergebnisse-carousel"
+import { KundenstimmenVideoPlayer } from "@/components/kundenstimmen-video-player"
+
+const fallstudienSlides: KundenergebnisSlide[] = [
+  {
+    clientName: "Beamtenfinanzen2go",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1280&q=80&auto=format&fit=crop",
+    videoCaption: "Kundenerfahrung: beamtenfinanzen2go",
+    herausforderung:
+      "Das Team wollte mehr qualifizierte Anfragen aus dem Online-Kanal, hatte aber wenig Kapazität für manuelle Kampagnenpflege. Bestehende Inhalte wirkten austauschbar, der Funnel war nicht messbar ausgebaut.",
+    loesungen:
+      "Wir haben eine klare Positionierung und ein skalierbares Content- & Ads-Setup umgesetzt: wiederkehrende Creatives, klare Landingpages und Automatisierungen entlang der Customer Journey. So ließen sich Tests schneller auswerten und Budget gezielt auf funktionierende Hooks lenken.",
+    ergebnisse: [
+      "110 Neukundenanfragen in unter 2 Monaten",
+      "Enorme Zeitersparnis",
+      "Automatisiertes & wieder verwendbares Werbe-Framework",
+    ],
+  },
+  {
+    clientName: "RegionalPartner GmbH",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1280&q=80&auto=format&fit=crop",
+    videoCaption: "Kundenerfahrung: RegionalPartner",
+    herausforderung:
+      "Lokale Sichtbarkeit war gut, digitale Leadqualität schwankte stark. Es fehlte ein roter Faden von erstem Kontakt bis Terminbuchung.",
+    loesungen:
+      "Fokus auf eine durchgängige Story, Social Proof und ein vereinfachtes Buchungserlebnis. Parallel: laufende Optimierung der Creatives anhand klarer KPIs.",
+    ergebnisse: [
+      "Konstanter Zufluss qualifizierter Termine",
+      "Kürzere Sales-Zyklen durch bessere Vorqualifizierung",
+      "Wiederverwendbare Videovarianten für mehrere Kanäle",
+    ],
+  },
+]
+
+const kundenstimmenVideo = {
+  videoUrl:
+    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+  poster:
+    "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1280&q=80&auto=format&fit=crop",
+}
+
+export function Kundenergebnisse() {
+  return (
+    <section
+      id="kundenerfolge"
+      className="bg-[#020617] py-16 font-sans text-white md:py-24"
+    >
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
+          <span className="block">Ergebnisse, Projekte & Fallstudien</span>
+          <span className="mt-1 block md:mt-2">
+            Sehen Sie sich Beispiele unserer Arbeit an
+          </span>
+        </h2>
+
+        <p className="mx-auto mt-6 max-w-3xl text-center text-base font-normal leading-relaxed text-white md:mt-8 md:text-lg">
+          Über die letzten Jahre konnten wir das Marketing von vielen
+          Unternehmern verbessern. Ob als langfristiger Partner über einen
+          längeren Zeitraum oder für kürzere Projekte. Je nach Ihren Zielen und
+          Anforderungen finden wir für Sie die passende Lösung.
+        </p>
+
+        <div className="mx-auto mt-12 w-full max-w-6xl md:mt-16 lg:mt-20">
+          <div className="-mx-4 md:mx-0 md:px-2 lg:px-4">
+            <KundenergebnisseCarousel slides={fallstudienSlides} />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 w-full border-t border-white/10 bg-[#050a1b] py-14 md:mt-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <h3 className="mb-4 text-center text-3xl font-bold text-white">
+            Ungefilterte Kundenstimmen aus 3 Jahren Arbeit in einem Video:
+          </h3>
+          <p className="mx-auto mb-12 max-w-3xl text-center text-lg font-light text-white/90">
+            Im folgendem Video haben wir komplett ungeskriptete und ungefilterte
+            Kundenstimmen & Reaktionen zusammengestellt.
+          </p>
+          <div className="-mx-4 md:mx-0">
+            <KundenstimmenVideoPlayer
+              videoUrl={kundenstimmenVideo.videoUrl}
+              poster={kundenstimmenVideo.poster}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center justify-center gap-8 border-t border-white/10 pt-12 md:mt-16 md:flex-row md:items-stretch md:gap-10 md:pt-16 lg:mt-20 lg:gap-14 lg:pt-20">
+          <Link
+            href="#kontakt"
+            className="inline-flex items-center gap-1 text-base font-bold text-white transition-colors hover:text-teal-400 md:self-center"
+          >
+            Oder kontaktieren Sie uns direkt
+            <ChevronRight
+              className="h-5 w-5 shrink-0 stroke-[2.5]"
+              aria-hidden
+            />
+          </Link>
+
+          <Link
+            href="#kontakt"
+            className="flex w-full max-w-md flex-1 items-center justify-between gap-4 rounded-2xl border border-slate-700/60 bg-[#0b1220]/90 px-5 py-4 transition-colors hover:border-teal-400/40 hover:bg-[#0f172a]/95 md:min-w-[20rem]"
+          >
+            <div className="min-w-0 text-left">
+              <p className="text-base font-bold text-white md:text-lg">
+                Zum Kontaktformular
+              </p>
+              <p className="mt-1 text-sm font-normal text-white/90 md:text-base">
+                unverbindliche KI-Marketing-Beratung sichern
+              </p>
+            </div>
+            <ClipboardList
+              className="h-10 w-10 shrink-0 text-teal-400 md:h-11 md:w-11"
+              strokeWidth={1.5}
+              aria-hidden
+            />
+          </Link>
+        </div>
+      </div>
+    </section>
+  )
+}
