@@ -6,6 +6,10 @@ import {
   type KundenergebnisSlide,
 } from "@/components/kundenergebnisse-carousel"
 import { KundenstimmenVideoPlayer } from "@/components/kundenstimmen-video-player"
+import {
+  WeitereTestimonialsSlider,
+  type WeitereTestimonialSlide,
+} from "@/components/weitere-testimonials-slider"
 
 const fallstudienSlides: KundenergebnisSlide[] = [
   {
@@ -51,6 +55,39 @@ const kundenstimmenVideo = {
     "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1280&q=80&auto=format&fit=crop",
 }
 
+const weitereTestimonialsSlides: WeitereTestimonialSlide[] = [
+  {
+    brandMarkLines: ["LIFT", "ADDICTS"],
+    overlayLabel: "Kundenerfahrung",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&q=80&auto=format&fit=crop",
+    title: "Lift Addicts",
+    category: "Sportswear Brand",
+    highlights: [
+      "Aufbau eines zeitgemäßen Brandings durch moderne Produktvideos",
+      "Strategische Neuausrichtung der kompletten Brand",
+      "Stark veränderte Wahrnehmung der Marke",
+    ],
+  },
+  {
+    brandMarkLines: ["CRAFT", "LAB"],
+    overlayLabel: "Kundenerfahrung",
+    videoUrl:
+      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80&auto=format&fit=crop",
+    title: "Craft Lab",
+    category: "B2B Software",
+    highlights: [
+      "Erklärvideos und Demos, die komplexe Features greifbar machen",
+      "Einheitlicher Markenauftritt über Website und Social Media",
+      "Messbar höhere Engagement-Rate auf organischen Kanälen",
+    ],
+  },
+]
+
 export function Kundenergebnisse() {
   return (
     <section
@@ -93,6 +130,17 @@ export function Kundenergebnisse() {
               videoUrl={kundenstimmenVideo.videoUrl}
               poster={kundenstimmenVideo.poster}
             />
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-12 w-full border-t border-white/10 bg-gradient-to-b from-[#050510] via-[#06061a] to-[#050510] py-14 md:mt-16 md:py-20">
+        <div className="mx-auto max-w-6xl px-4 md:px-8">
+          <h3 className="mb-10 text-center text-2xl font-bold text-white md:mb-12 md:text-3xl">
+            Weitere Testimonials:
+          </h3>
+          <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
+            <WeitereTestimonialsSlider slides={weitereTestimonialsSlides} />
           </div>
         </div>
       </div>
