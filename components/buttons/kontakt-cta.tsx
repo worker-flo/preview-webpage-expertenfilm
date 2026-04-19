@@ -78,7 +78,7 @@ export function KontaktCta({
   if (variant === "prozess") {
     return (
       <Link
-        href={'#kontakt'}
+        href={href}
         className={cn(
           "group border border-[#5b62e5]/50 bg-[#0a0d3a]/65 rounded-xl px-5 py-4 text-left transition-all duration-300 hover:border-[#00ffc4]/60",
           className,

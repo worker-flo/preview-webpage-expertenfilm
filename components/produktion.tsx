@@ -1,6 +1,6 @@
 import { Camera, ClipboardCheck, Handshake } from "lucide-react"
 
-import { KontaktCta } from "@/components/kontakt-cta"
+import { KontaktCta } from "@/components/buttons"
 import {
   ProduktionImpressionenSlider,
   type ProduktionImpressionSlide,

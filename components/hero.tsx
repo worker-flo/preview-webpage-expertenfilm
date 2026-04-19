@@ -1,9 +1,9 @@
 "use client"
 
-import { ChevronRight, ChevronsDown } from "lucide-react"
+import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 
-import { KontaktCta } from "@/components/kontakt-cta"
+import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
 
 export function Hero() {
   return (
@@ -94,25 +94,9 @@ export function Hero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col gap-4 max-w-md mx-auto">
+          <div className="mx-auto flex max-w-md flex-col gap-4">
             <KontaktCta variant="hero" />
-
-            {/* Secondary CTA */}
-            <button className="group relative bg-[#0a0d3a]/60 backdrop-blur-sm border border-[#5b62e5]/50 rounded-xl px-6 py-5 text-left hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80 transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-white font-semibold text-lg">
-                      Kundenergebnisse & Portfolio
-                    </span>
-                    <ChevronsDown className="w-6 h-6 text-[#00ffc4]" />
-                  </div>
-                  <p className="text-white/60 text-sm mt-1">
-                    sehen Sie sich unser Portfolio an
-                  </p>
-                </div>
-              </div>
-            </button>
+            <PortfolioCta variant="hero" />
           </div>
         </div>
       </div>

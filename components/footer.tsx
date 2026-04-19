@@ -1,7 +1,6 @@
 import Link from "next/link"
-import { ChevronsUp } from "lucide-react"
 
-import { KontaktCta } from "@/components/kontakt-cta"
+import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
 
 const CLAIM =
   "Seit 2022 unterstützen wir unsere Kunden voller Passion im Bereich Videomarketing & KI."
@@ -160,23 +159,8 @@ export function Footer() {
 
             <div className="flex w-full max-w-sm flex-col gap-3 lg:max-w-none">
               <KontaktCta variant="footer" />
-
-              <Link
-                href="#portfolio"
-                className="group flex w-full items-center justify-between gap-3 rounded-xl border border-slate-800 bg-[#050b14]/80 px-4 py-3 transition-colors hover:border-slate-600 hover:bg-[#0a1420]/90"
-              >
-                <div className="min-w-0 text-left">
-                  <p className="font-bold text-white">Zum Portfolio</p>
-                  <p className="mt-0.5 text-xs text-slate-400">
-                    sehen Sie sich unser Portfolio an
-                  </p>
-                </div>
-                <ChevronsUp
-                  className="h-7 w-7 shrink-0 text-cyan-400"
-                  strokeWidth={1.75}
-                  aria-hidden
-                />
-              </Link>
+              <PortfolioCta variant="footer" />
+              <KundenergebnisseCta variant="footer" />
             </div>
           </div>
         </div>

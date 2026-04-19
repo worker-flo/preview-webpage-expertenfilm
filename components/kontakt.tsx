@@ -1,8 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import Link from 'next/link'
-import { ArrowUpRight } from 'lucide-react'
+
+import { KundenergebnisseCta } from "@/components/buttons"
 
 export function Kontakt() {
   const [name, setName] = React.useState('')
@@ -56,22 +56,7 @@ export function Kontakt() {
               </p>
             </div>
 
-            <Link
-              href="#kundenerfolge"
-              className="group mt-10 flex w-full items-center justify-between gap-4 rounded-xl border border-slate-800 bg-[#050b18]/80 px-5 py-4 transition-colors hover:border-teal-500/25 hover:bg-[#0a1228]/90 lg:mt-auto"
-            >
-              <div className="min-w-0 text-left">
-                <p className="font-bold text-white">Zurück zu Kundenergebnissen</p>
-                <p className="mt-1 text-sm text-slate-400">
-                  Kundenergebnisse & Testimonials
-                </p>
-              </div>
-              <ArrowUpRight
-                className="h-8 w-8 shrink-0 text-teal-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                strokeWidth={1.75}
-                aria-hidden
-              />
-            </Link>
+            <KundenergebnisseCta variant="kontakt" />
           </div>
 
           <div className="min-w-0 rounded-3xl border border-white/10 bg-slate-950/60 p-6 shadow-xl backdrop-blur-sm md:p-8">

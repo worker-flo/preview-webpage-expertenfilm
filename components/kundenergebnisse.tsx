@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { ChevronRight } from "lucide-react"
 
-import { KontaktCta } from "@/components/kontakt-cta"
+import { KontaktCta } from "@/components/buttons"
 
 import {
   KundenergebnisseCarousel,

@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 import { Navbar } from "@/components/navbar"
 import { Kontakt } from "@/components/kontakt"
 import { Footer } from "@/components/footer"
-import { KontaktCta } from "@/components/kontakt-cta"
+import { KontaktCta } from "@/components/buttons"
 
 export const metadata: Metadata = {
   title: "Social Media Marketing mit KI-Power | EXPERTENFILM",
