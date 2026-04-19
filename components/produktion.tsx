@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Camera, ChevronsDown, ClipboardCheck, Handshake } from "lucide-react"
+import { Camera, ClipboardCheck, Handshake } from "lucide-react"
 
+import { KontaktCta } from "@/components/kontakt-cta"
 import {
   ProduktionImpressionenSlider,
   type ProduktionImpressionSlide,
@@ -144,24 +144,10 @@ export function Produktion() {
               ))}
             </ul>
 
-            <Link
-              href="#kontakt"
-              className="group mt-10 block w-full rounded-xl border border-slate-700/80 bg-[#0a1024] px-5 py-4 transition-colors hover:border-teal-500/30 hover:bg-[#0d1530] lg:mt-12"
-            >
-              <span className="flex items-center justify-between gap-3">
-                <span className="text-lg font-bold text-white">
-                  Kennenlernen buchen
-                </span>
-                <ChevronsDown
-                  className="h-6 w-6 shrink-0 text-teal-400 motion-reduce:group-hover:animate-none group-hover:animate-bounce"
-                  strokeWidth={2.25}
-                  aria-hidden
-                />
-              </span>
-              <span className="mt-2 block text-sm text-slate-400">
-                unverbindlich und ohne Verkaufsdruck oder Vertriebs-Gerede
-              </span>
-            </Link>
+            <KontaktCta
+              variant="einladung"
+              className="mt-10 lg:mt-12"
+            />
           </div>
 
           <div className="min-h-0 min-w-0">

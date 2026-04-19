@@ -1,5 +1,7 @@
 import Link from "next/link"
-import { ChevronsUp, MessageSquare } from "lucide-react"
+import { ChevronsUp } from "lucide-react"
+
+import { KontaktCta } from "@/components/kontakt-cta"
 
 const CLAIM =
   "Seit 2022 unterstützen wir unsere Kunden voller Passion im Bereich Videomarketing & KI."
@@ -157,22 +159,7 @@ export function Footer() {
             </div>
 
             <div className="flex w-full max-w-sm flex-col gap-3 lg:max-w-none">
-              <Link
-                href="#kontakt"
-                className="group flex w-full items-center justify-between gap-3 rounded-xl border border-slate-800 bg-[#050b14]/80 px-4 py-3 transition-colors hover:border-slate-600 hover:bg-[#0a1420]/90"
-              >
-                <div className="min-w-0 text-left">
-                  <p className="font-bold text-white">Zum Kontaktformular</p>
-                  <p className="mt-0.5 text-xs text-slate-400">
-                    unverbindliche KI-Marketing-Beratung sichern
-                  </p>
-                </div>
-                <MessageSquare
-                  className="h-7 w-7 shrink-0 text-cyan-400"
-                  strokeWidth={1.5}
-                  aria-hidden
-                />
-              </Link>
+              <KontaktCta variant="footer" />
 
               <Link
                 href="#portfolio"

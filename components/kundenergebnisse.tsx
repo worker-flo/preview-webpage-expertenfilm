@@ -1,5 +1,7 @@
 import Link from "next/link"
-import { ChevronRight, ClipboardList } from "lucide-react"
+import { ChevronRight } from "lucide-react"
+
+import { KontaktCta } from "@/components/kontakt-cta"
 
 import {
   KundenergebnisseCarousel,
@@ -253,24 +255,7 @@ export function Kundenergebnisse() {
             />
           </Link>
 
-          <Link
-            href="#kontakt"
-            className="flex w-full max-w-md flex-1 items-center justify-between gap-4 rounded-2xl border border-slate-700/60 bg-[#0b1220]/90 px-5 py-4 transition-colors hover:border-teal-400/40 hover:bg-[#0f172a]/95 md:min-w-[20rem]"
-          >
-            <div className="min-w-0 text-left">
-              <p className="text-base font-bold text-white md:text-lg">
-                Zum Kontaktformular
-              </p>
-              <p className="mt-1 text-sm font-normal text-white/90 md:text-base">
-                unverbindliche KI-Marketing-Beratung sichern
-              </p>
-            </div>
-            <ClipboardList
-              className="h-10 w-10 shrink-0 text-teal-400 md:h-11 md:w-11"
-              strokeWidth={1.5}
-              aria-hidden
-            />
-          </Link>
+          <KontaktCta variant="highlight" />
         </div>
       </div>
     </section>

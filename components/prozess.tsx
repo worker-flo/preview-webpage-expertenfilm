@@ -1,4 +1,6 @@
-import { BarChart3, Bot, Clapperboard, Megaphone, Target, FileText, MonitorPlay } from "lucide-react"
+import { BarChart3, Bot, Clapperboard, Megaphone, MonitorPlay, Target } from "lucide-react"
+
+import { KontaktCta } from "@/components/kontakt-cta"
 
 const steps = [
   {
@@ -72,15 +74,7 @@ export function Prozess() {
             </div>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <button className="group bg-[#0a0d3a]/65 border border-[#5b62e5]/50 rounded-xl px-5 py-4 text-left hover:border-[#00ffc4]/60 transition-all duration-300">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-white font-semibold">Zum Kontaktformular</p>
-                    <p className="text-white/60 text-sm">und unverbindliche Beratung sichern</p>
-                  </div>
-                  <FileText className="w-5 h-5 text-[#00ffc4] shrink-0" />
-                </div>
-              </button>
+              <KontaktCta variant="prozess" />
 
               <button className="group bg-[#0a0d3a]/65 border border-[#5b62e5]/50 rounded-xl px-5 py-4 text-left hover:border-[#00ffc4]/60 transition-all duration-300">
                 <div className="flex items-center justify-between gap-4">

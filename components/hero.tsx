@@ -1,7 +1,9 @@
 "use client"
 
-import { ChevronRight, ChevronsDown, FileText } from "lucide-react"
-import Image from "next/image";
+import { ChevronRight, ChevronsDown } from "lucide-react"
+import Image from "next/image"
+
+import { KontaktCta } from "@/components/kontakt-cta"
 
 export function Hero() {
   return (
@@ -93,24 +95,7 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col gap-4 max-w-md mx-auto">
-            {/* Primary CTA */}
-            <button className="group relative bg-[#0a0d3a]/60 backdrop-blur-sm border border-[#5b62e5]/50 rounded-xl px-6 py-5 text-left hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80 transition-all duration-300 hover:scale-[1.02]">
-              <div className="flex items-center justify-between">
-                <div>
-                  <div className="flex items-center gap-3">
-                    <span className="text-white font-semibold text-lg">
-                      Zum Kontaktformular
-                    </span>
-                    <div className="w-10 h-10 rounded-lg bg-[#00ffc4]/10 flex items-center justify-center">
-                      <FileText className="w-5 h-5 text-[#00ffc4]" />
-                    </div>
-                  </div>
-                  <p className="text-white/60 text-sm mt-1">
-                    und KI-Marketing-Beratung sichern
-                  </p>
-                </div>
-              </div>
-            </button>
+            <KontaktCta variant="hero" />
 
             {/* Secondary CTA */}
             <button className="group relative bg-[#0a0d3a]/60 backdrop-blur-sm border border-[#5b62e5]/50 rounded-xl px-6 py-5 text-left hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80 transition-all duration-300 hover:scale-[1.02]">
