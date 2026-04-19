@@ -96,7 +96,7 @@ export function Hero() {
           {/* CTA Buttons */}
           <div className="mx-auto flex max-w-md flex-col gap-4">
             <KontaktCta variant="hero" />
-            <PortfolioCta variant="hero" />
+            <KundenergebnisseCta variant="hero" />
           </div>
         </div>
       </div>

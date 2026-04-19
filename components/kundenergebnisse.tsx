@@ -165,7 +165,7 @@ const projektHighlightSlides: KundenergebnisProjektHighlightSlide[] = [
 export function Kundenergebnisse() {
   return (
     <section
-      id="kundenerfolge"
+      id="kundenergebnisse"
       className="bg-[#020617] py-16 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 md:px-8">

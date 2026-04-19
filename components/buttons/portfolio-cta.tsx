@@ -26,7 +26,7 @@ export type PortfolioCtaProps = {
 
 export function PortfolioCta({
   variant = "hero",
-  href = "#portfolio",
+  href = "#kundenergebnisse",
   title,
   description,
   className,
