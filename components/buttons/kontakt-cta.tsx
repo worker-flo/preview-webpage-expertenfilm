@@ -40,7 +40,7 @@ export type KontaktCtaProps = {
 
 export function KontaktCta({
   variant = "hero",
-  href = "#kontakt",
+  href = "/#kontakt",
   title,
   description,
   className,

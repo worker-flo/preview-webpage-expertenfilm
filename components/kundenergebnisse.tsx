@@ -245,7 +245,7 @@ export function Kundenergebnisse() {
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center justify-center gap-8 border-t border-white/10 pt-12 md:mt-16 md:flex-row md:items-stretch md:gap-10 md:pt-16 lg:mt-20 lg:gap-14 lg:pt-20">
           <Link
-            href="#kontakt"
+            href="/#kontakt"
             className="inline-flex items-center gap-1 text-base font-bold text-white transition-colors hover:text-teal-400 md:self-center"
           >
             Oder kontaktieren Sie uns direkt

@@ -12,15 +12,15 @@ export type FooterNavLink = {
 
 const UNTERNEHMEN_LINKS: FooterNavLink[] = [
   { label: "Home", href: "/" },
-  { label: "Deine Probleme?", href: "#herausforderungen" },
-  { label: "Unsere Lösungen!", href: "#services" },
-  { label: "Services", href: "#services" },
-  { label: "Kundenerfolge", href: "#kundenerfolge" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Einblicke in die Produktion", href: "#einblicke" },
-  { label: "Über uns", href: "#team" },
-  { label: "Kontakt", href: "#kontakt" },
-  { label: "Häufig gestellte Fragen", href: "#faq" },
+  { label: "Deine Probleme?", href: "/#herausforderungen" },
+  { label: "Unsere Lösungen!", href: "/#services" },
+  { label: "Services", href: "/#services" },
+  { label: "Kundenerfolge", href: "/#kundenergebnisse" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Einblicke in die Produktion", href: "/#einblicke" },
+  { label: "Über uns", href: "/ueber-uns" },
+  { label: "Kontakt", href: "/#kontakt" },
+  { label: "Häufig gestellte Fragen", href: "/#faq" },
 ]
 
 const RECHTSDOKUMENTE_LINKS: FooterNavLink[] = [

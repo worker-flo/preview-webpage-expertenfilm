@@ -1,6 +1,7 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect, type ReactNode } from "react"
+import Link from "next/link"
 import { Menu, X, ChevronLeft } from "lucide-react"
 import Image from "next/image"
 
@@ -28,17 +29,42 @@ function LinkedInIcon({ className }: { className?: string }) {
   )
 }
 
-const menuItems = [
-  { label: "Services", href: "#services" },
-  { label: "Ihre Herausforderungen", href: "#herausforderungen" },
-  { label: "Der Expertenfilm-Prozess", href: "#prozess" },
-  { label: "Kundenerfolge", href: "#kundenerfolge" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Einblicke in die Produktion", href: "#einblicke" },
-  { label: "Kontakt", href: "#kontakt" },
-  { label: "Team", href: "#team" },
-  { label: "Häufig gestellte Fragen", href: "#faq" },
+type NavMenuItem = {
+  label: string
+  href: string
+  /** Erscheint als zusätzlicher Link in der Desktop-Leiste (neben Socials / Burger) */
+  desktopQuick?: boolean
+}
+
+const menuItems: NavMenuItem[] = [
+  { label: "Services", href: "/#services" },
+  { label: "Ihre Herausforderungen", href: "/#herausforderungen" },
+  { label: "Der Expertenfilm-Prozess", href: "/#prozess" },
+  { label: "Kundenerfolge", href: "/#kundenergebnisse" },
+  { label: "Portfolio", href: "/portfolio", desktopQuick: true },
+  { label: "Einblicke in die Produktion", href: "/#einblicke" },
+  { label: "Kontakt", href: "/#kontakt" },
+  { label: "Über uns", href: "/#team", desktopQuick: true },
+  { label: "Häufig gestellte Fragen", href: "/#faq" },
 ]
+
+function NavMenuLink({
+  href,
+  className,
+  children,
+  onClick,
+}: {
+  href: string
+  className: string
+  children: ReactNode
+  onClick?: () => void
+}) {
+  return (
+    <Link href={href} className={className} onClick={onClick}>
+      {children}
+    </Link>
+  )
+}
 
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -134,18 +160,17 @@ export function Navbar() {
               </button>
             </div>
 
-            <a
-              href="#portfolio"
-              className="text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
-            >
-              Portfolio
-            </a>
-            <a
-              href="#team"
-              className="text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
-            >
-              Team
-            </a>
+            {menuItems
+              .filter((item) => item.desktopQuick)
+              .map((item) => (
+                <NavMenuLink
+                  key={item.href}
+                  href={item.href}
+                  className="text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
+                >
+                  {item.label}
+                </NavMenuLink>
+              ))}
             <div className="relative mt-1 transition-all duration-300 ease">
               <button
                 ref={buttonRef}
@@ -165,14 +190,14 @@ export function Navbar() {
                 >
                   <nav className="flex flex-col">
                     {menuItems.map((item, index) => (
-                      <a
+                      <NavMenuLink
                         key={index}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
                         className="px-6 py-3 text-right text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
                       >
                         {item.label}
-                      </a>
+                      </NavMenuLink>
                     ))}
                   </nav>
                 </div>
@@ -196,14 +221,14 @@ export function Navbar() {
           <div className="md:hidden mt-4 pt-4 border-t border-white/10 pb-4">
             <nav className="flex flex-col">
               {menuItems.map((item, index) => (
-                <a
+                <NavMenuLink
                   key={index}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="py-3 text-white/90 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
                 >
                   {item.label}
-                </a>
+                </NavMenuLink>
               ))}
             </nav>
           </div>

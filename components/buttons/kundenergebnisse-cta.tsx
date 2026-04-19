@@ -41,7 +41,7 @@ export type KundenergebnisseCtaProps = {
 
 export function KundenergebnisseCta({
   variant = "hero",
-  href = "#kundenergebnisse",
+  href = "/#kundenergebnisse",
   title,
   description,
   className,
