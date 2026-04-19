@@ -6,6 +6,7 @@ import { Kundenergebnisse } from "@/components/kundenergebnisse"
 import { Herausforderungen } from "@/components/herausforderungen"
 import { Prozess } from "@/components/prozess"
 import { Produktion } from "@/components/produktion"
+import { Kontakt } from "@/components/kontakt"
 
 export default function Home() {
   return (
@@ -25,7 +26,7 @@ export default function Home() {
       <Arbeitsweise />
       <Kundenergebnisse />
       <Produktion />
-
+      <Kontakt />
 
     </main>
   )
