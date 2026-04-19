@@ -5,6 +5,8 @@ import { Kontakt } from "@/components/kontakt"
 import { Footer } from "@/components/footer"
 import { KontaktCta } from "@/components/buttons"
 
+import { SocialMediaServicesBento } from "./social-media-services-bento"
+
 export const metadata: Metadata = {
   title: "Social Media Marketing mit KI-Power | EXPERTENFILM",
   description:
@@ -74,6 +76,8 @@ export default function SocialMediaMarketingPage() {
           </div>
         </div>
       </section>
+
+      <SocialMediaServicesBento />
 
       <Kontakt />
       <Footer />
