@@ -1,10 +1,7 @@
 import { Camera, ClipboardCheck, Handshake } from "lucide-react"
 
 import { KontaktCta } from "@/components/buttons"
-import {
-  ProduktionImpressionenSlider,
-  type ProduktionImpressionSlide,
-} from "@/components/produktion-impressionen-slider"
+import { ImageGridSlider, type ImageGridSlide } from "@/components/image-grid-slider"
 
 const BENTO_IMAGES = [
   {
@@ -44,65 +41,62 @@ const MERKMALE = [
   },
 ] as const
 
-const impressionenSlides: ProduktionImpressionSlide[] = [
+const impressionenSlides: ImageGridSlide[] = [
   {
     images: [
       {
-        src: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&q=80&auto=format&fit=crop",
-        alt: "Dreh in einer professionellen Küche",
+        src: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&q=80&auto=format&fit=crop",
+        alt: "Videoproduktion mit Kamera und Set-Licht",
       },
       {
-        src: "https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&q=80&auto=format&fit=crop",
-        alt: "Team beim Food-Styling am Set",
+        src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80&auto=format&fit=crop",
+        alt: "Crew bei Aufnahmen im Studio",
       },
       {
-        src: "https://images.unsplash.com/photo-1551218808-9469ec447314?w=800&q=80&auto=format&fit=crop",
-        alt: "Kamera auf Stativ in der Produktionsküche",
+        src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop",
+        alt: "Professionelle Kamera mit Objektiv",
       },
       {
-        src: "https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?w=800&q=80&auto=format&fit=crop",
-        alt: "Licht und Kamera im Einsatz",
+        src: "https://images.unsplash.com/photo-1601506521937-0120a2f92427?w=900&q=80&auto=format&fit=crop",
+        alt: "Kameramann am Monitor während eines Drehs",
       },
     ],
   },
   {
     images: [
       {
-        src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&q=80&auto=format&fit=crop",
-        alt: "Kameraequipment auf dem Weg zum Drehort",
+        src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80&auto=format&fit=crop",
+        alt: "Interview-Setup mit professioneller Ausleuchtung",
       },
       {
-        src: "https://images.unsplash.com/photo-1601506521937-0120a2f92427?w=800&q=80&auto=format&fit=crop",
-        alt: "Kameramann mit Monitor",
+        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&q=80&auto=format&fit=crop",
+        alt: "Schnitt und Material-Review im Produktionsprozess",
       },
       {
-        src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80&auto=format&fit=crop",
-        alt: "Interview-Setup mit Licht",
+        src: "https://images.unsplash.com/photo-1581985673473-0784a7a44e39?w=900&q=80&auto=format&fit=crop",
+        alt: "Regie-Monitor mit laufender Aufnahme",
       },
       {
-        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&q=80&auto=format&fit=crop",
-        alt: "Schnitt und Review am Laptop",
+        src: "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=900&q=80&auto=format&fit=crop",
+        alt: "Produktionsteam am Set in Abstimmung",
       },
     ],
   },
   {
     images: [
       {
-        src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=800&q=80&auto=format&fit=crop",
-        alt: "Detailaufnahme Kamera und Objektiv",
+        src: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=900&q=80&auto=format&fit=crop",
+        alt: "Filmisches Licht-Setup bei einem Dreh",
       },
       {
-        src: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=80&auto=format&fit=crop",
-        alt: "Filmplakatwand im Studio",
+        src: "https://images.unsplash.com/photo-1525675454455-17ea15f23b69?w=900&q=80&auto=format&fit=crop",
+        alt: "Kameraoperator in Aktion",
       },
       {
-        src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80&auto=format&fit=crop",
-        alt: "Teambesprechung am Set",
+        src: "https://images.unsplash.com/photo-1542204637-e67bc7d41e48?w=900&q=80&auto=format&fit=crop",
+        alt: "Blick durch den Sucher auf ein Testimonial-Setup",
       },
-      {
-        src: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80&auto=format&fit=crop",
-        alt: "Besprechung am Konferenztisch mit Storyboard",
-      },
+
     ],
   },
 ]
@@ -197,7 +191,22 @@ export function Produktion() {
         </div>
 
         <div className="mt-20 border-t border-white/10 pt-20 md:mt-24 md:pt-24">
-          <ProduktionImpressionenSlider slides={impressionenSlides} />
+          <ImageGridSlider
+            slides={impressionenSlides}
+            title="Impressionen aus der Produktion"
+            description={
+              <>
+                <span className="block">
+                  Placeholder-Einblicke aus einer Videoproduktion.
+                </span>
+                <span className="mt-2 block">
+                  Ersetzen Sie die Bilder jederzeit mit eigenen Projektreferenzen.
+                </span>
+              </>
+            }
+            prevAriaLabel="Vorherige Impressionen"
+            nextAriaLabel="Nächste Impressionen"
+          />
         </div>
       </div>
     </section>
