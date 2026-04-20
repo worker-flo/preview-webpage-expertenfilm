@@ -96,7 +96,10 @@ const impressionenSlides: ImageGridSlide[] = [
         src: "https://images.unsplash.com/photo-1542204637-e67bc7d41e48?w=900&q=80&auto=format&fit=crop",
         alt: "Blick durch den Sucher auf ein Testimonial-Setup",
       },
-
+      {
+        src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80&auto=format&fit=crop",
+        alt: "Team am Set beim finalen Feinschliff",
+      },
     ],
   },
 ]

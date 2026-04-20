@@ -7,7 +7,7 @@ import {
   KundenergebnisseCarousel,
   type KundenergebnisSlide,
 } from "@/components/kundenergebnisse-carousel"
-import { KundenstimmenVideoPlayer } from "@/components/kundenstimmen-video-player"
+import { VideoPlayer } from "@/components/video-player"
 import {
   WeitereTestimonialsSlider,
   type WeitereTestimonialSlide,
@@ -200,9 +200,14 @@ export function Kundenergebnisse() {
             Kundenstimmen & Reaktionen zusammengestellt.
           </p>
           <div className="-mx-4 md:mx-0">
-            <KundenstimmenVideoPlayer
+            <VideoPlayer
               videoUrl={kundenstimmenVideo.videoUrl}
               poster={kundenstimmenVideo.poster}
+              mutedByDefault
+              playAriaLabel="Abspielen"
+              pauseAriaLabel="Pause"
+              fullscreenAriaLabel="Vollbild"
+              optionsAriaLabel="Weitere Optionen"
             />
           </div>
         </div>
