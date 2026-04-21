@@ -145,8 +145,7 @@ export function SocialMediaServicesBento() {
                 key={item.key}
                 title={item.title}
                 body={item.body}
-                icon={"icon" in item ? item.icon : undefined}
-                IconLucide={"Icon" in item ? item.Icon : undefined}
+                IconLucide={"Icon" in item ? item.Icon as ComponentType<{ className?: string }> : undefined}
                 gridClass={item.gridClass}
               />
             ))}
