@@ -166,7 +166,7 @@ export function Kundenergebnisse() {
   return (
     <section
       id="kundenergebnisse"
-      className="bg-[#020617] py-16 font-sans text-white md:py-24"
+      className="py-16 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -190,7 +190,7 @@ export function Kundenergebnisse() {
         </div>
       </div>
 
-      <div className="mt-12 w-full border-t border-white/10 bg-[#050a1b] py-14 md:mt-16 md:py-20">
+      <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <h3 className="mb-4 text-center text-3xl font-bold text-white">
             Ungefilterte Kundenstimmen aus 3 Jahren Arbeit in einem Video:
@@ -213,7 +213,7 @@ export function Kundenergebnisse() {
         </div>
       </div>
 
-      <div className="mt-12 w-full border-t border-white/10 bg-gradient-to-b from-[#050510] via-[#06061a] to-[#050510] py-14 md:mt-16 md:py-20">
+      <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <h3 className="mb-10 text-center text-2xl font-bold text-white md:mb-12 md:text-3xl">
             Weitere Testimonials:
@@ -230,7 +230,7 @@ export function Kundenergebnisse() {
         </div>
       </div>
 
-      <div className="mt-12 w-full border-t border-white/10 bg-[radial-gradient(circle_at_50%_25%,#1e293b_0%,#0a0a0a_72%)] py-14 md:mt-16 md:py-20">
+      <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <h3 className="text-center text-3xl font-medium text-white md:text-4xl">
             Videobeispiele aus Kundenprojekten
@@ -245,7 +245,7 @@ export function Kundenergebnisse() {
         </div>
       </div>
 
-      <div className="mt-12 w-full border-t border-white/10 bg-[#020617] py-14 md:mt-16 md:py-20">
+      <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
             <VideoContentSlider
@@ -268,7 +268,7 @@ export function Kundenergebnisse() {
             href="/#kontakt"
             className="inline-flex items-center gap-1 text-base font-bold text-white transition-colors hover:text-teal-400 md:self-center"
           >
-            Oder kontaktieren Sie uns direkt
+            Überzeugt? Kontaktieren Sie uns!
             <ChevronRight
               className="h-5 w-5 shrink-0 stroke-[2.5]"
               aria-hidden
