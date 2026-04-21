@@ -115,18 +115,10 @@ function TeamMemberCard({
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
       >
-        {/* Glas-Ebenen (hinten, versetzt) */}
+        {/* Hintere Glass-Ebene*/}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-2 top-2 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md transition-transform duration-200 ease-out"
-          style={{
-            transform: `translate3d(${tilt.x * 1.2 * -0.35}px, ${tilt.y * 1.2 * -0.35}px, 0)`,
-            transitionDuration: isResetting ? "5000ms" : "200ms",
-          }}
-        />
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-5 top-5 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-200 ease-out"
+          className="pointer-events-none absolute left-5 top-5 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/20 bg-white/5 transition-transform duration-200 ease-out"
           style={{
             transform: `translate3d(${tilt.x * 1.2 * -0.6}px, ${tilt.y * 1.2 * -0.6}px, 0)`,
             transitionDuration: isResetting ? "5000ms" : "200ms",
@@ -135,7 +127,7 @@ function TeamMemberCard({
 
         {/* Porträt + Overlay */}
         <div
-          className="relative z-10 mt-2 ml-0 overflow-hidden rounded-2xl border border-white/20 bg-white/5 backdrop-blur-lg shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-transform duration-200 ease-out sm:ml-1"
+          className="relative z-10 mt-2 ml-0 overflow-hidden rounded-2xl border border-white/20 backdrop-blur-lg shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-transform duration-200 ease-out sm:ml-1"
           style={{
             transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) translate3d(${tilt.x * 1.2 * 0.35}px, ${tilt.y * 1.2  * 0.35}px, 0)`,
             transformStyle: "preserve-3d",
