@@ -16,31 +16,31 @@ const TEAM: TeamMember[] = [
     name: "Julian Becker",
     role: "Gründer",
     imageUrl:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=640&q=80&auto=format&fit=crop",
+      "/images/team/julian_no_bg.png",
   },
   {
     name: "Julius Schmidt",
     role: "Editor & Videograf",
     imageUrl:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=640&q=80&auto=format&fit=crop",
+    "/images/team/julius_no_bg.png",
   },
   {
     name: "Pepe Kappitz",
     role: "Cutter & Feel Good Manager",
     imageUrl:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7c76b?w=640&q=80&auto=format&fit=crop",
+    "/images/team/pepe_no_bg.png",
   },
   {
     name: "Leon Becker",
     role: "Projektmanager",
     imageUrl:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=640&q=80&auto=format&fit=crop",
+    "/images/team/leon_no_bg.png",
   },
   {
     name: "Steffen Kronberg",
     role: "Social Media Manager",
     imageUrl:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=640&q=80&auto=format&fit=crop",
+    "/images/team/steffen_no_bg.png",
   },
 ]
 
@@ -66,30 +66,82 @@ function TeamMemberCard({
   isLastSingleRow: boolean
 }) {
   const [open, setOpen] = React.useState(false)
+  const [isResetting, setIsResetting] = React.useState(false)
+  const [tilt, setTilt] = React.useState({ rotateX: 0, rotateY: 0, x: 0, y: 0 })
   const panelId = `team-dd-${index}`
+  const cardRef = React.useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLDivElement>) => {
+    setIsResetting(false)
+    const card = cardRef.current
+    if (!card) return
+
+    const rect = card.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+
+    const normalizedX = (x - centerX) / centerX
+    const normalizedY = (y - centerY) / centerY
+
+    setTilt({
+      rotateX: normalizedY * -6,
+      rotateY: normalizedX * 8,
+      x: normalizedX * 8,
+      y: normalizedY * 6,
+    })
+  }
+
+  const handleMouseLeave = () => {
+    setIsResetting(true)
+    setTilt({ rotateX: 0, rotateY: 0, x: 0, y: 0 })
+  }
 
   return (
     <article
       className={cn(
-        "flex w-full max-w-sm flex-col sm:max-w-none",
+        "mx-auto flex w-full max-w-sm flex-col",
         isLastSingleRow &&
           "sm:col-span-2 sm:mx-auto sm:w-full sm:max-w-[320px]",
         GRID_START[index],
       )}
     >
-      <div className="relative isolate mx-auto w-full max-w-[280px] sm:max-w-[300px]">
+      <div
+        ref={cardRef}
+        className="relative isolate mx-auto w-full max-w-[280px] sm:max-w-[300px]"
+        style={{ perspective: "1200px" }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
         {/* Glas-Ebenen (hinten, versetzt) */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-2 top-2 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md"
+          className="pointer-events-none absolute left-2 top-2 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/15 bg-white/10 backdrop-blur-md transition-transform duration-200 ease-out"
+          style={{
+            transform: `translate3d(${tilt.x * 1.2 * -0.35}px, ${tilt.y * 1.2 * -0.35}px, 0)`,
+            transitionDuration: isResetting ? "5000ms" : "200ms",
+          }}
         />
         <div
           aria-hidden
-          className="pointer-events-none absolute left-5 top-5 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg"
+          className="pointer-events-none absolute left-5 top-5 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg transition-transform duration-200 ease-out"
+          style={{
+            transform: `translate3d(${tilt.x * 1.2 * -0.6}px, ${tilt.y * 1.2 * -0.6}px, 0)`,
+            transitionDuration: isResetting ? "5000ms" : "200ms",
+          }}
         />
 
         {/* Porträt + Overlay */}
-        <div className="relative z-10 mt-2 ml-1 overflow-hidden rounded-2xl border border-white/20 bg-slate-900/30 shadow-[0_20px_50px_rgba(0,0,0,0.45)]">
+        <div
+          className="relative z-10 mt-2 ml-0 overflow-hidden rounded-2xl border border-white/20 bg-white/5 backdrop-blur-lg shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-transform duration-200 ease-out sm:ml-1"
+          style={{
+            transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) translate3d(${tilt.x * 1.2 * 0.35}px, ${tilt.y * 1.2  * 0.35}px, 0)`,
+            transformStyle: "preserve-3d",
+            transitionDuration: isResetting ? "5000ms" : "200ms",
+          }}
+        >
           <div className="relative aspect-[3/4] w-full">
             <img
               src={member.imageUrl}
@@ -109,7 +161,7 @@ function TeamMemberCard({
         </div>
       </div>
 
-      <div className="mt-4 w-full max-w-[280px] sm:max-w-[300px] lg:mx-auto">
+      <div className="mx-auto mt-4 w-full max-w-[280px] sm:max-w-[300px] lg:mx-auto">
         <button
           type="button"
           id={`${panelId}-trigger`}
@@ -159,7 +211,7 @@ export function Team() {
   return (
     <section
       id="team"
-      className="border-t border-white/10 bg-[#020617] bg-[radial-gradient(ellipse_at_50%_0%,rgba(30,58,138,0.15)_0%,transparent_55%)] py-20 font-sans text-white md:py-24"
+      className="border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <h2 className="text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
