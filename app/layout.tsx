@@ -38,8 +38,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} font-sans antialiased`}>
+    <html lang="en" className="overflow-x-clip">
+      <body className={`${poppins.variable} overflow-x-clip font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
