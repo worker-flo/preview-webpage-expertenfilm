@@ -108,7 +108,7 @@ export function Produktion() {
   return (
     <section
       id="einblicke"
-      className="border-y border-white/10 bg-[#020617] py-20 font-sans text-white md:py-24"
+      className="border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
@@ -193,17 +193,14 @@ export function Produktion() {
           </div>
         </div>
 
-        <div className="mt-20 border-t border-white/10 pt-20 md:mt-24 md:pt-24">
+        <div className="mt-20 pt-20 md:mt-24 md:pt-24">
           <ImageGridSlider
             slides={impressionenSlides}
             title="Impressionen aus der Produktion"
             description={
               <>
                 <span className="block">
-                  Placeholder-Einblicke aus einer Videoproduktion.
-                </span>
-                <span className="mt-2 block">
-                  Ersetzen Sie die Bilder jederzeit mit eigenen Projektreferenzen.
+                  Weitere Einblicke aus unserer Produktion.
                 </span>
               </>
             }
