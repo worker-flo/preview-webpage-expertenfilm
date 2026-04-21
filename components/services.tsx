@@ -69,7 +69,7 @@ export function Services() {
               </h3>
 
               {/* Features */}
-              <div className="flex flex-col gap-4">
+              <div className="flex flex-1 flex-col gap-4">
                 {service.features.map((feature, featureIndex) => (
                   <div key={featureIndex} className="flex items-start gap-3">
                     <feature.icon className="w-5 h-5 text-white/60 mt-0.5 flex-shrink-0" />
@@ -80,7 +80,7 @@ export function Services() {
                 ))}
               </div>
 
-              <div className="mt-7">
+              <div className="mt-auto pt-7">
                 <Link
                   href={service.href}
                   className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#8daeff] group-focus-within:text-[#8daeff] focus-visible:text-[#8daeff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8daeff]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1d3a] after:absolute after:inset-0 after:content-['']"
