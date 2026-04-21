@@ -23,7 +23,8 @@ export default function SocialMediaMarketingPage() {
 
       <Navbar />
 
-      <section className="relative min-h-[85vh] overflow-hidden bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)]">
+      <section className="relative min-h-[85vh] overflow-hidden">
+        /* Background Network Lines */
         <div className="pointer-events-none absolute inset-0">
           <svg
             className="absolute right-0 top-16 h-[420px] w-[420px] opacity-25 md:h-[520px] md:w-[520px]"
@@ -46,7 +47,7 @@ export default function SocialMediaMarketingPage() {
           </svg>
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 pb-16 pt-32 md:pb-24 md:pt-36">
+        <div className="relative z-10 container mx-auto px-6 pb-16 pt-32 md:pb-24 md:pt-36 top-6">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               <span className="text-white">Social Media Marketing mit </span>
@@ -78,8 +79,6 @@ export default function SocialMediaMarketingPage() {
       </section>
 
       <SocialMediaServicesBento />
-
-      <Kontakt />
       <Footer />
     </main>
   )

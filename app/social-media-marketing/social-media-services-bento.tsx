@@ -2,55 +2,20 @@
 
 import type { ComponentType, ReactNode } from "react"
 import { motion } from "framer-motion"
-import { Mail, Route, UserSquare } from "lucide-react"
+import { Mail, Route, UserSquare, Users } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { KontaktCta } from "@/components/buttons"
 
 const ACCENT = "text-[#00ffc4]"
 const CARD =
   "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md md:p-7"
 
-function AbstractAiAudienceIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("h-11 w-11 shrink-0", ACCENT, className)}
-      aria-hidden
-    >
-      <circle cx="22" cy="26" r="8" stroke="currentColor" strokeWidth="2" />
-      <circle cx="42" cy="26" r="8" stroke="currentColor" strokeWidth="2" />
-      <circle cx="32" cy="42" r="9" stroke="currentColor" strokeWidth="2" />
-      <path
-        d="M26 26 L32 36 M38 26 L32 36"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        opacity={0.7}
-      />
-      <circle cx="48" cy="14" r="6" stroke="currentColor" strokeWidth="1.5" />
-      <path
-        d="M44 14 L38 22"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-      />
-      <path
-        d="M14 44 Q32 52 50 44"
-        stroke="currentColor"
-        strokeWidth="1.25"
-        strokeDasharray="3 4"
-        opacity={0.55}
-      />
-    </svg>
-  )
-}
-
 const SERVICES = [
   {
     key: "analyse",
     title: "Analyse der Zielgruppe mit KI",
-    icon: AbstractAiAudienceIcon,
+    Icon: Users,
     body: (
       <>
         Wir trainieren maßgeschneiderte KI-Agenten mit Ihren Daten, um Ihre
@@ -71,8 +36,7 @@ const SERVICES = [
         um genau die Botschaften zu finden, die Ihre Lead-Kosten senken.
       </>
     ),
-    gridClass:
-      "md:col-start-3 md:row-span-2 md:row-start-1 md:min-h-[min(22rem,52vh)]",
+    gridClass: "md:col-start-3 md:row-start-1",
   },
   {
     key: "smm",
@@ -106,7 +70,7 @@ const SERVICES = [
 
 const TOOLS = [
   "Meta Ads Manager",
-  "Google Analytics 4",
+  "Google Analytics",
   "Looker Studio",
   "ChatGPT / GPT",
   "Claude",
@@ -175,7 +139,7 @@ export function SocialMediaServicesBento() {
             Services im Überblick
           </h2>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-2 md:gap-6">
+          <div className="grid grid-cols-1 items-stretch gap-6 md:grid-cols-3 md:grid-rows-2 md:gap-6">
             {SERVICES.map((item) => (
               <ServiceCard
                 key={item.key}
@@ -192,7 +156,7 @@ export function SocialMediaServicesBento() {
 
       <section
         aria-labelledby="tools-heading"
-        className="relative border-t border-white/10 bg-black/20 py-14 md:py-20"
+        className="relative py-14 md:py-20"
       >
         <div className="mx-auto max-w-6xl px-6 lg:px-8">
           <h2
@@ -238,6 +202,7 @@ export function SocialMediaServicesBento() {
           </div>
         </div>
       </section>
+
     </>
   )
 }
