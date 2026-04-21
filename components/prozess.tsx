@@ -1,3 +1,8 @@
+"use client"
+
+import { useRef } from "react"
+import { useEffect, useState } from "react"
+import { motion, useScroll, useTransform } from "framer-motion"
 import { BarChart3, Bot, Clapperboard, Megaphone, Target } from "lucide-react"
 
 import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
@@ -36,11 +41,56 @@ const steps = [
 ]
 
 export function Prozess() {
+  const stepsRef = useRef<HTMLDivElement>(null)
+  const iconRefs = useRef<Array<HTMLDivElement | null>>([])
+  const [lineBounds, setLineBounds] = useState({ top: 10, bottom: 60 })
+
+  useEffect(() => {
+    const updateLineBounds = () => {
+      const container = stepsRef.current
+      const firstIcon = iconRefs.current[0]
+      const lastIcon = iconRefs.current[steps.length - 1]
+
+      if (!container || !firstIcon || !lastIcon) return
+
+      const containerRect = container.getBoundingClientRect()
+      const firstRect = firstIcon.getBoundingClientRect()
+      const lastRect = lastIcon.getBoundingClientRect()
+
+      const top = firstRect.top - containerRect.top + firstRect.height / 2
+      const bottom = containerRect.bottom - (lastRect.top + lastRect.height / 2)
+
+      setLineBounds({
+        top: Math.max(0, top),
+        bottom: Math.max(0, bottom),
+      })
+    }
+
+    updateLineBounds()
+
+    const resizeObserver = new ResizeObserver(() => updateLineBounds())
+    if (stepsRef.current) {
+      resizeObserver.observe(stepsRef.current)
+    }
+    window.addEventListener("resize", updateLineBounds)
+
+    return () => {
+      resizeObserver.disconnect()
+      window.removeEventListener("resize", updateLineBounds)
+    }
+  }, [])
+
+  const { scrollYProgress } = useScroll({
+    target: stepsRef,
+    offset: ["start 75%", "end 35%"],
+  })
+  const accentLineScaleY = useTransform(scrollYProgress, [0.1, 0.9], [0, 1])
+
   return (
     <section id="prozess" className="bg-transparent py-20 md:py-28">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-14">
-          <div className="lg:sticky lg:top-28 h-fit">
+          <div className="lg:sticky lg:top-[30%] text-center h-fit">
             <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">
               Mit <span className="text-[#00ffc4]">5 Schritten</span>
               <br />
@@ -51,13 +101,30 @@ export function Prozess() {
           </div>
 
           <div className="relative">
-            <div className="hidden md:block absolute left-7 top-6 bottom-6 w-px bg-white/20" aria-hidden="true" />
-            <div className="hidden md:block absolute left-7 top-24 bottom-24 w-px bg-[#00ffc4]/80" aria-hidden="true" />
+            <div ref={stepsRef} className="relative space-y-8">
+              <div
+                className="hidden md:block absolute left-7 w-px bg-white/20"
+                style={{ top: `${lineBounds.top}px`, bottom: `${lineBounds.bottom}px` }}
+                aria-hidden="true"
+              />
+              <motion.div
+                className="hidden md:block absolute left-7 w-px origin-top bg-[#00ffc3]"
+                style={{
+                  top: `${lineBounds.top}px`,
+                  bottom: `${lineBounds.bottom}px`,
+                  scaleY: accentLineScaleY,
+                }}
+                aria-hidden="true"
+              />
 
-            <div className="space-y-8">
               {steps.map((step, index) => (
                 <article key={index} className="relative md:pl-20">
-                  <div className="hidden md:flex absolute left-0 top-8 w-14 h-14 rounded-xl border border-white/15 bg-[#0a0d3a]/75 backdrop-blur-md items-center justify-center">
+                  <div
+                    ref={(element) => {
+                      iconRefs.current[index] = element
+                    }}
+                    className="hidden md:flex absolute left-0 top-8 w-14 h-14 rounded-xl border border-white/15 bg-[#0a0d3a]/75 backdrop-blur-md items-center justify-center"
+                  >
                     <step.icon className="w-7 h-7 text-[#00ffc4] stroke-[1.8]" />
                   </div>
 
