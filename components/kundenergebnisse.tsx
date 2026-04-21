@@ -7,19 +7,15 @@ import {
   KundenergebnisseCarousel,
   type KundenergebnisSlide,
 } from "@/components/kundenergebnisse-carousel"
-import { VideoPlayer } from "@/components/video-player"
+import { VideoPlayer } from "@/components/asset-components/video-player"
 import {
-  WeitereTestimonialsSlider,
-  type WeitereTestimonialSlide,
-} from "@/components/weitere-testimonials-slider"
+  VideoContentSlider,
+  type VideoContentSlide,
+} from "@/components/asset-components/slider-vert_video-with_content"
 import {
   VideobeispieleKundenprojekteGrid,
   type VideobeispielKundeItem,
-} from "@/components/videobeispiele-kundenprojekte-grid"
-import {
-  KundenergebnisProjektSlider,
-  type KundenergebnisProjektHighlightSlide,
-} from "@/components/kundenergebnisse-projekt-slider"
+} from "@/components/grid-videos-portfolio"
 
 const fallstudienSlides: KundenergebnisSlide[] = [
   {
@@ -65,8 +61,9 @@ const kundenstimmenVideo = {
     "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1280&q=80&auto=format&fit=crop",
 }
 
-const weitereTestimonialsSlides: WeitereTestimonialSlide[] = [
+const weitereTestimonialsSlides: VideoContentSlide[] = [
   {
+    id: "testimonial-lift-addicts",
     brandMarkLines: ["LIFT", "ADDICTS"],
     overlayLabel: "Kundenerfahrung",
     videoUrl:
@@ -75,13 +72,14 @@ const weitereTestimonialsSlides: WeitereTestimonialSlide[] = [
       "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&q=80&auto=format&fit=crop",
     title: "Lift Addicts",
     category: "Sportswear Brand",
-    highlights: [
+    points: [
       "Aufbau eines zeitgemäßen Brandings durch moderne Produktvideos",
       "Strategische Neuausrichtung der kompletten Brand",
       "Stark veränderte Wahrnehmung der Marke",
     ],
   },
   {
+    id: "testimonial-craft-lab",
     brandMarkLines: ["CRAFT", "LAB"],
     overlayLabel: "Kundenerfahrung",
     videoUrl:
@@ -90,7 +88,7 @@ const weitereTestimonialsSlides: WeitereTestimonialSlide[] = [
       "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80&auto=format&fit=crop",
     title: "Craft Lab",
     category: "B2B Software",
-    highlights: [
+    points: [
       "Erklärvideos und Demos, die komplexe Features greifbar machen",
       "Einheitlicher Markenauftritt über Website und Social Media",
       "Messbar höhere Engagement-Rate auf organischen Kanälen",
@@ -133,28 +131,30 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
   },
 ]
 
-const projektHighlightSlides: KundenergebnisProjektHighlightSlide[] = [
+const projektHighlightSlides: VideoContentSlide[] = [
   {
+    id: "projekt-wt-plus-weimar",
     title: "WT Plus Weimar GmbH",
     category: "Kampfsportsschule",
     videoUrl:
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     thumbnail:
       "https://images.unsplash.com/photo-1555597673-b21d5c935866?w=800&q=80&auto=format&fit=crop",
-    highlights: [
+    points: [
       "Kampfsport ist oft noch behaftet von Vorurteilen oder Angst davor",
       "Wir haben Videos produziert, die in unseren Meta-Kampagnen einschlugen und Vertrauen generierten",
       "Dadurch konnten wir zahlreiche Neukundenanfragen für die Schule akquirieren, was zu einem ROI von 1:4 führte",
     ],
   },
   {
+    id: "projekt-weimarer-tanzakademie",
     title: "Weimarer Tanzakademie",
     category: "Tanzstudio & Events",
     videoUrl:
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
     thumbnail:
       "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80&auto=format&fit=crop",
-    highlights: [
+    points: [
       "Sichtbarkeit in der lokalen Zielgruppe war zersplittert und schwer erklärbar",
       "Mit stimmigen Kurzvideos und klaren Hooks haben wir Aufmerksamkeit und Buchungen gesteigert",
       "Die Kampagnen liefern seitdem planbare Anfragen mit nachvollziehbarem Werbebudget",
@@ -219,7 +219,13 @@ export function Kundenergebnisse() {
             Weitere Testimonials:
           </h3>
           <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
-            <WeitereTestimonialsSlider slides={weitereTestimonialsSlides} />
+            <VideoContentSlider
+              slides={weitereTestimonialsSlides}
+              previousAriaLabel="Vorheriges Testimonial"
+              nextAriaLabel="Nächstes Testimonial"
+              mediaAspectClassName="aspect-[3/4] sm:aspect-[4/5] md:aspect-[3/4]"
+              mediaContainerClassName="md:w-80 lg:w-[22rem]"
+            />
           </div>
         </div>
       </div>
@@ -242,7 +248,16 @@ export function Kundenergebnisse() {
       <div className="mt-12 w-full border-t border-white/10 bg-[#020617] py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
           <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
-            <KundenergebnisProjektSlider slides={projektHighlightSlides} />
+            <VideoContentSlider
+              slides={projektHighlightSlides}
+              previousAriaLabel="Vorheriger Eintrag"
+              nextAriaLabel="Nächster Eintrag"
+              mediaAspectClassName="aspect-[9/16]"
+              mediaContainerClassName="mx-auto max-w-[min(100%,17.5rem)] sm:max-w-xs md:mx-0 md:max-w-[280px] lg:max-w-[300px]"
+              cardClassName="border-white/10 bg-white/5 md:bg-slate-900/50"
+              categoryClassName="text-left text-base font-normal text-white/70 md:text-lg"
+              pointItemClassName="items-start"
+            />
           </div>
         </div>
       </div>

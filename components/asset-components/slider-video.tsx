@@ -1,7 +1,7 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
+import * as React from "react"
+import useEmblaCarousel from "embla-carousel-react"
 import {
   ChevronLeft,
   ChevronRight,
@@ -11,37 +11,59 @@ import {
   Play,
   Volume2,
   VolumeX,
-} from 'lucide-react'
+} from "lucide-react"
 
-export type ArbeitsweiseVideoSlide = {
+import { cn } from "@/lib/utils"
+
+export type VideoSliderItem = {
   title: string
   videoUrl: string
   thumbnail: string
 }
 
+export type VideoSliderProps = {
+  slides: VideoSliderItem[]
+  slideTopLabel?: string
+  previousAriaLabel?: string
+  nextAriaLabel?: string
+  mutedByDefault?: boolean
+  className?: string
+}
+
 function formatTime(seconds: number) {
-  if (!Number.isFinite(seconds) || seconds < 0) return '0:00'
+  if (!Number.isFinite(seconds) || seconds < 0) return "0:00"
   const m = Math.floor(seconds / 60)
   const s = Math.floor(seconds % 60)
-  return `${m}:${s.toString().padStart(2, '0')}`
+  return `${m}:${s.toString().padStart(2, "0")}`
 }
 
 function SlideVideo({
   slide,
   isActive,
+  slideTopLabel,
+  mutedByDefault,
 }: {
-  slide: ArbeitsweiseVideoSlide
+  slide: VideoSliderItem
   isActive: boolean
+  slideTopLabel?: string
+  mutedByDefault: boolean
 }) {
   const videoRef = React.useRef<HTMLVideoElement>(null)
   const shellRef = React.useRef<HTMLDivElement>(null)
   const progressTrackRef = React.useRef<HTMLDivElement>(null)
 
   const [playing, setPlaying] = React.useState(false)
-  const [muted, setMuted] = React.useState(false)
+  const [muted, setMuted] = React.useState(mutedByDefault)
   const [currentTime, setCurrentTime] = React.useState(0)
   const [duration, setDuration] = React.useState(0)
   const [hovering, setHovering] = React.useState(false)
+
+  React.useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    v.muted = mutedByDefault
+    setMuted(mutedByDefault)
+  }, [mutedByDefault])
 
   React.useEffect(() => {
     const v = videoRef.current
@@ -63,14 +85,17 @@ function SlideVideo({
     }
   }, [])
 
-  const seekFromClientX = React.useCallback((clientX: number) => {
-    const track = progressTrackRef.current
-    const v = videoRef.current
-    if (!track || !v || !duration) return
-    const rect = track.getBoundingClientRect()
-    const ratio = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1)
-    v.currentTime = ratio * duration
-  }, [duration])
+  const seekFromClientX = React.useCallback(
+    (clientX: number) => {
+      const track = progressTrackRef.current
+      const v = videoRef.current
+      if (!track || !v || !duration) return
+      const rect = track.getBoundingClientRect()
+      const ratio = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1)
+      v.currentTime = ratio * duration
+    },
+    [duration],
+  )
 
   const onProgressPointerDown = React.useCallback(
     (e: React.PointerEvent<HTMLDivElement>) => {
@@ -88,14 +113,11 @@ function SlideVideo({
     [seekFromClientX],
   )
 
-  const onProgressPointerUp = React.useCallback(
-    (e: React.PointerEvent<HTMLDivElement>) => {
-      if (e.currentTarget.hasPointerCapture(e.pointerId)) {
-        e.currentTarget.releasePointerCapture(e.pointerId)
-      }
-    },
-    [],
-  )
+  const onProgressPointerUp = React.useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    if (e.currentTarget.hasPointerCapture(e.pointerId)) {
+      e.currentTarget.releasePointerCapture(e.pointerId)
+    }
+  }, [])
 
   const toggleMute = React.useCallback(() => {
     const v = videoRef.current
@@ -144,9 +166,11 @@ function SlideVideo({
       />
 
       <div className="pointer-events-none absolute left-4 top-4 md:left-6 md:top-6">
-        <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 md:text-xs">
-          Wie ein Dreh abläuft:
-        </p>
+        {slideTopLabel ? (
+          <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80 md:text-xs">
+            {slideTopLabel}
+          </p>
+        ) : null}
         <p className="mt-1 max-w-[min(100%,18rem)] text-2xl font-bold uppercase leading-none tracking-tight text-white md:max-w-none md:text-4xl lg:text-5xl">
           {slide.title}
         </p>
@@ -161,7 +185,7 @@ function SlideVideo({
               togglePlay()
             }}
             className="pointer-events-auto flex h-20 w-20 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-sm transition hover:bg-white/35 md:h-24 md:w-24"
-            aria-label={playing ? 'Pause' : 'Abspielen'}
+            aria-label={playing ? "Pause" : "Abspielen"}
           >
             {playing ? (
               <Pause className="h-9 w-9 md:h-10 md:w-10" strokeWidth={1.25} />
@@ -181,7 +205,7 @@ function SlideVideo({
             type="button"
             onClick={togglePlay}
             className="shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10"
-            aria-label={playing ? 'Pause' : 'Abspielen'}
+            aria-label={playing ? "Pause" : "Abspielen"}
           >
             {playing ? (
               <Pause className="h-5 w-5" strokeWidth={1.5} />
@@ -205,11 +229,11 @@ function SlideVideo({
             onKeyDown={(e) => {
               const v = videoRef.current
               if (!v || !duration) return
-              if (e.key === 'ArrowLeft') {
+              if (e.key === "ArrowLeft") {
                 e.preventDefault()
                 v.currentTime = Math.max(0, v.currentTime - 5)
               }
-              if (e.key === 'ArrowRight') {
+              if (e.key === "ArrowRight") {
                 e.preventDefault()
                 v.currentTime = Math.min(duration, v.currentTime + 5)
               }
@@ -229,7 +253,7 @@ function SlideVideo({
             type="button"
             onClick={toggleMute}
             className="hidden shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10 sm:block"
-            aria-label={muted ? 'Ton einschalten' : 'Ton stummschalten'}
+            aria-label={muted ? "Ton einschalten" : "Ton stummschalten"}
           >
             {muted ? (
               <VolumeX className="h-5 w-5" strokeWidth={1.5} />
@@ -260,12 +284,15 @@ function SlideVideo({
   )
 }
 
-export function ArbeitsweiseVideoSlider({
+export function VideoSlider({
   slides,
-}: {
-  slides: ArbeitsweiseVideoSlide[]
-}) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' })
+  slideTopLabel,
+  previousAriaLabel = "Vorheriges Video",
+  nextAriaLabel = "Nächstes Video",
+  mutedByDefault = false,
+  className,
+}: VideoSliderProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" })
   const [selected, setSelected] = React.useState(0)
 
   const scrollPrev = React.useCallback(() => {
@@ -279,20 +306,20 @@ export function ArbeitsweiseVideoSlider({
   React.useEffect(() => {
     if (!emblaApi) return
     const onSelect = () => setSelected(emblaApi.selectedScrollSnap())
-    emblaApi.on('select', onSelect)
+    emblaApi.on("select", onSelect)
     onSelect()
     return () => {
-      emblaApi.off('select', onSelect)
+      emblaApi.off("select", onSelect)
     }
   }, [emblaApi])
 
   return (
-    <div className="relative w-full">
+    <div className={cn("relative w-full", className)}>
       <button
         type="button"
         onClick={scrollPrev}
         className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 p-2 text-white/90 transition hover:text-white md:flex md:-translate-x-full"
-        aria-label="Vorheriges Video"
+        aria-label={previousAriaLabel}
       >
         <ChevronLeft className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
       </button>
@@ -301,7 +328,7 @@ export function ArbeitsweiseVideoSlider({
         type="button"
         onClick={scrollNext}
         className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 translate-x-1/2 p-2 text-white/90 transition hover:text-white md:flex md:translate-x-full"
-        aria-label="Nächstes Video"
+        aria-label={nextAriaLabel}
       >
         <ChevronRight className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
       </button>
@@ -310,7 +337,7 @@ export function ArbeitsweiseVideoSlider({
         type="button"
         onClick={scrollPrev}
         className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label="Vorheriges Video"
+        aria-label={previousAriaLabel}
       >
         <ChevronLeft className="h-10 w-10" strokeWidth={1} />
       </button>
@@ -319,7 +346,7 @@ export function ArbeitsweiseVideoSlider({
         type="button"
         onClick={scrollNext}
         className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/40 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label="Nächstes Video"
+        aria-label={nextAriaLabel}
       >
         <ChevronRight className="h-10 w-10" strokeWidth={1} />
       </button>
@@ -331,7 +358,12 @@ export function ArbeitsweiseVideoSlider({
               key={`${slide.title}-${index}`}
               className="min-w-0 shrink-0 grow-0 basis-full px-0 sm:px-3 md:px-6"
             >
-              <SlideVideo slide={slide} isActive={selected === index} />
+              <SlideVideo
+                slide={slide}
+                isActive={selected === index}
+                slideTopLabel={slideTopLabel}
+                mutedByDefault={mutedByDefault}
+              />
             </div>
           ))}
         </div>

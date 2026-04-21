@@ -1,37 +1,45 @@
-'use client'
+"use client"
 
-import * as React from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import {
-  ChevronLeft,
-  ChevronRight,
-  Mountain,
-  Pause,
-  Play,
-  Swords,
-  Video,
-} from 'lucide-react'
+import * as React from "react"
+import useEmblaCarousel from "embla-carousel-react"
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react"
 
-export type KundenergebnisProjektHighlightSlide = {
-  title: string
-  category: string
+import { cn } from "@/lib/utils"
+
+export type VertVideoSlide = {
+  id?: string
+  title?: string
   videoUrl: string
   thumbnail: string
-  highlights: [string, string, string]
+  overlayLabel?: string
 }
 
-const HIGHLIGHT_ICONS = [Mountain, Video, Swords] as const
+export type VertVideoSliderProps = {
+  slides: VertVideoSlide[]
+  previousAriaLabel?: string
+  nextAriaLabel?: string
+  mediaAspectClassName?: string
+  mediaContainerClassName?: string
+  mutedByDefault?: boolean
+  className?: string
+}
 
-function ProjektPortraitMedia({
+function SlideMedia({
   slide,
   isActive,
+  mutedByDefault,
+  mediaAspectClassName,
+  mediaContainerClassName,
 }: {
-  slide: KundenergebnisProjektHighlightSlide
+  slide: VertVideoSlide
   isActive: boolean
+  mutedByDefault: boolean
+  mediaAspectClassName: string
+  mediaContainerClassName?: string
 }) {
   const videoRef = React.useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = React.useState(false)
-  const [muted, setMuted] = React.useState(true)
+  const [muted, setMuted] = React.useState(mutedByDefault)
   const [hovering, setHovering] = React.useState(false)
 
   React.useEffect(() => {
@@ -44,6 +52,11 @@ function ProjektPortraitMedia({
       setMuted(true)
     }
   }, [isActive])
+
+  React.useEffect(() => {
+    setMuted(mutedByDefault)
+    if (videoRef.current) videoRef.current.muted = mutedByDefault
+  }, [mutedByDefault])
 
   const togglePlay = React.useCallback(() => {
     const v = videoRef.current
@@ -60,11 +73,14 @@ function ProjektPortraitMedia({
 
   return (
     <div
-      className="relative mx-auto w-full max-w-[min(100%,17.5rem)] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-black/50 shadow-lg ring-1 ring-black/40 sm:max-w-xs md:mx-0 md:max-w-[280px] lg:max-w-[300px]"
+      className={cn(
+        "relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl border border-white/15 bg-black/40 shadow-[0_0_40px_rgba(0,0,0,0.45)] ring-1 ring-white/5",
+        mediaContainerClassName,
+      )}
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <div className="relative aspect-[9/16] w-full">
+      <div className={cn("relative w-full", mediaAspectClassName)}>
         <video
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover"
@@ -79,9 +95,15 @@ function ProjektPortraitMedia({
         />
 
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/25"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/40"
           aria-hidden
         />
+
+        {slide.overlayLabel ? (
+          <p className="pointer-events-none absolute left-4 top-4 text-xs font-medium text-white/90 sm:text-sm">
+            {slide.overlayLabel}
+          </p>
+        ) : null}
 
         {(!playing || hovering) && (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
@@ -91,13 +113,13 @@ function ProjektPortraitMedia({
                 e.stopPropagation()
                 togglePlay()
               }}
-              className="pointer-events-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/25 text-white backdrop-blur-sm transition hover:bg-white/35 sm:h-20 sm:w-20"
-              aria-label={playing ? 'Pause' : 'Abspielen'}
+              className="pointer-events-auto flex h-16 w-16 items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-sm transition hover:bg-white/40 sm:h-20 sm:w-20"
+              aria-label={playing ? "Pause" : "Abspielen"}
             >
               {playing ? (
-                <Pause className="h-7 w-7" strokeWidth={1} />
+                <Pause className="h-8 w-8" strokeWidth={1.25} />
               ) : (
-                <Play className="ml-0.5 h-7 w-7" strokeWidth={1} />
+                <Play className="ml-0.5 h-8 w-8" strokeWidth={1.25} />
               )}
             </button>
           </div>
@@ -107,57 +129,16 @@ function ProjektPortraitMedia({
   )
 }
 
-function ProjektHighlightCard({ slide }: { slide: KundenergebnisProjektHighlightSlide }) {
-  return (
-    <div className="flex min-w-0 flex-1 flex-col justify-center rounded-2xl border border-white/10 bg-white/5 p-8 shadow-inner backdrop-blur-md md:bg-slate-900/50 md:p-10">
-      <h3 className="text-left text-2xl font-bold text-white md:text-3xl">
-        {slide.title}
-      </h3>
-      <p className="mt-1 text-left text-base font-normal text-white/70 md:text-lg">
-        {slide.category}
-      </p>
-      <ul className="mt-6 space-y-4 md:mt-8 md:space-y-5">
-        {slide.highlights.map((text, i) => {
-          const Icon = HIGHLIGHT_ICONS[i] ?? Mountain
-          return (
-            <li key={i} className="flex items-start gap-3 text-left">
-              <Icon
-                className="mt-0.5 h-5 w-5 shrink-0 text-white"
-                strokeWidth={1.75}
-                aria-hidden
-              />
-              <span className="text-sm leading-relaxed text-white md:text-base">
-                {text}
-              </span>
-            </li>
-          )
-        })}
-      </ul>
-    </div>
-  )
-}
-
-function ProjektHighlightRow({
-  slide,
-  isActive,
-}: {
-  slide: KundenergebnisProjektHighlightSlide
-  isActive: boolean
-}) {
-  return (
-    <div className="flex w-full flex-col items-stretch gap-6 md:flex-row md:items-center md:gap-8 lg:gap-10">
-      <ProjektPortraitMedia slide={slide} isActive={isActive} />
-      <ProjektHighlightCard slide={slide} />
-    </div>
-  )
-}
-
-export function KundenergebnisProjektSlider({
+export function VertVideoSlider({
   slides,
-}: {
-  slides: KundenergebnisProjektHighlightSlide[]
-}) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' })
+  previousAriaLabel = "Vorheriges Video",
+  nextAriaLabel = "Nächstes Video",
+  mediaAspectClassName = "aspect-[9/16]",
+  mediaContainerClassName = "md:max-w-[22rem]",
+  mutedByDefault = true,
+  className,
+}: VertVideoSliderProps) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" })
   const [selected, setSelected] = React.useState(0)
 
   const scrollPrev = React.useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
@@ -166,20 +147,20 @@ export function KundenergebnisProjektSlider({
   React.useEffect(() => {
     if (!emblaApi) return
     const onSelect = () => setSelected(emblaApi.selectedScrollSnap())
-    emblaApi.on('select', onSelect)
+    emblaApi.on("select", onSelect)
     onSelect()
     return () => {
-      emblaApi.off('select', onSelect)
+      emblaApi.off("select", onSelect)
     }
   }, [emblaApi])
 
   return (
-    <div className="relative w-full">
+    <div className={cn("relative w-full", className)}>
       <button
         type="button"
         onClick={scrollPrev}
         className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 p-2 text-white/90 transition hover:text-white md:flex md:-translate-x-full"
-        aria-label="Vorheriger Eintrag"
+        aria-label={previousAriaLabel}
       >
         <ChevronLeft className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
       </button>
@@ -188,7 +169,7 @@ export function KundenergebnisProjektSlider({
         type="button"
         onClick={scrollNext}
         className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 translate-x-1/2 p-2 text-white/90 transition hover:text-white md:flex md:translate-x-full"
-        aria-label="Nächster Eintrag"
+        aria-label={nextAriaLabel}
       >
         <ChevronRight className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
       </button>
@@ -197,7 +178,7 @@ export function KundenergebnisProjektSlider({
         type="button"
         onClick={scrollPrev}
         className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label="Vorheriger Eintrag"
+        aria-label={previousAriaLabel}
       >
         <ChevronLeft className="h-10 w-10" strokeWidth={1} />
       </button>
@@ -206,21 +187,24 @@ export function KundenergebnisProjektSlider({
         type="button"
         onClick={scrollNext}
         className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label="Nächster Eintrag"
+        aria-label={nextAriaLabel}
       >
         <ChevronRight className="h-10 w-10" strokeWidth={1} />
       </button>
 
-      <div className="min-w-0 overflow-hidden px-0 sm:px-1 md:px-4" ref={emblaRef}>
+      <div className="min-w-0 overflow-hidden px-1 md:px-4" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
             <div
-              key={`${slide.title}-${index}`}
+              key={slide.id ?? `${slide.videoUrl}-${index}`}
               className="min-w-0 shrink-0 grow-0 basis-full px-2 sm:px-3 md:px-4"
             >
-              <ProjektHighlightRow
+              <SlideMedia
                 slide={slide}
                 isActive={selected === index}
+                mutedByDefault={mutedByDefault}
+                mediaAspectClassName={mediaAspectClassName}
+                mediaContainerClassName={mediaContainerClassName}
               />
             </div>
           ))}

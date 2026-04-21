@@ -1,11 +1,11 @@
 import { Film, Bot, Handshake } from "lucide-react"
 
 import {
-  ArbeitsweiseVideoSlider,
-  type ArbeitsweiseVideoSlide,
-} from "@/components/arbeitsweise-video-slider"
+  VideoSlider,
+  type VideoSliderItem,
+} from "@/components/asset-components/slider-video"
 
-const arbeitsweiseVideos: ArbeitsweiseVideoSlide[] = [
+const arbeitsweiseVideos: VideoSliderItem[] = [
   {
     title: "Live am Set",
     videoUrl:
@@ -94,7 +94,13 @@ export function Arbeitsweise() {
               </p>
             </div>
             <div className="mx-auto mt-10 w-full max-w-6xl md:mt-14 md:px-6 lg:px-10">
-              <ArbeitsweiseVideoSlider slides={arbeitsweiseVideos} />
+              <VideoSlider
+                slides={arbeitsweiseVideos}
+                slideTopLabel="Wie ein Dreh abläuft:"
+                previousAriaLabel="Vorheriges Video"
+                nextAriaLabel="Nächstes Video"
+                mutedByDefault={false}
+              />
             </div>
           </div>
         </div>

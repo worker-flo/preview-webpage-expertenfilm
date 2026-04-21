@@ -1,7 +1,7 @@
 import { Camera, ClipboardCheck, Handshake } from "lucide-react"
 
 import { KontaktCta } from "@/components/buttons"
-import { ImageGridSlider, type ImageGridSlide } from "@/components/image-grid-slider"
+import { ImageGridSlider, type ImageGridSlide } from "@/components/asset-components/slider-image_grid"
 
 const BENTO_IMAGES = [
   {
