@@ -45,7 +45,7 @@ const CONTACT = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-gradient-to-b from-[#0a1020] via-[#050a14] to-[#020617] pt-16 pb-10 font-sans md:pt-20">
+    <footer className="border-t border-white/10 pt-16 pb-10 font-sans md:pt-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)_minmax(0,21rem)] lg:items-start lg:gap-10 xl:gap-16">
           <div className="flex flex-col sm:max-lg:max-w-xl sm:max-lg:mx-auto sm:max-lg:w-full lg:mx-0">
