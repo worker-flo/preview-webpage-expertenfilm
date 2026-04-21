@@ -86,7 +86,7 @@ function SlideMedia({
   return (
     <div
       className={cn(
-        "relative w-full shrink-0 overflow-hidden rounded-3xl border border-white/15 bg-black/40 shadow-[0_0_40px_rgba(0,0,0,0.45)] ring-1 ring-white/5",
+        "relative w-full shrink-0 overflow-hidden rounded-3xl",
         mediaContainerClassName,
       )}
       onMouseEnter={() => setHovering(true)}
