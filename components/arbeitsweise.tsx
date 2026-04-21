@@ -82,7 +82,7 @@ export function Arbeitsweise() {
         </div>
 
         <div className="mb-20 md:mb-28">
-          <div className="rounded-3xl bg-[#020617] bg-[radial-gradient(ellipse_at_50%_20%,rgba(30,58,138,0.22)_0%,transparent_55%)] py-14 text-center font-sans text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] md:py-20">
+          <div className="rounded-3xl  py-14 text-center font-sans text-white md:py-20">
             <div className="px-4 sm:px-6 md:px-10 lg:px-16">
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
                 Wie wir arbeiten:

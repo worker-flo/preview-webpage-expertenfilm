@@ -141,7 +141,7 @@ function SlideVideo({
   return (
     <div
       ref={shellRef}
-      className="relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-[0_0_80px_rgba(0,0,0,0.55)] ring-1 ring-white/10"
+      className="relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-black  ring-1 ring-white/10"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
