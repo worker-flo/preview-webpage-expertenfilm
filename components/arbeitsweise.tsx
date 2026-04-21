@@ -62,19 +62,21 @@ export function Arbeitsweise() {
           {leistungen.map((item, index) => (
             <article
               key={index}
-              className="relative rounded-3xl bg-[#050724]/90 border border-white/8 backdrop-blur-md px-8 py-10 flex flex-col items-center text-center"
+              className="group relative flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900/40 p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] md:p-8"
             >
-              <div className="mb-8 w-full flex items-center justify-center">
-                <div className="h-40 w-full max-w-[260px] rounded-2xl bg-gradient-to-br from-[#1f2248] via-[#11152f] to-[#050724] flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.55)]">
-                  <item.icon className="w-16 h-16 text-[#00ffc4] stroke-[1.6]" />
+              
+
+              <div className="mb-7 mx-auto">
+                <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/10 bg-slate-900/60 shadow-[0_0_24px_rgba(0,0,0,0.4)]">
+                  <item.icon className="h-10 w-10 text-[var(--color-accent-teal)] stroke-[1.6]" />
                 </div>
               </div>
 
-              <h3 className="text-white text-xl font-semibold mb-4 leading-tight">
+              <h3 className="mb-4 text-3xl font-semibold leading-tight text-white md:text-4xl">
                 {item.title}
               </h3>
 
-              <p className="text-white/70 text-sm leading-relaxed max-w-xs">
+              <p className="mx-auto mt-auto max-w-xs text-base leading-relaxed text-slate-400">
                 {item.description}
               </p>
             </article>
