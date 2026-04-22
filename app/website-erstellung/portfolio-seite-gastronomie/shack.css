@@ -1,0 +1,14 @@
+/* Used when SmoothScrollMount adds class on <html> (Tailwind may not scan dynamic strings). */
+html.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Scoped typography for Egg & Bacon Shack demo (fonts from next/font in layout) */
+.shack-scope {
+  font-family: var(--font-shack-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+.shack-scope .font-display {
+  font-family: var(--font-shack-display), var(--font-shack-sans), ui-sans-serif,
+    system-ui, sans-serif;
+}

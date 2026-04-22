@@ -1,0 +1,65 @@
+/**
+ * KMU-Portfolio: zentrale Markenfarbe
+ * Nur --kmu-accent anpassen — Hover, Labels, Rahmen etc. leiten sich davon ab.
+ * Optional: --kmu-accent-hover überschreiben, falls color-mix für deine Farbe nicht passt.
+ */
+.kmu-theme {
+  --kmu-accent: #18d08d;
+  --kmu-accent-hover: color-mix(in srgb, var(--kmu-accent) 88%, #000);
+  --kmu-accent-on-accent: #0f172a;
+  --kmu-accent-label: color-mix(in srgb, var(--kmu-accent) 58%, #0f172a);
+  --kmu-accent-outline-focus: color-mix(in srgb, var(--kmu-accent) 50%, #0f172a);
+  --kmu-accent-border-hover: color-mix(in srgb, var(--kmu-accent) 55%, transparent);
+  --kmu-accent-line: color-mix(in srgb, var(--kmu-accent) 80%, transparent);
+  --kmu-accent-ring: color-mix(in srgb, var(--kmu-accent) 30%, transparent);
+  --kmu-accent-focus-border: color-mix(in srgb, var(--kmu-accent) 70%, transparent);
+  --kmu-accent-soft-bg: color-mix(in srgb, var(--kmu-accent) 12%, #fff);
+  --kmu-accent-soft-border: color-mix(in srgb, var(--kmu-accent) 40%, #fff);
+}
+
+/* Primär-Buttons / Flächen */
+.kmu-btn-accent {
+  background-color: var(--kmu-accent);
+  color: var(--kmu-accent-on-accent);
+}
+.kmu-btn-accent:hover {
+  background-color: var(--kmu-accent-hover);
+}
+
+.kmu-text-accent {
+  color: var(--kmu-accent);
+}
+
+.kmu-text-accent-label {
+  color: var(--kmu-accent-label);
+}
+
+.kmu-border-accent-hover:hover {
+  border-color: var(--kmu-accent-border-hover);
+}
+
+.kmu-icon-box {
+  background-color: var(--kmu-accent-on-accent);
+  color: var(--kmu-accent);
+}
+.kmu-icon-box--hover-fill {
+  transition-property: color, background-color;
+  transition-duration: 150ms;
+}
+.group:hover .kmu-icon-box--hover-fill {
+  background-color: var(--kmu-accent);
+  color: var(--kmu-accent-on-accent);
+}
+
+.kmu-process-line {
+  background-color: var(--kmu-accent-line);
+}
+
+.kmu-success-panel {
+  border-color: var(--kmu-accent-soft-border);
+  background-color: var(--kmu-accent-soft-bg);
+}
+
+.kmu-btn-submit:focus-visible {
+  outline-color: var(--kmu-accent-outline-focus);
+}

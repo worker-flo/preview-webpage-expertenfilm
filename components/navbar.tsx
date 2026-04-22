@@ -100,7 +100,7 @@ export function Navbar() {
       <div className="bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl border border-white/10 px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-2">
+          <Link href="/#" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
             <Image
               src="/images/logo/logo-white.webp"
               alt="Logo"
@@ -108,7 +108,7 @@ export function Navbar() {
               height={50}
               className="w-[175px] h-auto object-contain"
             />
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center content-center gap-8">
@@ -149,7 +149,7 @@ export function Navbar() {
               </div>
               <button
                 onClick={() => setIsSocialsOpen(!isSocialsOpen)}
-                className="flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
+                className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
               >
                 <span
                   className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-0" : "rotate-180"}`}
@@ -175,7 +175,7 @@ export function Navbar() {
               <button
                 ref={buttonRef}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="text-white/90 hover:text-[#00ffc4] transition-all duration-300"
+                className="cursor-pointer text-white/90 hover:text-[#00ffc4] transition-all duration-300"
                 aria-label="Menü öffnen"
                 aria-expanded={isMenuOpen}
               >

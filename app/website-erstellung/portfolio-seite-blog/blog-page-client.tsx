@@ -85,8 +85,25 @@ export function BlogPageClient() {
 
       <main id="top">
         {/* Hero */}
-        <section className="border-b border-white/[0.06]">
-          <div className="mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
+        <section className="relative overflow-hidden border-b border-white/[0.06]">
+          <div className="pointer-events-none absolute inset-0" aria-hidden>
+            <video
+              className="h-full w-full object-cover opacity-20"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            >
+              <source
+                src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4"
+                type="video/mp4"
+              />
+            </video>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#06060a]/80 via-[#06060a]/72 to-[#06060a]/90" />
+          </div>
+
+          <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 md:px-6 md:py-24 lg:px-8">
             <FadeIn>
               <p
                 className="font-display text-[11px] font-bold uppercase tracking-[0.4em]"
