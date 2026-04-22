@@ -10,6 +10,9 @@ import {
   Play,
   Camera,
   ArrowRight,
+  PanelsTopLeft,
+  Laptop,
+  TextSearch,
 } from "lucide-react"
 
 const services = [
@@ -40,6 +43,15 @@ const services = [
       { icon: Camera, text: "High-End Kamera-Equipment" },
     ],
   },
+  {
+    icon: Laptop,
+    title: "Website-Erstellung",
+    href: "/website-erstellung",
+    features: [
+      { icon: PanelsTopLeft, text: "Professionelle Website" },
+      { icon: TextSearch, text: "SEO-Optimierung" },
+    ],
+  },
 ]
 
 export function Services() {
@@ -52,7 +64,7 @@ export function Services() {
         </h2>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
