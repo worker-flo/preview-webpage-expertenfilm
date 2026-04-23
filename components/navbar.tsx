@@ -96,8 +96,8 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-6xl">
-      <div className="bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl border border-white/10 px-6">
+    <nav className="sticky top-0 z-50 px-3 pt-5 md:px-6 bg-red-500">
+      <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/10 bg-[#0a0d3a]/80 px-6 backdrop-blur-md">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/#" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
@@ -105,8 +105,8 @@ export function Navbar() {
               src="/images/logo/logo-white.webp"
               alt="Logo"
               width={175}
-              height={50}
-              className="w-[175px] h-auto object-contain"
+              height={70}
+              className="w-[175px] object-contain"
             />
           </Link>
 
