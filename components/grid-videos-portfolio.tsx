@@ -13,8 +13,13 @@ import {
 export type VideobeispielKundeItem = {
   title: string
   category: string
-  videoUrl: string
-  poster: string
+  videoUrl?: string
+  poster?: string
+  /**
+   * BunnyStream Embed-URL, z. B.:
+   * https://player.mediadelivery.net/embed/{libraryId}/{videoId}
+   */
+  embedUrl?: string
 }
 
 function formatTime(seconds: number) {
@@ -27,11 +32,13 @@ function formatTime(seconds: number) {
 function VideobeispielKartePlayer({
   videoUrl,
   poster,
-}: Pick<VideobeispielKundeItem, 'videoUrl' | 'poster'>) {
+  embedUrl,
+}: Pick<VideobeispielKundeItem, 'videoUrl' | 'poster' | 'embedUrl'>) {
   const volumeInputId = React.useId()
   const videoRef = React.useRef<HTMLVideoElement>(null)
   const shellRef = React.useRef<HTMLDivElement>(null)
   const progressTrackRef = React.useRef<HTMLDivElement>(null)
+  const isEmbed = Boolean(embedUrl)
 
   const [playing, setPlaying] = React.useState(false)
   const [muted, setMuted] = React.useState(true)
@@ -136,21 +143,32 @@ function VideobeispielKartePlayer({
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        src={videoUrl}
-        poster={poster}
-        playsInline
-        muted={muted}
-        preload="metadata"
-        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-        onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
-        onClick={togglePlay}
-      />
+      {isEmbed ? (
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src={embedUrl}
+          title="Eingebettetes Portfolio-Video"
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowFullScreen
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          src={videoUrl}
+          poster={poster}
+          playsInline
+          muted={muted}
+          preload="metadata"
+          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          onVolumeChange={(e) => setMuted(e.currentTarget.muted)}
+          onClick={togglePlay}
+        />
+      )}
 
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/30"
@@ -161,7 +179,7 @@ function VideobeispielKartePlayer({
         EXPERTENFILM
       </p>
 
-      {(!playing || hovering) && (
+      {!isEmbed && (!playing || hovering) && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <button
             type="button"
@@ -181,119 +199,121 @@ function VideobeispielKartePlayer({
         </div>
       )}
 
-      <div
-        className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/90 px-2 py-1.5 sm:px-3 sm:py-2"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center gap-1 sm:gap-2">
-          <button
-            type="button"
-            onClick={togglePlay}
-            className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
-            aria-label={playing ? 'Pause' : 'Abspielen'}
-          >
-            {playing ? (
-              <Pause className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
-            ) : (
-              <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
-            )}
-          </button>
+      {!isEmbed && (
+        <div
+          className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/90 px-2 py-1.5 sm:px-3 sm:py-2"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center gap-1 sm:gap-2">
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
+              aria-label={playing ? 'Pause' : 'Abspielen'}
+            >
+              {playing ? (
+                <Pause className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
+              ) : (
+                <Play className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
+              )}
+            </button>
 
-          <div
-            ref={progressTrackRef}
-            role="slider"
-            tabIndex={0}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(progress * 100)}
-            className="relative min-h-4 min-w-0 flex-1 cursor-pointer py-1"
-            onPointerDown={onProgressPointerDown}
-            onPointerMove={onProgressPointerMove}
-            onPointerUp={onProgressPointerUp}
-            onPointerCancel={onProgressPointerUp}
-            onKeyDown={(e) => {
-              const v = videoRef.current
-              if (!v || !duration) return
-              if (e.key === 'ArrowLeft') {
-                e.preventDefault()
-                v.currentTime = Math.max(0, v.currentTime - 5)
-              }
-              if (e.key === 'ArrowRight') {
-                e.preventDefault()
-                v.currentTime = Math.min(duration, v.currentTime + 5)
-              }
-            }}
-          >
-            <div className="h-0.5 w-full rounded-full bg-white/25">
-              <div
-                className="h-full rounded-full bg-white"
-                style={{ width: `${progress * 100}%` }}
-              />
+            <div
+              ref={progressTrackRef}
+              role="slider"
+              tabIndex={0}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(progress * 100)}
+              className="relative min-h-4 min-w-0 flex-1 cursor-pointer py-1"
+              onPointerDown={onProgressPointerDown}
+              onPointerMove={onProgressPointerMove}
+              onPointerUp={onProgressPointerUp}
+              onPointerCancel={onProgressPointerUp}
+              onKeyDown={(e) => {
+                const v = videoRef.current
+                if (!v || !duration) return
+                if (e.key === 'ArrowLeft') {
+                  e.preventDefault()
+                  v.currentTime = Math.max(0, v.currentTime - 5)
+                }
+                if (e.key === 'ArrowRight') {
+                  e.preventDefault()
+                  v.currentTime = Math.min(duration, v.currentTime + 5)
+                }
+              }}
+            >
+              <div className="h-0.5 w-full rounded-full bg-white/25">
+                <div
+                  className="h-full rounded-full bg-white"
+                  style={{ width: `${progress * 100}%` }}
+                />
+              </div>
             </div>
-          </div>
 
-          <span className="shrink-0 tabular-nums text-[10px] text-white sm:text-xs">
-            {formatTime(currentTime)}
-          </span>
+            <span className="shrink-0 tabular-nums text-[10px] text-white sm:text-xs">
+              {formatTime(currentTime)}
+            </span>
 
-          <label className="sr-only" htmlFor={volumeInputId}>
-            Lautstärke
-          </label>
-          <input
-            id={volumeInputId}
-            type="range"
-            min={0}
-            max={1}
-            step={0.05}
-            value={muted ? 0 : volume}
-            onChange={(e) => {
-              const v = videoRef.current
-              if (!v) return
-              const next = parseFloat(e.target.value)
-              setVolume(next)
-              v.volume = next
-              const m = next === 0
-              v.muted = m
-              setMuted(m)
-            }}
-            className="h-1 w-10 shrink-0 cursor-pointer appearance-none rounded-full bg-white/30 accent-white sm:w-14"
-            aria-label="Lautstärke"
-          />
-
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
-            aria-label={muted ? 'Ton einschalten' : 'Ton stummschalten'}
-          >
-            {muted ? (
-              <VolumeX className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
-            ) : (
-              <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
-            )}
-          </button>
-
-          <button
-            type="button"
-            className="shrink-0 rounded p-0.5 text-white/85 transition hover:bg-white/10 sm:p-1"
-            aria-label="Weitere Optionen"
-          >
-            <MoreHorizontal
-              className="h-3.5 w-3.5 sm:h-4 sm:w-4"
-              strokeWidth={1.5}
+            <label className="sr-only" htmlFor={volumeInputId}>
+              Lautstärke
+            </label>
+            <input
+              id={volumeInputId}
+              type="range"
+              min={0}
+              max={1}
+              step={0.05}
+              value={muted ? 0 : volume}
+              onChange={(e) => {
+                const v = videoRef.current
+                if (!v) return
+                const next = parseFloat(e.target.value)
+                setVolume(next)
+                v.volume = next
+                const m = next === 0
+                v.muted = m
+                setMuted(m)
+              }}
+              className="h-1 w-10 shrink-0 cursor-pointer appearance-none rounded-full bg-white/30 accent-white sm:w-14"
+              aria-label="Lautstärke"
             />
-          </button>
 
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
-            aria-label="Vollbild"
-          >
-            <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
-          </button>
+            <button
+              type="button"
+              onClick={toggleMute}
+              className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
+              aria-label={muted ? 'Ton einschalten' : 'Ton stummschalten'}
+            >
+              {muted ? (
+                <VolumeX className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
+              ) : (
+                <Volume2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.75} />
+              )}
+            </button>
+
+            <button
+              type="button"
+              className="shrink-0 rounded p-0.5 text-white/85 transition hover:bg-white/10 sm:p-1"
+              aria-label="Weitere Optionen"
+            >
+              <MoreHorizontal
+                className="h-3.5 w-3.5 sm:h-4 sm:w-4"
+                strokeWidth={1.5}
+              />
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
+              aria-label="Vollbild"
+            >
+              <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
+            </button>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
@@ -310,7 +330,11 @@ export function VideobeispieleKundenprojekteGrid({
           key={item.title}
           className="rounded-2xl border border-white/10 bg-slate-800/50 p-6 shadow-lg backdrop-blur-sm md:p-8"
         >
-          <VideobeispielKartePlayer videoUrl={item.videoUrl} poster={item.poster} />
+          <VideobeispielKartePlayer
+            videoUrl={item.videoUrl}
+            poster={item.poster}
+            embedUrl={item.embedUrl}
+          />
           <h4 className="mt-4 text-left text-lg font-bold text-white md:mt-5 md:text-xl">
             {item.title}
           </h4>
