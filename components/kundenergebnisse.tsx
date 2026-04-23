@@ -20,10 +20,10 @@ import {
 const fallstudienSlides: KundenergebnisSlide[] = [
   {
     clientName: "Beamtenfinanzen2go",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/82237e3f-b23a-4535-a312-d06f479c9f59?autoplay=false&loop=false&muted=false&preload=false&responsive=true4",
     thumbnail:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=1280&q=80&auto=format&fit=crop",
+      "https://vz-617e21d0-8be.b-cdn.net/82237e3f-b23a-4535-a312-d06f479c9f59/thumbnail_0c2c50d7.jpg",
     videoCaption: "Kundenerfahrung: beamtenfinanzen2go",
     herausforderung:
       "Das Team wollte mehr qualifizierte Anfragen aus dem Online-Kanal, hatte aber wenig Kapazität für manuelle Kampagnenpflege. Bestehende Inhalte wirkten austauschbar, der Funnel war nicht messbar ausgebaut.",
@@ -36,11 +36,11 @@ const fallstudienSlides: KundenergebnisSlide[] = [
     ],
   },
   {
-    clientName: "RegionalPartner GmbH",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    clientName: "Medaworld",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/4e02229f-ae65-45fd-97dc-85541cb0957b?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1280&q=80&auto=format&fit=crop",
+      "https://vz-617e21d0-8be.b-cdn.net/4e02229f-ae65-45fd-97dc-85541cb0957b/thumbnail_f6d4ee4b.jpg",
     videoCaption: "Kundenerfahrung: RegionalPartner",
     herausforderung:
       "Lokale Sichtbarkeit war gut, digitale Leadqualität schwankte stark. Es fehlte ein roter Faden von erstem Kontakt bis Terminbuchung.",

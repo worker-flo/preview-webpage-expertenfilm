@@ -15,14 +15,14 @@ const arbeitsweiseVideos: VideoSliderItem[] = [
   },
   {
     title: "Gym",
-    videoUrl:
+    embedUrl:
       "https://player.mediadelivery.net/embed/614528/703ea5ab-6eec-443c-a94a-f41287bd999b?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1280&q=80&auto=format&fit=crop",
   },
   {
     title: "Testo Bäckerei",
-    videoUrl:
+    embedUrl:
       "https://player.mediadelivery.net/embed/614528/a99ee103-7608-4811-a0dd-570c08dd0ef5?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1280&q=80&auto=format&fit=crop",

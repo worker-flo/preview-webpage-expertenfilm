@@ -16,8 +16,13 @@ import {
 
 export type KundenergebnisSlide = {
   clientName: string
-  videoUrl: string
-  thumbnail: string
+  videoUrl?: string
+  thumbnail?: string
+  /**
+   * BunnyStream Embed-URL, z. B.:
+   * https://player.mediadelivery.net/embed/{libraryId}/{videoId}
+   */
+  embedUrl?: string
   /** Optional caption overlay on the video (e.g. Kundenerfahrung …) */
   videoCaption?: string
   herausforderung: string
@@ -136,6 +141,7 @@ function FallstudieVideo({
   }, [])
 
   const progress = duration > 0 ? currentTime / duration : 0
+  const isEmbed = Boolean(slide.embedUrl)
 
   return (
     <div
@@ -144,20 +150,31 @@ function FallstudieVideo({
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        src={slide.videoUrl}
-        poster={slide.thumbnail}
-        playsInline
-        muted={muted}
-        preload="metadata"
-        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-        onClick={togglePlay}
-      />
+      {isEmbed ? (
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src={slide.embedUrl}
+          title={slide.clientName}
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowFullScreen
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          src={slide.videoUrl}
+          poster={slide.thumbnail}
+          playsInline
+          muted={muted}
+          preload="metadata"
+          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          onClick={togglePlay}
+        />
+      )}
 
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20"
@@ -170,7 +187,7 @@ function FallstudieVideo({
         </p>
       ) : null}
 
-      {(!playing || hovering) && (
+      {!isEmbed && (!playing || hovering) && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <button
             type="button"
@@ -190,86 +207,88 @@ function FallstudieVideo({
         </div>
       )}
 
-      <div
-        className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 to-transparent px-3 pb-2.5 pt-8 sm:px-4 sm:pb-3 sm:pt-10"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center gap-2 sm:gap-3">
-          <button
-            type="button"
-            onClick={togglePlay}
-            className="shrink-0 rounded-md p-1 text-white transition hover:bg-white/10"
-            aria-label={playing ? 'Pause' : 'Abspielen'}
-          >
-            {playing ? (
-              <Pause className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
-            ) : (
-              <Play className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
-            )}
-          </button>
+      {!isEmbed && (
+        <div
+          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 to-transparent px-3 pb-2.5 pt-8 sm:px-4 sm:pb-3 sm:pt-10"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="shrink-0 rounded-md p-1 text-white transition hover:bg-white/10"
+              aria-label={playing ? 'Pause' : 'Abspielen'}
+            >
+              {playing ? (
+                <Pause className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
+              ) : (
+                <Play className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
+              )}
+            </button>
 
-          <div
-            ref={progressTrackRef}
-            role="slider"
-            tabIndex={0}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(progress * 100)}
-            className="relative flex min-h-4 min-w-0 flex-1 cursor-pointer items-center py-2"
-            onPointerDown={onProgressPointerDown}
-            onPointerMove={onProgressPointerMove}
-            onPointerUp={onProgressPointerUp}
-            onPointerCancel={onProgressPointerUp}
-            onKeyDown={(e) => {
-              const v = videoRef.current
-              if (!v || !duration) return
-              if (e.key === 'ArrowLeft') {
-                e.preventDefault()
-                v.currentTime = Math.max(0, v.currentTime - 5)
-              }
-              if (e.key === 'ArrowRight') {
-                e.preventDefault()
-                v.currentTime = Math.min(duration, v.currentTime + 5)
-              }
-            }}
-          >
-            <div className="relative h-1 w-full rounded-full bg-white/25">
-              <div
-                className="absolute inset-y-0 left-0 rounded-full bg-white"
-                style={{ width: `${progress * 100}%` }}
-              />
-              <div
-                className="absolute top-1/2 h-3 w-3 rounded-full border border-white/40 bg-white shadow-sm"
-                style={{
-                  left: `${progress * 100}%`,
-                  transform: 'translate(-50%, -50%)',
-                }}
-              />
+            <div
+              ref={progressTrackRef}
+              role="slider"
+              tabIndex={0}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(progress * 100)}
+              className="relative flex min-h-4 min-w-0 flex-1 cursor-pointer items-center py-2"
+              onPointerDown={onProgressPointerDown}
+              onPointerMove={onProgressPointerMove}
+              onPointerUp={onProgressPointerUp}
+              onPointerCancel={onProgressPointerUp}
+              onKeyDown={(e) => {
+                const v = videoRef.current
+                if (!v || !duration) return
+                if (e.key === 'ArrowLeft') {
+                  e.preventDefault()
+                  v.currentTime = Math.max(0, v.currentTime - 5)
+                }
+                if (e.key === 'ArrowRight') {
+                  e.preventDefault()
+                  v.currentTime = Math.min(duration, v.currentTime + 5)
+                }
+              }}
+            >
+              <div className="relative h-1 w-full rounded-full bg-white/25">
+                <div
+                  className="absolute inset-y-0 left-0 rounded-full bg-white"
+                  style={{ width: `${progress * 100}%` }}
+                />
+                <div
+                  className="absolute top-1/2 h-3 w-3 rounded-full border border-white/40 bg-white shadow-sm"
+                  style={{
+                    left: `${progress * 100}%`,
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                />
+              </div>
             </div>
+
+            <span className="shrink-0 tabular-nums text-xs text-white sm:text-sm">
+              {formatTime(currentTime)}
+            </span>
+
+            <button
+              type="button"
+              className="shrink-0 rounded-md p-1 text-white/85 transition hover:bg-white/10"
+              aria-label="Weitere Optionen"
+            >
+              <MoreHorizontal className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              className="shrink-0 rounded-md p-1 text-white transition hover:bg-white/10"
+              aria-label="Vollbild"
+            >
+              <Maximize2 className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
+            </button>
           </div>
-
-          <span className="shrink-0 tabular-nums text-xs text-white sm:text-sm">
-            {formatTime(currentTime)}
-          </span>
-
-          <button
-            type="button"
-            className="shrink-0 rounded-md p-1 text-white/85 transition hover:bg-white/10"
-            aria-label="Weitere Optionen"
-          >
-            <MoreHorizontal className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
-          </button>
-
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            className="shrink-0 rounded-md p-1 text-white transition hover:bg-white/10"
-            aria-label="Vollbild"
-          >
-            <Maximize2 className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.5} />
-          </button>
         </div>
-      </div>
+      )}
     </div>
   )
 }

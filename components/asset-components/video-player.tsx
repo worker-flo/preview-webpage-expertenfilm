@@ -21,6 +21,11 @@ export type VideoSource = {
 export type VideoPlayerProps = {
   videoUrl?: string
   sources?: VideoSource[]
+  /**
+   * Für eingebettete Player (z. B. BunnyStream iframe):
+   * https://iframe.mediadelivery.net/embed/{libraryId}/{videoId}
+   */
+  embedUrl?: string
   poster?: string
   title?: string
   description?: ReactNode
@@ -45,6 +50,7 @@ export type VideoPlayerProps = {
 export function VideoPlayer({
   videoUrl,
   sources,
+  embedUrl,
   poster,
   title,
   description,
@@ -82,6 +88,7 @@ export function VideoPlayer({
   )
 
   const hasVideoSource = resolvedSources.length > 0
+  const isEmbed = Boolean(embedUrl)
 
   const togglePlay = React.useCallback(() => {
     const v = videoRef.current
@@ -168,7 +175,16 @@ export function VideoPlayer({
         onMouseEnter={() => setHovering(true)}
         onMouseLeave={() => setHovering(false)}
       >
-        {hasVideoSource ? (
+        {isEmbed ? (
+          <iframe
+            className={cn("absolute inset-0 h-full w-full", videoClassName)}
+            src={embedUrl}
+            title={title ?? "Eingebettetes Video"}
+            loading="lazy"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowFullScreen
+          />
+        ) : hasVideoSource ? (
           <video
             ref={videoRef}
             className={cn("absolute inset-0 h-full w-full object-cover", videoClassName)}
@@ -191,7 +207,7 @@ export function VideoPlayer({
         ) : (
           <div className="absolute inset-0 flex items-center justify-center bg-black/70 px-6 text-center">
             <p className="text-base text-white/80 md:text-lg">
-              Kein Video verfügbar. Bitte `videoUrl` oder `sources` übergeben.
+              Kein Video verfügbar. Bitte `embedUrl`, `videoUrl` oder `sources` übergeben.
             </p>
           </div>
         )}
@@ -201,7 +217,7 @@ export function VideoPlayer({
           aria-hidden
         />
 
-        {showOverlay && hasVideoSource ? (
+        {showOverlay && hasVideoSource && !isEmbed ? (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <button
               type="button"
@@ -221,7 +237,7 @@ export function VideoPlayer({
           </div>
         ) : null}
 
-        {showControlsBar ? (
+        {showControlsBar && !isEmbed ? (
           <div
             className={cn(
               "absolute inset-x-0 bottom-0 border-t border-white/5 bg-black/90 px-3 py-2 sm:px-4",
