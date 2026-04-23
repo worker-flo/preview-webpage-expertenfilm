@@ -66,10 +66,10 @@ const weitereTestimonialsSlides: VideoContentSlide[] = [
     id: "testimonial-lift-addicts",
     brandMarkLines: ["LIFT", "ADDICTS"],
     overlayLabel: "Kundenerfahrung",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/628304f6-eeac-465f-b636-2c395929fe4d?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
-      "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=900&q=80&auto=format&fit=crop",
+      "https://vz-617e21d0-8be.b-cdn.net/628304f6-eeac-465f-b636-2c395929fe4d/thumbnail_5eeb0210.jpg",
     title: "Lift Addicts",
     category: "Sportswear Brand",
     points: [
@@ -79,13 +79,13 @@ const weitereTestimonialsSlides: VideoContentSlide[] = [
     ],
   },
   {
-    id: "testimonial-craft-lab",
+    id: "testimonial-lb_coaching",
     brandMarkLines: ["CRAFT", "LAB"],
     overlayLabel: "Kundenerfahrung",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/3e99a3d9-08c1-426a-a1ba-8cd3d2fbe31c?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
-      "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80&auto=format&fit=crop",
+      "https://vz-617e21d0-8be.b-cdn.net/3e99a3d9-08c1-426a-a1ba-8cd3d2fbe31c/thumbnail_ddd02802.jpg",
     title: "Craft Lab",
     category: "B2B Software",
     points: [
@@ -100,32 +100,32 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
   {
     title: "Spa & GolfResort Weimarer Land",
     category: "Hotellerie- und Tourismusbranche",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/f912c2a4-e5a7-4e8e-9d8e-1a00333a4008?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1542317851-edeaba95315d?w=960&q=80&auto=format&fit=crop",
   },
   {
     title: "Rheincare GmbH",
     category: "Ambulanter Pflegedienst",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/34068b70-8d16-411d-a383-d0c2498157e2?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=960&q=80&auto=format&fit=crop",
   },
   {
     title: "Personal Coach Rene Fischer",
     category: "Fitness- und Sport-Coaching",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/3f9cd5aa-25d4-4208-94f4-a03f27c375b9?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=960&q=80&auto=format&fit=crop",
   },
   {
     title: "Günter Haag – Transporte & Montagen OHG",
     category: "Bautransportunternehmen",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/a314f22f-6072-4ed6-8b66-bee674b17783?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=960&q=80&auto=format&fit=crop",
   },
@@ -136,8 +136,8 @@ const projektHighlightSlides: VideoContentSlide[] = [
     id: "projekt-wt-plus-weimar",
     title: "WT Plus Weimar GmbH",
     category: "Kampfsportsschule",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/356df19f-43e3-40cf-aabd-316344f9f4f4?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1555597673-b21d5c935866?w=800&q=80&auto=format&fit=crop",
     points: [
@@ -147,11 +147,25 @@ const projektHighlightSlides: VideoContentSlide[] = [
     ],
   },
   {
-    id: "projekt-weimarer-tanzakademie",
-    title: "Weimarer Tanzakademie",
-    category: "Tanzstudio & Events",
-    videoUrl:
+    id: "projekt-beamtenfinanzen2go",
+    title: "Beamtenfinanzen2go",
+    category: "Finanzberatung",
+    embedUrl:
       "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+    thumbnail:
+      "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80&auto=format&fit=crop",
+    points: [
+      "Sichtbarkeit in der lokalen Zielgruppe war zersplittert und schwer erklärbar",
+      "Mit stimmigen Kurzvideos und klaren Hooks haben wir Aufmerksamkeit und Buchungen gesteigert",
+      "Die Kampagnen liefern seitdem planbare Anfragen mit nachvollziehbarem Werbebudget",
+    ],
+  },
+  {
+    id: "projekt-built_different",
+    title: "Built Different",
+    category: "Fitnesscoaching",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/af2aebdb-50e0-4bac-8098-01d278b712ae?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80&auto=format&fit=crop",
     points: [
