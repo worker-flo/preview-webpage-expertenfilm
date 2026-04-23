@@ -96,7 +96,7 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className="sticky top-0 z-50 px-3 pt-5 md:px-6 bg-red-500">
+    <nav className="sticky top-0 z-50 px-3 pt-5 md:px-6">
       <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/10 bg-[#0a0d3a]/80 px-6 backdrop-blur-md">
         <div className="flex items-center justify-between">
           {/* Logo */}

@@ -15,15 +15,15 @@ export const metadata: Metadata = {
 
 export default function PerformanceMarketingPage() {
   return (
-    <main>
+    <main className="relative">
       <div
-        className="fixed inset-0 -z-10 h-100vh w-100vw bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)]"
+        className="fixed inset-0 -z-10 h-100svh w-100vw bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)]"
         aria-hidden
       />
 
       <Navbar />
 
-      <section className="relative min-h-[85vh] overflow-hidden bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)]">
+      <section className="relative flex min-h-[calc(100svh-6rem)] items-center overflow-hidden -top-8">
         <div className="pointer-events-none absolute inset-0">
           <svg
             className="absolute right-0 top-16 h-[420px] w-[420px] opacity-25 md:h-[520px] md:w-[520px]"
@@ -46,7 +46,7 @@ export default function PerformanceMarketingPage() {
           </svg>
         </div>
 
-        <div className="relative z-10 container mx-auto px-6 pb-16 pt-32 md:pb-24 md:pt-36">
+        <div className="relative z-10 container mx-auto px-6 py-16 md:py-24">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               <span className="text-white">Performance </span>
@@ -57,7 +57,7 @@ export default function PerformanceMarketingPage() {
               Verwandle Klicks in zahlungskräftige Kunden
             </p>
 
-            <p className="mx-auto mt-8 max-w-3xl text-left text-base leading-relaxed text-white/75 md:text-center md:text-lg">
+            <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-relaxed text-white/75 md:text-lg">
               Erfolg im Performance Marketing ist kein Zufall, sondern das
               Ergebnis präziser Datenanalyse und psychologisch optimierter
               Funnel. Wir helfen dir dabei, deine Leadgenerierung zu
