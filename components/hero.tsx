@@ -7,7 +7,7 @@ import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/butt
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen overflow-hidden"  >
+    <section className="relative min-h-screen overflow-hidden -top-16">
       {/* Background Network Lines */}
       <div className="absolute inset-0 pointer-events-none">
         <svg
