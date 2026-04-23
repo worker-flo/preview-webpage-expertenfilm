@@ -17,8 +17,13 @@ import { cn } from "@/lib/utils"
 
 export type VideoSliderItem = {
   title: string
-  videoUrl: string
-  thumbnail: string
+  videoUrl?: string
+  thumbnail?: string
+  /**
+   * Direkt nutzbar für BunnyStream Embed-URLs, z. B.:
+   * https://iframe.mediadelivery.net/embed/{libraryId}/{videoId}
+   */
+  embedUrl?: string
 }
 
 export type VideoSliderProps = {
@@ -137,6 +142,7 @@ function SlideVideo({
   }, [])
 
   const progress = duration > 0 ? currentTime / duration : 0
+  const isEmbed = Boolean(slide.embedUrl)
 
   return (
     <div
@@ -145,20 +151,31 @@ function SlideVideo({
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
-      <video
-        ref={videoRef}
-        className="absolute inset-0 h-full w-full object-cover"
-        src={slide.videoUrl}
-        poster={slide.thumbnail}
-        playsInline
-        muted={muted}
-        preload="metadata"
-        onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
-        onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
-        onPlay={() => setPlaying(true)}
-        onPause={() => setPlaying(false)}
-        onClick={togglePlay}
-      />
+      {isEmbed ? (
+        <iframe
+          className="absolute inset-0 h-full w-full"
+          src={slide.embedUrl}
+          title={slide.title}
+          loading="lazy"
+          allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+          allowFullScreen
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover"
+          src={slide.videoUrl}
+          poster={slide.thumbnail}
+          playsInline
+          muted={muted}
+          preload="metadata"
+          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          onLoadedMetadata={(e) => setDuration(e.currentTarget.duration)}
+          onPlay={() => setPlaying(true)}
+          onPause={() => setPlaying(false)}
+          onClick={togglePlay}
+        />
+      )}
 
       <div
         className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/30"
@@ -176,7 +193,7 @@ function SlideVideo({
         </p>
       </div>
 
-      {(!playing || hovering) && (
+      {!isEmbed && (!playing || hovering) && (
         <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
           <button
             type="button"
@@ -196,90 +213,92 @@ function SlideVideo({
         </div>
       )}
 
-      <div
-        className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent px-3 pb-3 pt-10 md:px-4 md:pb-4"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="flex items-center gap-2 md:gap-3">
-          <button
-            type="button"
-            onClick={togglePlay}
-            className="shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10"
-            aria-label={playing ? "Pause" : "Abspielen"}
-          >
-            {playing ? (
-              <Pause className="h-5 w-5" strokeWidth={1.5} />
-            ) : (
-              <Play className="h-5 w-5" strokeWidth={1.5} />
-            )}
-          </button>
+      {!isEmbed && (
+        <div
+          className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent px-3 pb-3 pt-10 md:px-4 md:pb-4"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center gap-2 md:gap-3">
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10"
+              aria-label={playing ? "Pause" : "Abspielen"}
+            >
+              {playing ? (
+                <Pause className="h-5 w-5" strokeWidth={1.5} />
+              ) : (
+                <Play className="h-5 w-5" strokeWidth={1.5} />
+              )}
+            </button>
 
-          <div
-            ref={progressTrackRef}
-            role="slider"
-            tabIndex={0}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            aria-valuenow={Math.round(progress * 100)}
-            className="relative h-1.5 min-w-0 flex-1 cursor-pointer rounded-full bg-white/20"
-            onPointerDown={onProgressPointerDown}
-            onPointerMove={onProgressPointerMove}
-            onPointerUp={onProgressPointerUp}
-            onPointerCancel={onProgressPointerUp}
-            onKeyDown={(e) => {
-              const v = videoRef.current
-              if (!v || !duration) return
-              if (e.key === "ArrowLeft") {
-                e.preventDefault()
-                v.currentTime = Math.max(0, v.currentTime - 5)
-              }
-              if (e.key === "ArrowRight") {
-                e.preventDefault()
-                v.currentTime = Math.min(duration, v.currentTime + 5)
-              }
-            }}
-          >
             <div
-              className="absolute inset-y-0 left-0 rounded-full bg-red-500"
-              style={{ width: `${progress * 100}%` }}
-            />
+              ref={progressTrackRef}
+              role="slider"
+              tabIndex={0}
+              aria-valuemin={0}
+              aria-valuemax={100}
+              aria-valuenow={Math.round(progress * 100)}
+              className="relative h-1.5 min-w-0 flex-1 cursor-pointer rounded-full bg-white/20"
+              onPointerDown={onProgressPointerDown}
+              onPointerMove={onProgressPointerMove}
+              onPointerUp={onProgressPointerUp}
+              onPointerCancel={onProgressPointerUp}
+              onKeyDown={(e) => {
+                const v = videoRef.current
+                if (!v || !duration) return
+                if (e.key === "ArrowLeft") {
+                  e.preventDefault()
+                  v.currentTime = Math.max(0, v.currentTime - 5)
+                }
+                if (e.key === "ArrowRight") {
+                  e.preventDefault()
+                  v.currentTime = Math.min(duration, v.currentTime + 5)
+                }
+              }}
+            >
+              <div
+                className="absolute inset-y-0 left-0 rounded-full bg-red-500"
+                style={{ width: `${progress * 100}%` }}
+              />
+            </div>
+
+            <span className="shrink-0 tabular-nums text-xs text-white/90 md:text-sm">
+              {formatTime(currentTime)}
+            </span>
+
+            <button
+              type="button"
+              onClick={toggleMute}
+              className="hidden shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10 sm:block"
+              aria-label={muted ? "Ton einschalten" : "Ton stummschalten"}
+            >
+              {muted ? (
+                <VolumeX className="h-5 w-5" strokeWidth={1.5} />
+              ) : (
+                <Volume2 className="h-5 w-5" strokeWidth={1.5} />
+              )}
+            </button>
+
+            <button
+              type="button"
+              className="hidden shrink-0 rounded-md p-1.5 text-white/80 transition hover:bg-white/10 md:block"
+              aria-label="Weitere Optionen"
+            >
+              <MoreHorizontal className="h-5 w-5" strokeWidth={1.5} />
+            </button>
+
+            <button
+              type="button"
+              onClick={toggleFullscreen}
+              className="shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10"
+              aria-label="Vollbild"
+            >
+              <Maximize2 className="h-5 w-5" strokeWidth={1.5} />
+            </button>
           </div>
-
-          <span className="shrink-0 tabular-nums text-xs text-white/90 md:text-sm">
-            {formatTime(currentTime)}
-          </span>
-
-          <button
-            type="button"
-            onClick={toggleMute}
-            className="hidden shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10 sm:block"
-            aria-label={muted ? "Ton einschalten" : "Ton stummschalten"}
-          >
-            {muted ? (
-              <VolumeX className="h-5 w-5" strokeWidth={1.5} />
-            ) : (
-              <Volume2 className="h-5 w-5" strokeWidth={1.5} />
-            )}
-          </button>
-
-          <button
-            type="button"
-            className="hidden shrink-0 rounded-md p-1.5 text-white/80 transition hover:bg-white/10 md:block"
-            aria-label="Weitere Optionen"
-          >
-            <MoreHorizontal className="h-5 w-5" strokeWidth={1.5} />
-          </button>
-
-          <button
-            type="button"
-            onClick={toggleFullscreen}
-            className="shrink-0 rounded-md p-1.5 text-white transition hover:bg-white/10"
-            aria-label="Vollbild"
-          >
-            <Maximize2 className="h-5 w-5" strokeWidth={1.5} />
-          </button>
         </div>
-      </div>
+      )}
     </div>
   )
 }

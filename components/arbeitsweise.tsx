@@ -8,22 +8,22 @@ import {
 const arbeitsweiseVideos: VideoSliderItem[] = [
   {
     title: "Live am Set",
-    videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/5bc0261f-4989-46b7-870c-4ec25999bb3f?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
-      "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=1280&q=80&auto=format&fit=crop",
+      "https://vz-617e21d0-8be.b-cdn.net/5bc0261f-4989-46b7-870c-4ec25999bb3f/thumbnail_2551535b.jpg",
   },
   {
-    title: "Dreh & Licht",
+    title: "Gym",
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "https://player.mediadelivery.net/embed/614528/703ea5ab-6eec-443c-a94a-f41287bd999b?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1280&q=80&auto=format&fit=crop",
   },
   {
-    title: "Postproduktion",
+    title: "Testo Bäckerei",
     videoUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+      "https://player.mediadelivery.net/embed/614528/a99ee103-7608-4811-a0dd-570c08dd0ef5?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=1280&q=80&auto=format&fit=crop",
   },
