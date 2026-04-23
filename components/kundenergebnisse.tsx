@@ -151,9 +151,9 @@ const projektHighlightSlides: VideoContentSlide[] = [
     title: "Beamtenfinanzen2go",
     category: "Finanzberatung",
     embedUrl:
-      "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
+      "https://player.mediadelivery.net/embed/614528/76e2671a-1ce2-4e9d-91e0-a7b06fa15dab?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
-      "https://images.unsplash.com/photo-1508700929628-666bc8bd84ea?w=800&q=80&auto=format&fit=crop",
+      "https://vz-617e21d0-8be.b-cdn.net/76e2671a-1ce2-4e9d-91e0-a7b06fa15dab/thumbnail_11773693.jpg",
     points: [
       "Sichtbarkeit in der lokalen Zielgruppe war zersplittert und schwer erklärbar",
       "Mit stimmigen Kurzvideos und klaren Hooks haben wir Aufmerksamkeit und Buchungen gesteigert",
