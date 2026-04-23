@@ -55,10 +55,10 @@ const fallstudienSlides: KundenergebnisSlide[] = [
 ]
 
 const kundenstimmenVideo = {
-  videoUrl:
-    "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
+  embedUrl:
+    "https://player.mediadelivery.net/embed/614528/c4143c81-d2a0-4a7f-be23-bdf6e39974c2?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
   poster:
-    "https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=1280&q=80&auto=format&fit=crop",
+    "https://vz-617e21d0-8be.b-cdn.net/c4143c81-d2a0-4a7f-be23-bdf6e39974c2/thumbnail_dd9a6d13.jpg",
 }
 
 const weitereTestimonialsSlides: VideoContentSlide[] = [
@@ -201,7 +201,7 @@ export function Kundenergebnisse() {
           </p>
           <div className="-mx-4 md:mx-0">
             <VideoPlayer
-              videoUrl={kundenstimmenVideo.videoUrl}
+              embedUrl={kundenstimmenVideo.embedUrl}
               poster={kundenstimmenVideo.poster}
               mutedByDefault
               playAriaLabel="Abspielen"
