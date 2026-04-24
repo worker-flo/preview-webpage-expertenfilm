@@ -1,7 +1,10 @@
 'use client'
 
 import * as React from 'react'
+import useEmblaCarousel from 'embla-carousel-react'
 import {
+  ChevronLeft,
+  ChevronRight,
   Maximize2,
   MoreHorizontal,
   Pause,
@@ -323,26 +326,81 @@ export function VideobeispieleKundenprojekteGrid({
 }: {
   items: VideobeispielKundeItem[]
 }) {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' })
+
+  const scrollPrev = React.useCallback(() => {
+    emblaApi?.scrollPrev()
+  }, [emblaApi])
+
+  const scrollNext = React.useCallback(() => {
+    emblaApi?.scrollNext()
+  }, [emblaApi])
+
   return (
-    <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
-      {items.map((item) => (
-        <article
-          key={item.title}
-          className="rounded-2xl border border-white/10 bg-slate-800/50 p-6 shadow-lg backdrop-blur-sm md:p-8"
-        >
-          <VideobeispielKartePlayer
-            videoUrl={item.videoUrl}
-            poster={item.poster}
-            embedUrl={item.embedUrl}
-          />
-          <h4 className="mt-4 text-left text-lg font-bold text-white md:mt-5 md:text-xl">
-            {item.title}
-          </h4>
-          <p className="mt-1 text-left text-sm text-white/65 md:text-base">
-            {item.category}
-          </p>
-        </article>
-      ))}
+    <div>
+      <div className="md:hidden">
+        <div className="min-w-0 overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {items.map((item) => (
+              <div key={item.title} className="min-w-0 shrink-0 grow-0 basis-full">
+                <article className="rounded-2xl border border-white/10 bg-slate-800/50 p-6 shadow-lg backdrop-blur-sm">
+                  <VideobeispielKartePlayer
+                    videoUrl={item.videoUrl}
+                    poster={item.poster}
+                    embedUrl={item.embedUrl}
+                  />
+                  <h4 className="mt-4 text-left text-lg font-bold text-white">
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-left text-sm text-white/65">
+                    {item.category}
+                  </p>
+                </article>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-3 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={scrollPrev}
+            className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+            aria-label="Vorheriges Videobeispiel"
+          >
+            <ChevronLeft className="h-8 w-8" strokeWidth={1} />
+          </button>
+          <button
+            type="button"
+            onClick={scrollNext}
+            className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+            aria-label="Naechstes Videobeispiel"
+          >
+            <ChevronRight className="h-8 w-8" strokeWidth={1} />
+          </button>
+        </div>
+      </div>
+
+      <div className="hidden grid-cols-1 gap-6 md:grid md:grid-cols-2 md:gap-8">
+        {items.map((item) => (
+          <article
+            key={item.title}
+            className="rounded-2xl border border-white/10 bg-slate-800/50 p-6 shadow-lg backdrop-blur-sm md:p-8"
+          >
+            <VideobeispielKartePlayer
+              videoUrl={item.videoUrl}
+              poster={item.poster}
+              embedUrl={item.embedUrl}
+            />
+            <h4 className="mt-4 text-left text-lg font-bold text-white md:mt-5 md:text-xl">
+              {item.title}
+            </h4>
+            <p className="mt-1 text-left text-sm text-white/65 md:text-base">
+              {item.category}
+            </p>
+          </article>
+        ))}
+      </div>
     </div>
   )
 }
