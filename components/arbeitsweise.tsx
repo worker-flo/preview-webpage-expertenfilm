@@ -7,13 +7,6 @@ import {
 
 const arbeitsweiseVideos: VideoSliderItem[] = [
   {
-    title: "Live am Set",
-    embedUrl:
-      "https://player.mediadelivery.net/embed/614528/5bc0261f-4989-46b7-870c-4ec25999bb3f?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
-    thumbnail:
-      "https://vz-617e21d0-8be.b-cdn.net/5bc0261f-4989-46b7-870c-4ec25999bb3f/thumbnail_2551535b.jpg",
-  },
-  {
     title: "Gym",
     embedUrl:
       "https://player.mediadelivery.net/embed/614528/703ea5ab-6eec-443c-a94a-f41287bd999b?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
@@ -87,22 +80,61 @@ export function Arbeitsweise() {
           <div className="rounded-3xl  py-14 text-center font-sans text-white md:py-20">
             <div className="px-4 sm:px-6 md:px-10 lg:px-16">
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
-                Wie wir arbeiten:
+                So sieht ein typischer Arbeitstag aus:
               </h3>
-              <p className="mx-auto mt-5 max-w-3xl text-base leading-relaxed text-white md:text-lg">
-                Wir haben die Kamera ausnahmsweise einmal auf uns gerichtet und
-                zeigen Ihnen hier, wie ein typischer Produktionstag aussehen
-                kann:
-              </p>
             </div>
-            <div className="mx-auto mt-10 w-full max-w-6xl md:mt-14 md:px-6 lg:px-10">
-              <VideoSlider
-                slides={arbeitsweiseVideos}
-                slideTopLabel="Wie ein Dreh abläuft:"
-                previousAriaLabel="Vorheriges Video"
-                nextAriaLabel="Nächstes Video"
-                mutedByDefault={false}
-              />
+
+            <div className="mx-auto mt-5 grid w-full max-w-6xl grid-cols-1 gap-8 px-4 text-left md:mt-14 md:items-start md:gap-10 md:px-6 lg:px-10">
+              <div>
+                <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-white md:text-lg">
+                  Wir haben die Kamera ausnahmsweise einmal auf uns gerichtet und
+                  zeigen Ihnen hier, wie ein typischer Produktionstag aussehen
+                  kann:
+                </p>
+              </div>
+
+              <div className="md:hidden">
+                <VideoSlider
+                  slides={arbeitsweiseVideos}
+                  slideTopLabel="Wie ein Dreh abläuft:"
+                  previousAriaLabel="Vorheriges Video"
+                  nextAriaLabel="Nächstes Video"
+                  mutedByDefault={false}
+                />
+              </div>
+
+              <div className="hidden md:grid md:grid-cols-2 gap-8 w-full">
+                {arbeitsweiseVideos.map((video, index) => (
+                  <article
+                    key={`${video.title}-${index}`}
+                    className="relative overflow-hidden rounded-2xl bg-black ring-1 ring-white/10"
+                  >
+                    <div className="pointer-events-none absolute left-4 top-4 z-10">
+                      <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80">
+                        Wie ein Dreh abläuft:
+                      </p>
+                      <p className="mt-1 text-xl font-bold uppercase leading-none tracking-tight text-white">
+                        {video.title}
+                      </p>
+                    </div>
+
+                    <div className="relative aspect-video w-full">
+                      <iframe
+                        className="absolute inset-0 h-full w-full"
+                        src={video.embedUrl}
+                        title={video.title}
+                        loading="lazy"
+                        allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                        allowFullScreen
+                      />
+                      <div
+                        className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-black/25"
+                        aria-hidden
+                      />
+                    </div>
+                  </article>
+                ))}
+              </div>
             </div>
           </div>
         </div>
