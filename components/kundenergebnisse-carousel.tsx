@@ -310,7 +310,7 @@ function FallstudieCard({
 
   return (
     <article
-      className="mx-auto flex h-full w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-3 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-5 md:p-10"
+      className="mx-auto flex h-full w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-3 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-10 md:p-10"
     >
       <header className="mb-3 flex items-center gap-2.5 md:mb-4">
         <ClientMark />
@@ -413,7 +413,7 @@ export function KundenergebnisseCarousel({
   }, [emblaApi])
 
   return (
-    <div className="relative w-full">
+    <div className="relative w-full px-3 pb-4 sm:px-4 md:px-0 md:pb-0">
       <button
         type="button"
         onClick={scrollPrev}
@@ -432,25 +432,7 @@ export function KundenergebnisseCarousel({
         <ChevronRight className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
       </button>
 
-      <button
-        type="button"
-        onClick={scrollPrev}
-        className="absolute left-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label="Vorherige Fallstudie"
-      >
-        <ChevronLeft className="h-10 w-10" strokeWidth={1} />
-      </button>
-
-      <button
-        type="button"
-        onClick={scrollNext}
-        className="absolute right-2 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label="Nächste Fallstudie"
-      >
-        <ChevronRight className="h-10 w-10" strokeWidth={1} />
-      </button>
-
-      <div className="min-w-0 overflow-hidden px-0 sm:px-1 md:px-4" ref={emblaRef}>
+      <div className="min-w-0 overflow-hidden px-0 md:px-4" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
             <div
@@ -464,6 +446,25 @@ export function KundenergebnisseCarousel({
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="mt-3 flex items-center justify-center gap-3 md:hidden">
+        <button
+          type="button"
+          onClick={scrollPrev}
+          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+          aria-label="Vorherige Fallstudie"
+        >
+          <ChevronLeft className="h-8 w-8" strokeWidth={1} />
+        </button>
+        <button
+          type="button"
+          onClick={scrollNext}
+          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+          aria-label="Nächste Fallstudie"
+        >
+          <ChevronRight className="h-8 w-8" strokeWidth={1} />
+        </button>
       </div>
     </div>
   )
