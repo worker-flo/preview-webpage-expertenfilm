@@ -1,4 +1,8 @@
+ "use client"
+
+import { useState } from "react"
 import { Camera, ClipboardCheck, Handshake } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion"
 
 import { KontaktCta } from "@/components/buttons"
 import { ImageGridSlider, type ImageGridSlide } from "@/components/asset-components/slider-image_grid"
@@ -105,6 +109,8 @@ const impressionenSlides: ImageGridSlide[] = [
 ]
 
 export function Produktion() {
+  const [activeImage, setActiveImage] = useState<(typeof BENTO_IMAGES)[number] | null>(null)
+
   return (
     <section
       id="einblicke"
@@ -149,51 +155,76 @@ export function Produktion() {
 
           <div className="min-h-0 min-w-0">
             <div className="grid h-[min(520px,70vh)] grid-cols-2 grid-rows-6 gap-3 sm:h-[min(580px,72vh)] sm:gap-4 md:h-[min(640px,75vh)] md:gap-5">
-              <div className="relative col-start-1 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 md:rounded-3xl">
+              <button
+                type="button"
+                onClick={() => setActiveImage(BENTO_IMAGES[0])}
+                className="cursor-pointer relative col-start-1 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+                aria-label={`${BENTO_IMAGES[0].alt} vergroessern`}
+              >
                 <img
                   src={BENTO_IMAGES[0].src}
                   alt={BENTO_IMAGES[0].alt}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
-              <div className="relative col-start-2 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 md:rounded-3xl">
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveImage(BENTO_IMAGES[1])}
+                className="cursor-pointer relative col-start-2 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+                aria-label={`${BENTO_IMAGES[1].alt} vergroessern`}
+              >
                 <img
                   src={BENTO_IMAGES[1].src}
                   alt={BENTO_IMAGES[1].alt}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
-              <div className="relative col-span-2 row-span-2 row-start-3 overflow-hidden rounded-2xl ring-1 ring-white/10 md:rounded-3xl">
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveImage(BENTO_IMAGES[2])}
+                className="cursor-pointer relative col-span-2 row-span-2 row-start-3 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+                aria-label={`${BENTO_IMAGES[2].alt} vergroessern`}
+              >
                 <img
                   src={BENTO_IMAGES[2].src}
                   alt={BENTO_IMAGES[2].alt}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
-              <div className="relative col-start-1 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 md:rounded-3xl">
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveImage(BENTO_IMAGES[3])}
+                className="cursor-pointer relative col-start-1 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+                aria-label={`${BENTO_IMAGES[3].alt} vergroessern`}
+              >
                 <img
                   src={BENTO_IMAGES[3].src}
                   alt={BENTO_IMAGES[3].alt}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
-              <div className="relative col-start-2 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 md:rounded-3xl">
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveImage(BENTO_IMAGES[4])}
+                className="cursor-pointer relative col-start-2 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+                aria-label={`${BENTO_IMAGES[4].alt} vergroessern`}
+              >
                 <img
                   src={BENTO_IMAGES[4].src}
                   alt={BENTO_IMAGES[4].alt}
                   className="h-full w-full object-cover"
                   loading="lazy"
                 />
-              </div>
+              </button>
             </div>
           </div>
         </div>
 
-        <div className="mt-20 pt-20 md:mt-24 md:pt-24">
+        <div className="mt-12 pt-10 md:mt-16 md:pt-14">
           <ImageGridSlider
             slides={impressionenSlides}
             title="Impressionen aus der Produktion"
@@ -204,11 +235,52 @@ export function Produktion() {
                 </span>
               </>
             }
+            cardAspectClassName="aspect-[16/10]"
+            containerClassName="max-w-5xl mx-auto"
             prevAriaLabel="Vorherige Impressionen"
             nextAriaLabel="Nächste Impressionen"
           />
         </div>
       </div>
+
+      <AnimatePresence>
+        {activeImage ? (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4"
+            onClick={() => setActiveImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Bild vergroessert"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+          >
+            <motion.button
+              type="button"
+              className="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1.5 text-sm text-white transition hover:bg-black/80"
+              onClick={() => setActiveImage(null)}
+              aria-label="Bild schliessen"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              Schliessen
+            </motion.button>
+            <motion.img
+              src={activeImage.src}
+              alt={activeImage.alt}
+              className="max-h-[90vh] w-auto max-w-[95vw] rounded-2xl object-contain ring-1 ring-white/20"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+            />
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </section>
   )
 }

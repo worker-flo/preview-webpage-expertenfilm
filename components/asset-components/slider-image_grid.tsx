@@ -3,6 +3,7 @@
 import type { ReactNode } from "react"
 import * as React from "react"
 import useEmblaCarousel from "embla-carousel-react"
+import { AnimatePresence, motion } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -41,29 +42,34 @@ function SlideGrid({
   columns,
   cardAspectClassName,
   imageClassName,
+  onImageClick,
 }: {
   images: ImageItem[]
   columns: 2 | 3 | 4
   cardAspectClassName: string
   imageClassName?: string
+  onImageClick: (image: ImageItem) => void
 }) {
   return (
     <div className={cn("grid gap-2 sm:gap-4 md:gap-6", getGridColsClass(columns))}>
       {images.map((img) => (
-        <div
+        <button
+          type="button"
           key={`${img.src}-${img.alt}`}
+          onClick={() => onImageClick(img)}
           className={cn(
-            "relative overflow-hidden rounded-2xl ring-1 ring-white/10",
+            "relative overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
             cardAspectClassName,
           )}
+          aria-label={`${img.alt} vergroessern`}
         >
           <img
             src={img.src}
             alt={img.alt}
-            className={cn("h-full w-full object-cover", imageClassName)}
+            className={cn("h-full w-full object-cover cursor-pointer", imageClassName)}
             loading="lazy"
           />
-        </div>
+        </button>
       ))}
     </div>
   )
@@ -83,6 +89,7 @@ export function ImageGridSlider({
   nextAriaLabel = "Nächste Bilder",
 }: ImageGridSliderProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" })
+  const [activeImage, setActiveImage] = React.useState<ImageItem | null>(null)
 
   const scrollPrev = React.useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
   const scrollNext = React.useCallback(() => emblaApi?.scrollNext(), [emblaApi])
@@ -125,24 +132,6 @@ export function ImageGridSlider({
           <ChevronRight className="h-11 w-11 md:h-12 md:w-12" strokeWidth={1} />
         </button>
 
-        <button
-          type="button"
-          onClick={scrollPrev}
-          className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm lg:hidden"
-          aria-label={prevAriaLabel}
-        >
-          <ChevronLeft className="h-9 w-9" strokeWidth={1} />
-        </button>
-
-        <button
-          type="button"
-          onClick={scrollNext}
-          className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm lg:hidden"
-          aria-label={nextAriaLabel}
-        >
-          <ChevronRight className="h-9 w-9" strokeWidth={1} />
-        </button>
-
         <div className="min-w-0 overflow-hidden px-1 sm:px-2" ref={emblaRef}>
           <div className="flex">
             {slides.map((slide, index) => (
@@ -158,12 +147,71 @@ export function ImageGridSlider({
                   columns={columns}
                   cardAspectClassName={cardAspectClassName}
                   imageClassName={imageClassName}
+                  onImageClick={setActiveImage}
                 />
               </div>
             ))}
           </div>
         </div>
       </div>
+
+      <div className="mt-3 flex items-center justify-center gap-3 lg:hidden">
+        <button
+          type="button"
+          onClick={scrollPrev}
+          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+          aria-label={prevAriaLabel}
+        >
+          <ChevronLeft className="h-9 w-9" strokeWidth={1} />
+        </button>
+        <button
+          type="button"
+          onClick={scrollNext}
+          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+          aria-label={nextAriaLabel}
+        >
+          <ChevronRight className="h-9 w-9" strokeWidth={1} />
+        </button>
+      </div>
+
+      <AnimatePresence>
+        {activeImage ? (
+          <motion.div
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4"
+            onClick={() => setActiveImage(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Bild vergroessert"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22, ease: "easeOut" }}
+          >
+            <motion.button
+              type="button"
+              className="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1.5 text-sm text-white transition hover:bg-black/80"
+              onClick={() => setActiveImage(null)}
+              aria-label="Bild schliessen"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -6 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              Schliessen
+            </motion.button>
+            <motion.img
+              src={activeImage.src}
+              alt={activeImage.alt}
+              className="max-h-[90vh] w-auto max-w-[95vw] rounded-2xl object-contain ring-1 ring-white/20"
+              onClick={(e) => e.stopPropagation()}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.24, ease: "easeOut" }}
+            />
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   )
 }
