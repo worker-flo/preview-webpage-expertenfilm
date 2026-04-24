@@ -147,7 +147,7 @@ function FallstudieVideo({
   return (
     <div
       ref={shellRef}
-      className="relative aspect-[16/8.5] w-full overflow-hidden rounded-2xl bg-black ring-1 ring-white/10 md:aspect-[16/8]"
+      className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black ring-1 ring-white/10"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -309,7 +309,7 @@ function FallstudieCard({
 
   return (
     <article
-      className="mx-auto flex w-full max-w-4xl flex-col gap-2 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-4 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-6 md:p-7"
+      className="mx-auto flex w-full flex-col gap-2 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-4 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-6 md:p-7"
     >
       <header className="mb-3 flex items-center gap-2.5 md:mb-4">
         <ClientMark />
@@ -461,7 +461,7 @@ export function KundenergebnisseCarousel({
         </div>
       </div>
 
-      <div className="hidden items-center md:grid md:grid-cols-3 md:gap-3 md:px-4 lg:gap-4 lg:px-6">
+      <div className="mx-auto hidden w-full max-w-[1700px] items-center md:grid md:grid-cols-2 md:gap-4 md:px-4 xl:grid-cols-3 xl:gap-5 xl:px-6">
         {slides.slice(0, 3).map((slide, index) => (
           <FallstudieCard
             key={`${slide.clientName}-desktop-${index}`}

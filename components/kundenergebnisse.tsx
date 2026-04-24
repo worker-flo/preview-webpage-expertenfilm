@@ -199,7 +199,7 @@ export function Kundenergebnisse() {
       id="kundenergebnisse"
       className="py-16 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-4 md:px-8">
+      <div className="mx-auto max-w-[80vw] px-4 md:px-8">
         <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
           <span className="block">Ergebnisse, Projekte & Fallstudien</span>
           <span className="mt-1 block md:mt-2">
@@ -214,7 +214,7 @@ export function Kundenergebnisse() {
           Anforderungen finden wir für Sie die passende Lösung.
         </p>
 
-        <div className="mx-auto mt-12 flex w-full max-w-6xl justify-center md:mt-16 lg:mt-20">
+        <div className="mx-auto mt-12 flex w-fulljustify-center md:mt-16 lg:mt-20">
           <div className="flex w-full justify-center px-0 md:px-2 lg:px-4">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
           </div>
