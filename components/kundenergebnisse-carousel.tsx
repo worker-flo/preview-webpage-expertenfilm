@@ -5,6 +5,7 @@ import useEmblaCarousel from 'embla-carousel-react'
 import {
   ArrowUp,
   Check,
+  ChevronDown,
   ChevronLeft,
   ChevronRight,
   Maximize2,
@@ -146,7 +147,7 @@ function FallstudieVideo({
   return (
     <div
       ref={shellRef}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black ring-1 ring-white/10"
+      className="relative aspect-[16/8.5] w-full overflow-hidden rounded-2xl bg-black ring-1 ring-white/10 md:aspect-[16/8]"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -300,50 +301,86 @@ function FallstudieCard({
   slide: KundenergebnisSlide
   isActive: boolean
 }) {
+  const [isExpanded, setIsExpanded] = React.useState(false)
+  const detailsId = React.useId()
+
+  React.useEffect(() => {
+    if (!isActive) setIsExpanded(false)
+  }, [isActive])
+
   return (
     <article
-      className="mx-auto w-full max-w-5xl rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-5 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-8 md:p-10 lg:p-12"
+      className="mx-auto flex h-full w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-3 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-5 md:p-10"
     >
-      <header className="mb-6 flex items-center gap-3 md:mb-8">
+      <header className="mb-3 flex items-center gap-2.5 md:mb-4">
         <ClientMark />
-        <h3 className="text-lg font-bold text-white md:text-xl">
+        <h3 className="text-base font-bold text-white md:text-lg">
           {slide.clientName}
         </h3>
       </header>
 
-      <FallstudieVideo slide={slide} isActive={isActive} />
-
-      <div className="mt-8 grid gap-8 text-white md:mt-10 md:grid-cols-2 md:gap-10 lg:gap-12">
-        <div>
-          <h4 className="mb-3 text-base font-bold md:text-lg">Herausforderung</h4>
-          <p className="text-sm leading-relaxed text-white/90 md:text-base">
-            {slide.herausforderung}
-          </p>
-        </div>
-        <div>
-          <h4 className="mb-3 text-base font-bold md:text-lg">Lösungen</h4>
-          <p className="text-sm leading-relaxed text-white/90 md:text-base">
-            {slide.loesungen}
-          </p>
-        </div>
+      <div className="shrink-0">
+        <FallstudieVideo slide={slide} isActive={isActive} />
       </div>
 
-      <div className="mt-8 border-t border-white/10 pt-8 md:mt-10 md:pt-10">
-        <h4 className="mb-4 text-base font-bold text-white md:text-lg">
-          Ergebnisse
-        </h4>
-        <ul className="space-y-3 md:space-y-4">
-          {slide.ergebnisse.map((line, i) => (
-            <li key={i} className="flex gap-3 text-sm text-white md:text-base">
-              <ArrowUp
-                className="mt-0.5 h-4 w-4 shrink-0 text-white"
-                strokeWidth={2}
-                aria-hidden
-              />
-              <span className="leading-relaxed">{line}</span>
-            </li>
-          ))}
-        </ul>
+      <button
+        type="button"
+        onClick={() => setIsExpanded((prev) => !prev)}
+        className="mt-3 inline-flex items-center justify-center gap-2 self-start rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-white/10 md:text-sm"
+        aria-expanded={isExpanded}
+        aria-controls={detailsId}
+      >
+        {isExpanded ? 'Details ausblenden' : 'Details anzeigen'}
+        <ChevronDown
+          className={`h-4 w-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`}
+          aria-hidden
+        />
+      </button>
+
+      <div
+        id={detailsId}
+        className={`grid overflow-hidden transition-all duration-300 ease-out ${
+          isExpanded
+            ? 'mt-4 grid-rows-[1fr] opacity-100'
+            : 'mt-0 grid-rows-[0fr] opacity-0'
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <div className="grid gap-4 text-white md:grid-cols-2 md:gap-5">
+            <div>
+              <h4 className="mb-1.5 text-sm font-bold md:text-base">Herausforderung</h4>
+              <p className="text-xs leading-relaxed text-white/90 md:text-sm [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden">
+                {slide.herausforderung}
+              </p>
+            </div>
+            <div>
+              <h4 className="mb-1.5 text-sm font-bold md:text-base">Lösungen</h4>
+              <p className="text-xs leading-relaxed text-white/90 md:text-sm [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden">
+                {slide.loesungen}
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-4 border-t border-white/10 pt-4 md:mt-5 md:pt-5">
+            <h4 className="mb-2 text-sm font-bold text-white md:text-base">
+              Ergebnisse
+            </h4>
+            <ul className="space-y-2 md:space-y-2.5">
+              {slide.ergebnisse.slice(0, 3).map((line, i) => (
+                <li key={i} className="flex gap-2 text-xs text-white md:text-sm">
+                  <ArrowUp
+                    className="mt-0.5 h-3.5 w-3.5 shrink-0 text-white"
+                    strokeWidth={2}
+                    aria-hidden
+                  />
+                  <span className="leading-relaxed [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] overflow-hidden">
+                    {line}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </article>
   )

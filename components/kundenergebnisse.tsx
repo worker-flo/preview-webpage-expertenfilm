@@ -26,9 +26,9 @@ const fallstudienSlides: KundenergebnisSlide[] = [
       "https://vz-617e21d0-8be.b-cdn.net/82237e3f-b23a-4535-a312-d06f479c9f59/thumbnail_0c2c50d7.jpg",
     videoCaption: "Kundenerfahrung: beamtenfinanzen2go",
     herausforderung:
-      "Das Team wollte mehr qualifizierte Anfragen aus dem Online-Kanal, hatte aber wenig Kapazität für manuelle Kampagnenpflege. Bestehende Inhalte wirkten austauschbar, der Funnel war nicht messbar ausgebaut.",
+      "Als Experte für Beamtenfinanzen lag der Fokus von Geschäftsführer Clemens voll auf der Kundenberatung. Die Aufgabe war es, eine Lösung zu finden, die maximal entlastet und gleichzeitig eine verlässliche Quelle für neue Kunden erschließt.",
     loesungen:
-      "Wir haben eine klare Positionierung und ein skalierbares Content- & Ads-Setup umgesetzt: wiederkehrende Creatives, klare Landingpages und Automatisierungen entlang der Customer Journey. So ließen sich Tests schneller auswerten und Budget gezielt auf funktionierende Hooks lenken.",
+      "Wir haben die strategische Planung übernommen, verkaufsstarke Skripte entwickelt und alles an einem Produktionstag untergebracht. Durch die anschließende Kampagnenausspielung generierten wir 110 Leads in unter zwei Monaten. Diese waren fast durchwegs qualifziert und kaufbereit.",
     ergebnisse: [
       "110 Neukundenanfragen in unter 2 Monaten",
       "Enorme Zeitersparnis",
