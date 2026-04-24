@@ -223,23 +223,28 @@ export function Kundenergebnisse() {
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-4 md:px-8">
-          <h3 className="mb-4 text-center text-3xl font-bold text-white">
-            Ungefilterte Kundenstimmen aus 3 Jahren Arbeit in einem Video:
-          </h3>
-          <p className="mx-auto mb-12 max-w-3xl text-center text-lg font-light text-white/90">
-            Im folgendem Video haben wir komplett ungeskriptete und ungefilterte
-            Kundenstimmen & Reaktionen zusammengestellt.
-          </p>
-          <div className="-mx-4 md:mx-0">
-            <VideoPlayer
-              embedUrl={kundenstimmenVideo.embedUrl}
-              poster={kundenstimmenVideo.poster}
-              mutedByDefault
-              playAriaLabel="Abspielen"
-              pauseAriaLabel="Pause"
-              fullscreenAriaLabel="Vollbild"
-              optionsAriaLabel="Weitere Optionen"
-            />
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-12">
+            <div className="text-left">
+              <h3 className="mb-4 text-3xl font-bold text-white md:text-4xl">
+                Ungefilterte Kundenstimmen aus 3 Jahren Arbeit
+              </h3>
+              <p className="mb-5 text-base leading-relaxed text-white/90 md:text-lg">
+                In diesem Video sehen Sie echte, ungeskriptete Reaktionen unserer
+                Kundinnen und Kunden direkt aus der Zusammenarbeit.
+              </p>
+            </div>
+
+            <div className="mx-0">
+              <VideoPlayer
+                embedUrl={kundenstimmenVideo.embedUrl}
+                poster={kundenstimmenVideo.poster}
+                mutedByDefault
+                playAriaLabel="Abspielen"
+                pauseAriaLabel="Pause"
+                fullscreenAriaLabel="Vollbild"
+                optionsAriaLabel="Weitere Optionen"
+              />
+            </div>
           </div>
         </div>
       </div>
