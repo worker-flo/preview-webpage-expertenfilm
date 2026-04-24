@@ -3,13 +3,14 @@
 import { useRef } from "react"
 import { useEffect, useState } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { BarChart3, Bot, Clapperboard, Megaphone, Target } from "lucide-react"
+import { BarChart3, Bot, Clapperboard, Megaphone, Search, Target, UsersRound } from "lucide-react"
 
 import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
 
 const steps = [
   {
     icon: BarChart3,
+    animated: true,
     title: "1. Zielgruppenanalyse",
     description:
       "Bevor es losgeht, definieren wir Ihre Zielgruppe glasklar. So entstehen Inhalte, die echte Aufmerksamkeit erzeugen und Vertrauen aufbauen.",
@@ -37,6 +38,41 @@ const steps = [
     title: "5. Skalierung - gewinnen & wachsen",
     description:
       "Was funktioniert, wird systematisch skaliert. So entsteht ein planbarer Prozess für nachhaltige Anfragen und stabiles Wachstum.",
+  },
+]
+
+function AudienceAnalysisIcon({ iconSizeClass, lensSizeClass }: { iconSizeClass: string; lensSizeClass: string }) {
+  return (
+    <div className="relative flex items-center justify-center">
+      <UsersRound className={`${iconSizeClass} text-[#00ffc4] stroke-[1.9]`} />
+
+      <motion.div
+        className="absolute right-1"
+        animate={{ x: [0, 10, 0], y: [0, -10, 0]}}
+        transition={{ duration: 3, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
+      >
+        <Search className={`${lensSizeClass} text-[#00ffc4] stroke-[3.5]`} />
+      </motion.div>
+    </div>
+  )
+}
+
+const iconAnimations = [
+  {
+    animate: {scale: [1, 1.14, 1]},
+    transition: { duration: 1.9, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as const },
+  },
+  {
+    animate: { rotate: [0, 12, 0], scale: [1, 1.1, 1] },
+    transition: { duration: 1.8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as const },
+  },
+  {
+    animate: { scale: [1, 1.15, 1], opacity: [1, 0.88, 1] },
+    transition: { duration: 1.7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as const },
+  },
+  {
+    animate: { scale: [1, 1.16, 1]},
+    transition: { duration: 1.85, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" as const },
   },
 ]
 
@@ -125,12 +161,30 @@ export function Prozess() {
                     }}
                     className="hidden md:flex absolute left-0 top-8 w-14 h-14 rounded-xl border border-white/15 bg-[#0a0d3a]/75 backdrop-blur-md items-center justify-center"
                   >
-                    <step.icon className="w-7 h-7 text-[#00ffc4] stroke-[1.8]" />
+                    {step.animated ? (
+                      <AudienceAnalysisIcon iconSizeClass="w-7 h-7 text-white/75" lensSizeClass="w-5 h-5 text-[#00ffc4]" />
+                    ) : (
+                      <motion.div
+                        animate={iconAnimations[index - 1]?.animate}
+                        transition={iconAnimations[index - 1]?.transition}
+                      >
+                        <step.icon className="w-7 h-7 text-[#00ffc4] stroke-[1.8]" />
+                      </motion.div>
+                    )}
                   </div>
 
                   <div className="h-full rounded-2xl border border-white/10 bg-[#121739]/60 backdrop-blur-md p-6 md:p-8">
                     <div className="md:hidden mb-4 w-12 h-12 rounded-lg border border-white/15 bg-[#0a0d3a]/70 flex items-center justify-center">
-                      <step.icon className="w-6 h-6 text-[#00ffc4] stroke-[1.8]" />
+                      {step.animated ? (
+                        <AudienceAnalysisIcon iconSizeClass="w-6 h-6" lensSizeClass="w-3 h-3" />
+                      ) : (
+                        <motion.div
+                          animate={iconAnimations[index - 1]?.animate}
+                          transition={iconAnimations[index - 1]?.transition}
+                        >
+                          <step.icon className="w-6 h-6 text-[#00ffc4] stroke-[1.8]" />
+                        </motion.div>
+                      )}
                     </div>
 
                     <h3 className="text-white text-lg md:text-xl font-semibold mb-3">{step.title}</h3>
