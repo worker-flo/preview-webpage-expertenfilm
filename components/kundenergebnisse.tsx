@@ -24,7 +24,7 @@ const fallstudienSlides: KundenergebnisSlide[] = [
       "https://player.mediadelivery.net/embed/614528/82237e3f-b23a-4535-a312-d06f479c9f59?autoplay=false&loop=false&muted=false&preload=false&responsive=true4",
     thumbnail:
       "https://vz-617e21d0-8be.b-cdn.net/82237e3f-b23a-4535-a312-d06f479c9f59/thumbnail_0c2c50d7.jpg",
-    videoCaption: "Kundenerfahrung: beamtenfinanzen2go",
+    videoCaption: "",
     herausforderung:
       "Als Experte für Beamtenfinanzen lag der Fokus von Geschäftsführer Clemens voll auf der Kundenberatung. Die Aufgabe war es, eine Lösung zu finden, die maximal entlastet und gleichzeitig eine verlässliche Quelle für neue Kunden erschließt.",
     loesungen:
