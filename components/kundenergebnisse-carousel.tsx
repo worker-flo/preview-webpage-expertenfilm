@@ -297,24 +297,23 @@ function FallstudieVideo({
 function FallstudieCard({
   slide,
   isActive,
+  isExpanded,
+  onToggle,
 }: {
   slide: KundenergebnisSlide
   isActive: boolean
+  isExpanded: boolean
+  onToggle: () => void
 }) {
-  const [isExpanded, setIsExpanded] = React.useState(false)
   const detailsId = React.useId()
-
-  React.useEffect(() => {
-    if (!isActive) setIsExpanded(false)
-  }, [isActive])
 
   return (
     <article
-      className="mx-auto flex h-full w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-3 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-10 md:p-10"
+      className="mx-auto flex w-full max-w-4xl flex-col gap-2 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-4 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-6 md:p-7"
     >
       <header className="mb-3 flex items-center gap-2.5 md:mb-4">
         <ClientMark />
-        <h3 className="text-base font-bold text-white md:text-lg">
+        <h3 className="text-base font-bold text-white md:text-xl">
           {slide.clientName}
         </h3>
       </header>
@@ -325,7 +324,7 @@ function FallstudieCard({
 
       <button
         type="button"
-        onClick={() => setIsExpanded((prev) => !prev)}
+        onClick={onToggle}
         className="mt-3 inline-flex items-center justify-center gap-2 self-start rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-white/10 md:text-sm"
         aria-expanded={isExpanded}
         aria-controls={detailsId}
@@ -346,7 +345,7 @@ function FallstudieCard({
         }`}
       >
         <div className="min-h-0 overflow-hidden">
-          <div className="grid gap-4 text-white md:grid-cols-2 md:gap-5">
+          <div className="flex flex-col gap-4 text-white md:grid-cols-1 md:gap-5">
             <div>
               <h4 className="mb-1.5 text-sm font-bold md:text-base">Herausforderung</h4>
               <p className="text-xs leading-relaxed text-white/90 md:text-sm [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:4] overflow-hidden">
@@ -393,6 +392,8 @@ export function KundenergebnisseCarousel({
 }) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center' })
   const [selected, setSelected] = React.useState(0)
+  const [expandedMobileIndices, setExpandedMobileIndices] = React.useState<number[]>([])
+  const [expandedDesktopIndices, setExpandedDesktopIndices] = React.useState<number[]>([])
 
   const scrollPrev = React.useCallback(() => {
     emblaApi?.scrollPrev()
@@ -413,58 +414,70 @@ export function KundenergebnisseCarousel({
   }, [emblaApi])
 
   return (
-    <div className="relative w-full px-3 pb-4 sm:px-4 md:px-0 md:pb-0">
-      <button
-        type="button"
-        onClick={scrollPrev}
-        className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 p-2 text-white/90 transition hover:text-white md:flex md:-translate-x-full"
-        aria-label="Vorherige Fallstudie"
-      >
-        <ChevronLeft className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
-      </button>
+    <div className="w-full">
+      <div className="relative px-3 pb-4 sm:px-4 md:hidden">
+        <div className="min-w-0 overflow-hidden px-0" ref={emblaRef}>
+          <div className="flex">
+            {slides.map((slide, index) => (
+              <div
+                key={`${slide.clientName}-${index}`}
+                className="min-w-0 shrink-0 grow-0 basis-full px-0 sm:px-2"
+              >
+                <FallstudieCard
+                  slide={slide}
+                  isActive={selected === index}
+                  isExpanded={expandedMobileIndices.includes(index)}
+                  onToggle={() => {
+                    setExpandedMobileIndices((prev) => {
+                      if (prev.includes(index)) {
+                        return prev.filter((i) => i !== index)
+                      }
+                      return [...prev, index]
+                    })
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
-      <button
-        type="button"
-        onClick={scrollNext}
-        className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 translate-x-1/2 p-2 text-white/90 transition hover:text-white md:flex md:translate-x-full"
-        aria-label="Nächste Fallstudie"
-      >
-        <ChevronRight className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
-      </button>
-
-      <div className="min-w-0 overflow-hidden px-0 md:px-4" ref={emblaRef}>
-        <div className="flex">
-          {slides.map((slide, index) => (
-            <div
-              key={`${slide.clientName}-${index}`}
-              className="min-w-0 shrink-0 grow-0 basis-full px-0 sm:px-2 md:px-3"
-            >
-              <FallstudieCard
-                slide={slide}
-                isActive={selected === index}
-              />
-            </div>
-          ))}
+        <div className="mt-3 flex items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={scrollPrev}
+            className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+            aria-label="Vorherige Fallstudie"
+          >
+            <ChevronLeft className="h-8 w-8" strokeWidth={1} />
+          </button>
+          <button
+            type="button"
+            onClick={scrollNext}
+            className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+            aria-label="Nächste Fallstudie"
+          >
+            <ChevronRight className="h-8 w-8" strokeWidth={1} />
+          </button>
         </div>
       </div>
 
-      <div className="mt-3 flex items-center justify-center gap-3 md:hidden">
-        <button
-          type="button"
-          onClick={scrollPrev}
-          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
-          aria-label="Vorherige Fallstudie"
-        >
-          <ChevronLeft className="h-8 w-8" strokeWidth={1} />
-        </button>
-        <button
-          type="button"
-          onClick={scrollNext}
-          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
-          aria-label="Nächste Fallstudie"
-        >
-          <ChevronRight className="h-8 w-8" strokeWidth={1} />
-        </button>
+      <div className="hidden items-center md:grid md:grid-cols-3 md:gap-3 md:px-4 lg:gap-4 lg:px-6">
+        {slides.slice(0, 3).map((slide, index) => (
+          <FallstudieCard
+            key={`${slide.clientName}-desktop-${index}`}
+            slide={slide}
+            isActive
+            isExpanded={expandedDesktopIndices.includes(index)}
+            onToggle={() => {
+              setExpandedDesktopIndices((prev) => {
+                if (prev.includes(index)) {
+                  return prev.filter((i) => i !== index)
+                }
+                return [...prev, index]
+              })
+            }}
+          />
+        ))}
       </div>
     </div>
   )

@@ -41,7 +41,7 @@ const fallstudienSlides: KundenergebnisSlide[] = [
       "https://player.mediadelivery.net/embed/614528/4e02229f-ae65-45fd-97dc-85541cb0957b?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://vz-617e21d0-8be.b-cdn.net/4e02229f-ae65-45fd-97dc-85541cb0957b/thumbnail_f6d4ee4b.jpg",
-    videoCaption: "Kundenerfahrung: RegionalPartner",
+    videoCaption: "",
     herausforderung:
       "Lokale Sichtbarkeit war gut, digitale Leadqualität schwankte stark. Es fehlte ein roter Faden von erstem Kontakt bis Terminbuchung.",
     loesungen:
@@ -50,6 +50,23 @@ const fallstudienSlides: KundenergebnisSlide[] = [
       "Konstanter Zufluss qualifizierter Termine",
       "Kürzere Sales-Zyklen durch bessere Vorqualifizierung",
       "Wiederverwendbare Videovarianten für mehrere Kanäle",
+    ],
+  },
+  {
+    clientName: "Placeholder",
+    videoUrl:
+      "https://vz-617e21d0-8be.b-cdn.net/placeholder.mp4",
+    thumbnail:
+      "https://vz-617e21d0-8be.b-cdn.net/placeholder.jpg",
+    videoCaption: "",
+    herausforderung:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    loesungen:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+    ergebnisse: [
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
     ],
   },
 ]
@@ -197,8 +214,8 @@ export function Kundenergebnisse() {
           Anforderungen finden wir für Sie die passende Lösung.
         </p>
 
-        <div className="mx-auto mt-12 w-full max-w-6xl md:mt-16 lg:mt-20">
-          <div className="-mx-4 md:mx-0 md:px-2 lg:px-4">
+        <div className="mx-auto mt-12 flex w-full max-w-6xl justify-center md:mt-16 lg:mt-20">
+          <div className="flex w-full justify-center px-0 md:px-2 lg:px-4">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
           </div>
         </div>
