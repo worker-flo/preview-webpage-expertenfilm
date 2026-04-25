@@ -63,7 +63,7 @@ const SERVICES = [
       </>
     ),
     gridClass:
-      "md:col-start-3 md:row-span-2 md:row-start-1 md:min-h-[min(22rem,52vh)]",
+      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)]",
   },
   {
     key: "lead-qualification",

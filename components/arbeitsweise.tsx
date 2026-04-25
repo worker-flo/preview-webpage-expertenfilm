@@ -46,16 +46,16 @@ const leistungen = [
 export function Arbeitsweise() {
   return (
     <section id="arbeitsweise" className="bg-transparent py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+      <div className="mx-auto max-w-6cl px-5 md:px-8">
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-14">
             Unsere Arbeitsweise
         </h2>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto md:grid-cols-3">
           {leistungen.map((item, index) => (
             <article
               key={index}
-              className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] md:p-8"
+              className="mx-auto group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] md:p-8"
             >
               
 
