@@ -266,7 +266,7 @@ export function Kundenergebnisse() {
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
         <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <h3 className="text-center text-3xl font-medium text-white md:text-4xl">
+          <h3 className="text-center text-2xl font-bold text-white md:text-3xl">
             Videobeispiele aus Kundenprojekten
           </h3>
           <p className="mx-auto mt-4 max-w-3xl text-center text-base text-white/75 md:mt-5 md:text-lg">
