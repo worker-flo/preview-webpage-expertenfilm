@@ -116,7 +116,7 @@ export function Produktion() {
       id="einblicke"
       className="border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
           <div className="min-w-0">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-4xl">

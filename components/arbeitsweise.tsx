@@ -46,7 +46,7 @@ const leistungen = [
 export function Arbeitsweise() {
   return (
     <section id="arbeitsweise" className="bg-transparent py-20 md:py-28">
-      <div className="max-w-6xl mx-auto px-4 md:px-8">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-14">
             Unsere Arbeitsweise
         </h2>
@@ -78,13 +78,13 @@ export function Arbeitsweise() {
 
         <div>
           <div className="rounded-3xl  py-14 text-center font-sans text-white md:py-20">
-            <div className="px-4 sm:px-6 md:px-10 lg:px-16">
+            <div className="px-5 sm:px-6 md:px-10 lg:px-16">
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
                 So sieht ein typischer Arbeitstag aus:
               </h3>
             </div>
 
-            <div className="mx-auto mt-5 grid w-full max-w-6xl grid-cols-1 gap-8 px-4 text-left md:mt-14 md:items-start md:gap-10 md:px-6 lg:px-10">
+            <div className="mx-auto mt-5 grid w-full max-w-6xl grid-cols-1 gap-8 px-5 text-left md:mt-14 md:items-start md:gap-10 md:px-6 lg:px-10">
               <div>
                 <p className="mx-auto max-w-3xl text-center text-base leading-relaxed text-white md:text-lg">
                   Wir haben die Kamera ausnahmsweise einmal auf uns gerichtet und

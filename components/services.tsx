@@ -63,7 +63,7 @@ const services: ServiceSlide[] = [
 export function Services() {
   return (
     <section id="services" className="mt-10 border-t border-white/10 py-20 ">
-      <div className="container mx-auto px-6 md:max-w-3xl sm:max-w-md">
+      <div className="container mx-auto px-5 sm:max-w-md sm:px-6 md:max-w-3xl">
         {/* Section Title */}
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16">
           Unsere Services:

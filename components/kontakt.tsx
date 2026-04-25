@@ -31,7 +31,7 @@ export function Kontakt() {
       id="kontakt"
       className="border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <h2 className="text-center md:text-left text-3xl font-bold tracking-tight text-white md:text-4xl">
           Gemeinsam durchstarten!
         </h2>

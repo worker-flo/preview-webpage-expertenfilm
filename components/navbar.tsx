@@ -96,8 +96,8 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav className="sticky top-0 z-50 px-3 pt-5 md:px-6">
-      <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/10 bg-[#0a0d3a]/80 px-6 backdrop-blur-md">
+    <nav className="sticky top-0 z-50 px-4 pt-5 sm:px-5 md:px-6">
+      <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/10 bg-[#0a0d3a]/80 px-5 backdrop-blur-md sm:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/#" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">

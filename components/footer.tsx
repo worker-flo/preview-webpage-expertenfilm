@@ -46,7 +46,7 @@ const CONTACT = {
 export function Footer() {
   return (
     <footer className="mt-50 border-t border-white/10 pt-16 pb-10 font-sans md:pt-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)_minmax(0,21rem)] lg:items-start lg:gap-10 xl:gap-16">
           <div className="flex flex-col sm:max-lg:max-w-xl sm:max-lg:mx-auto sm:max-lg:w-full lg:mx-0">
             <Link

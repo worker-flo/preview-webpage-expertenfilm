@@ -199,7 +199,7 @@ export function Kundenergebnisse() {
       id="kundenergebnisse"
       className="py-16 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-[80vw] px-4 md:px-8">
+      <div className="mx-auto max-w-[80vw] px-5 md:px-8">
         <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
           <span className="block">Ergebnisse, Projekte & Fallstudien</span>
           <span className="mt-1 block md:mt-2">
@@ -220,7 +220,7 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-12">
             <div className="text-left">
               <h3 className="mb-4 text-3xl font-bold text-white md:text-4xl">
@@ -248,7 +248,7 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
           <h3 className="mb-10 text-center text-2xl font-bold text-white md:mb-12 md:text-3xl">
             Weitere Testimonials:
           </h3>
@@ -265,7 +265,7 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
           <h3 className="text-center text-3xl font-medium text-white md:text-4xl">
             Videobeispiele aus Kundenprojekten
           </h3>
@@ -280,7 +280,7 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-4 md:px-8">
+        <div className="mx-auto max-w-6xl px-5 md:px-8">
           <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
             <VideoContentSlider
               slides={projektHighlightSlides}
@@ -296,7 +296,7 @@ export function Kundenergebnisse() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-6xl px-4 md:px-8">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
         <div className="mx-auto mt-12 flex max-w-4xl flex-col items-center justify-center gap-8 border-t border-white/10 pt-12 md:mt-16 md:flex-row md:items-stretch md:gap-10 md:pt-16 lg:mt-20 lg:gap-14 lg:pt-20">
           <Link
             href="/#kontakt"

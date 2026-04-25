@@ -56,7 +56,7 @@ export function Herausforderungen() {
   }
 
   return (
-    <section id="herausforderungen" className="bg-transparent py-20 px-4 md:px-8">
+    <section id="herausforderungen" className="bg-transparent px-5 py-20 md:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

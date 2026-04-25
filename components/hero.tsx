@@ -74,7 +74,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-6 pt-32 pb-20">
+      <div className="relative z-10 container mx-auto px-5 pt-32 pb-20 sm:px-6">
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center mt-8 md:mt-16">
           {/* Headline */}
