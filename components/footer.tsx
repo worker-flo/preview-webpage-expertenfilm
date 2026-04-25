@@ -154,7 +154,7 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="flex w-full max-w-sm flex-col gap-3 lg:max-w-none">
+            <div className="flex items-end w-full max-w-sm flex-col gap-3 lg:max-w-none">
               <KontaktCta variant="footer" />
               <KundenergebnisseCta variant="footer" />
               <PortfolioCta variant="footer" />

@@ -56,7 +56,7 @@ export function KontaktCta({
       <Link
         href={href}
         className={cn(
-          "group inline-flex w-fit max-w-full items-center justify-between gap-3 rounded-xl border border-slate-800 bg-[#050b14]/80 px-4 py-3 transition-colors hover:border-slate-600 hover:bg-[#0a1420]/90",
+          "group relative inline-flex gap-4 w-fit max-w-full items-center justify-center rounded-xl border border-[#5b62e5]/50 bg-[#0a0d3a]/60 px-6 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80",
           className,
         )}
       >
@@ -67,7 +67,7 @@ export function KontaktCta({
           </p>
         </div>
         <MessageSquare
-          className="h-7 w-7 shrink-0 text-cyan-400"
+          className="h-7 w-7 shrink-0 text-[#00ffc4]"
           strokeWidth={1.5}
           aria-hidden
         />
