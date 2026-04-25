@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link"
 import {
   Smartphone,
@@ -14,8 +16,12 @@ import {
   Laptop,
   TextSearch,
 } from "lucide-react"
+import {
+  ServicesSlider,
+  type ServiceSlide,
+} from "@/components/asset-components/slider-services"
 
-const services = [
+const services: ServiceSlide[] = [
   {
     icon: Smartphone,
     title: "Social Media Marketing mit KI-Power",
@@ -57,18 +63,66 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="mt-10 border-t border-white/10 py-20 ">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 md:max-w-3xl sm:max-w-md">
         {/* Section Title */}
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16">
           Unsere Services:
         </h2>
 
-        {/* Service Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
+        <div className="mx-auto max-w-sm sm:hidden">
+          <div className="grid grid-cols-1 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group relative bg-[#1a1d3a]/80 border border-[#2a2d4a] rounded-2xl p-8 flex flex-col items-center transition duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:shadow-[0_14px_40px_rgba(0,0,0,0.35)]"
+              >
+                {/* Icon */}
+                <div className="mb-6">
+                  <service.icon className="w-12 h-12 text-[#5b8def] stroke-[1.5]" />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-white text-lg md:text-xl font-bold mb-6 leading-tight">
+                  {service.title}
+                </h3>
+
+                {/* Features */}
+                <div className="flex flex-1 flex-col gap-4">
+                  {service.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-start gap-3">
+                      <feature.icon className="w-5 h-5 text-white/60 mt-0.5 flex-shrink-0" />
+                      <span className="text-white/70 text-sm leading-relaxed">
+                        {feature.text}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-auto pt-7">
+                  <Link
+                    href={service.href}
+                    className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#8daeff] group-focus-within:text-[#8daeff] focus-visible:text-[#8daeff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8daeff]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1d3a] after:absolute after:inset-0 after:content-['']"
+                  >
+                    <span className="relative z-10 inline-flex items-center gap-2">
+                      Mehr erfahren
+                      <ArrowRight className="h-4 w-4" aria-hidden />
+                    </span>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="hidden sm:block md:hidden sm:mx-auto sm:max-w-6xl">
+          <ServicesSlider slides={services} />
+        </div>
+
+        <div className="mx-auto hidden max-w-6xl grid-cols-2 gap-6 md:grid">
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-[#1a1d3a]/80 border border-[#2a2d4a] rounded-2xl p-8 flex flex-col transition duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:shadow-[0_14px_40px_rgba(0,0,0,0.35)]"
+              className="group relative bg-[#1a1d3a]/80 border border-[#2a2d4a] rounded-2xl p-8 flex flex-col items-center transition duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:shadow-[0_14px_40px_rgba(0,0,0,0.35)]"
             >
               {/* Icon */}
               <div className="mb-6">

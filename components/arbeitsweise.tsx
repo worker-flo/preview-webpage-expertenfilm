@@ -65,7 +65,7 @@ export function Arbeitsweise() {
                 </div>
               </div>
 
-              <h3 className="mb-4 min-w-0 break-words text-3xl font-semibold leading-tight text-white [overflow-wrap:anywhere] [hyphens:auto] md:text-4xl">
+              <h3 className="mb-4 min-w-0 break-words text-1xl font-semibold leading-tight text-white [overflow-wrap:anywhere] [hyphens:auto] md:text-xl">
                 {item.title}
               </h3>
 

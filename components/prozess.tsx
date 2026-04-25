@@ -124,7 +124,7 @@ export function Prozess() {
 
   return (
     <section id="prozess" className="bg-transparent py-20 md:py-28">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-5xl mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-14">
           <div className="lg:sticky lg:top-[30%] text-center h-fit">
             <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">

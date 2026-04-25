@@ -214,10 +214,8 @@ export function Kundenergebnisse() {
           Anforderungen finden wir für Sie die passende Lösung.
         </p>
 
-        <div className="mx-auto mt-12 flex w-fulljustify-center md:mt-16 lg:mt-20">
-          <div className="flex w-full justify-center px-0 md:px-2 lg:px-4">
+        <div className="mx-auto mt-12 flex  w-fulljustify-center md:mt-16 lg:mt-20">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
-          </div>
         </div>
       </div>
 
