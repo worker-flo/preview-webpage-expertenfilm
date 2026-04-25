@@ -54,7 +54,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "group mt-10 flex w-full items-center justify-between gap-4 rounded-xl border border-slate-800 bg-[#050b18]/80 px-5 py-4 transition-colors hover:border-teal-500/25 hover:bg-[#0a1228]/90 lg:mt-auto",
+          "group mt-10 inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-xl border border-slate-800 bg-[#050b18]/80 px-5 py-4 transition-colors hover:border-teal-500/25 hover:bg-[#0a1228]/90 lg:mt-auto",
           className,
         )}
       >
@@ -76,7 +76,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "group flex w-full items-center justify-between gap-3 rounded-xl border border-slate-800 bg-[#050b14]/80 px-4 py-3 transition-colors hover:border-slate-600 hover:bg-[#0a1420]/90",
+          "group inline-flex w-fit max-w-full items-center justify-between gap-3 rounded-xl border border-slate-800 bg-[#050b14]/80 px-4 py-3 transition-colors hover:border-slate-600 hover:bg-[#0a1420]/90",
           className,
         )}
       >
@@ -100,7 +100,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "group border border-[#5b62e5]/50 bg-[#0a0d3a]/65 rounded-xl px-5 py-4 text-left transition-all duration-300 hover:border-[#00ffc4]/60",
+          "group inline-flex w-fit max-w-full border border-[#5b62e5]/50 bg-[#0a0d3a]/65 rounded-xl px-5 py-4 text-left transition-all duration-300 hover:border-[#00ffc4]/60",
           className,
         )}
       >
@@ -122,7 +122,7 @@ export function KundenergebnisseCta({
     <Link
       href={href}
       className={cn(
-        "group relative rounded-xl border border-[#5b62e5]/50 bg-[#0a0d3a]/60 px-6 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80",
+        "group relative inline-flex w-fit max-w-full rounded-xl border border-[#5b62e5]/50 bg-[#0a0d3a]/60 px-6 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80",
         className,
       )}
     >

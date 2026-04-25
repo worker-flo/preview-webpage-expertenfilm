@@ -116,9 +116,9 @@ export function Produktion() {
       id="einblicke"
       className="border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-6xl px-6 sm:px-7 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
-          <div className="min-w-0">
+          <div className="min-w-0 max-w-[65ch]">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-4xl">
               Mehr Einblicke in unsere Produktionstage:
             </h2>
@@ -127,7 +127,7 @@ export function Produktion() {
               Maximale Ausbeute, minimaler Aufwand: Ihr Produktionstag.
             </p>
 
-            <p className="mt-4 text-base leading-relaxed text-slate-300 lg:text-lg">
+            <p className="mt-4 max-w-[65ch] text-base leading-relaxed text-slate-300 lg:text-lg">
               Bevor die Kamera läuft, klären wir Ziele, Locations, Rollen und
               Zeitfenster – so bleibt Ihr Dreh fokussiert, effizient und
               entspannt. Sie erhalten einen durchdachten Ablauf, der Ihr Budget
@@ -140,7 +140,7 @@ export function Produktion() {
                   <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/5 text-white ring-1 ring-white/10">
                     <Icon className="h-5 w-5" strokeWidth={1.75} aria-hidden />
                   </span>
-                  <span className="pt-1.5 text-base font-medium leading-relaxed text-white">
+                  <span className="max-w-[65ch] pt-1.5 text-base font-medium leading-relaxed text-white">
                     {text}
                   </span>
                 </li>
