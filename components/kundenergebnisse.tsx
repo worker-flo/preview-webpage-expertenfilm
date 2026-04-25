@@ -6,7 +6,7 @@ import { KontaktCta } from "@/components/buttons"
 import {
   KundenergebnisseCarousel,
   type KundenergebnisSlide,
-} from "@/components/kundenergebnisse-carousel"
+} from "@/components/asset-components/kundenergebnisse-carousel"
 import { VideoPlayer } from "@/components/asset-components/video-player"
 import {
   VideoContentSlider,
@@ -15,7 +15,7 @@ import {
 import {
   VideobeispieleKundenprojekteGrid,
   type VideobeispielKundeItem,
-} from "@/components/grid-videos-portfolio"
+} from "@/components/asset-components/grid-videos-portfolio"
 
 const fallstudienSlides: KundenergebnisSlide[] = [
   {

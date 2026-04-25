@@ -45,17 +45,17 @@ const leistungen = [
 
 export function Arbeitsweise() {
   return (
-    <section id="leistungen" className="bg-transparent py-20 md:py-28">
+    <section id="arbeitsweise" className="bg-transparent py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-14">
             Unsere Arbeitsweise
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {leistungen.map((item, index) => (
             <article
               key={index}
-              className="group relative flex h-full flex-col rounded-2xl border border-white/10 bg-slate-900/40 p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] md:p-8"
+              className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] md:p-8"
             >
               
 
@@ -65,18 +65,18 @@ export function Arbeitsweise() {
                 </div>
               </div>
 
-              <h3 className="mb-4 text-3xl font-semibold leading-tight text-white md:text-4xl">
+              <h3 className="mb-4 min-w-0 break-words text-3xl font-semibold leading-tight text-white [overflow-wrap:anywhere] [hyphens:auto] md:text-4xl">
                 {item.title}
               </h3>
 
-              <p className="mx-auto mt-auto max-w-xs text-base leading-relaxed text-slate-400">
+              <p className="mx-auto mt-auto min-w-0 max-w-xs break-words text-base leading-relaxed text-slate-400 [overflow-wrap:anywhere] [hyphens:auto]">
                 {item.description}
               </p>
             </article>
           ))}
         </div>
 
-        <div className="mb-20 md:mb-28">
+        <div>
           <div className="rounded-3xl  py-14 text-center font-sans text-white md:py-20">
             <div className="px-4 sm:px-6 md:px-10 lg:px-16">
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
