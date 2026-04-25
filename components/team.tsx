@@ -1,7 +1,9 @@
 'use client'
 
 import * as React from 'react'
+import useEmblaCarousel from "embla-carousel-react"
 import { Plus } from "lucide-react"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -200,6 +202,22 @@ function TeamMemberCard({
 }
 
 export function Team() {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
+  const [selected, setSelected] = React.useState(0)
+
+  const scrollPrev = React.useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
+  const scrollNext = React.useCallback(() => emblaApi?.scrollNext(), [emblaApi])
+
+  React.useEffect(() => {
+    if (!emblaApi) return
+    const onSelect = () => setSelected(emblaApi.selectedScrollSnap())
+    emblaApi.on("select", onSelect)
+    onSelect()
+    return () => {
+      emblaApi.off("select", onSelect)
+    }
+  }, [emblaApi])
+
   return (
     <section
       id="team"
@@ -210,7 +228,45 @@ export function Team() {
           Das Expertenfilm-Team
         </h2>
 
-        <div className="mt-14 grid grid-cols-1 justify-items-center gap-x-8 gap-y-14 sm:mt-16 sm:grid-cols-2 sm:justify-items-stretch lg:mt-20 lg:grid-cols-6 lg:justify-items-stretch lg:gap-x-10 lg:gap-y-16">
+        <div className="mt-12 md:hidden">
+          <div className="min-w-0 overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {TEAM.map((member, index) => (
+                <div
+                  key={`${member.name}-mobile-${index}`}
+                  className="min-w-0 shrink-0 grow-0 basis-full"
+                >
+                  <TeamMemberCard
+                    member={member}
+                    index={index}
+                    isLastSingleRow={false}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-center justify-center gap-3">
+            <button
+              type="button"
+              onClick={scrollPrev}
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-1 text-white/75 transition hover:bg-white/10 hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              aria-label="Vorheriges Teammitglied"
+            >
+              <ChevronLeft className="h-7 w-7" strokeWidth={1} />
+            </button>
+            <button
+              type="button"
+              onClick={scrollNext}
+              className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-1 text-white/75 transition hover:bg-white/10 hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              aria-label="Naechstes Teammitglied"
+            >
+              <ChevronRight className="h-7 w-7" strokeWidth={1} />
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-14 hidden grid-cols-1 justify-items-center gap-x-8 gap-y-14 sm:mt-16 md:grid md:grid-cols-2 md:justify-items-stretch lg:mt-20 lg:grid-cols-6 lg:justify-items-stretch lg:gap-x-10 lg:gap-y-16">
           {TEAM.map((member, index) => (
             <TeamMemberCard
               key={member.name}
