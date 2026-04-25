@@ -365,7 +365,7 @@ export function VideobeispieleKundenprojekteGrid({
           <button
             type="button"
             onClick={scrollPrev}
-            className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+            className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 p-1.5 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             aria-label="Vorheriges Videobeispiel"
           >
             <ChevronLeft className="h-8 w-8" strokeWidth={1} />
@@ -373,7 +373,7 @@ export function VideobeispieleKundenprojekteGrid({
           <button
             type="button"
             onClick={scrollNext}
-            className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+            className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 p-1.5 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             aria-label="Naechstes Videobeispiel"
           >
             <ChevronRight className="h-8 w-8" strokeWidth={1} />

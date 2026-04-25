@@ -156,42 +156,6 @@ export function VertVideoSlider({
 
   return (
     <div className={cn("relative w-full", className)}>
-      <button
-        type="button"
-        onClick={scrollPrev}
-        className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 p-2 text-white/90 transition hover:text-white md:flex md:-translate-x-full"
-        aria-label={previousAriaLabel}
-      >
-        <ChevronLeft className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
-      </button>
-
-      <button
-        type="button"
-        onClick={scrollNext}
-        className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 translate-x-1/2 p-2 text-white/90 transition hover:text-white md:flex md:translate-x-full"
-        aria-label={nextAriaLabel}
-      >
-        <ChevronRight className="h-12 w-12 md:h-14 md:w-14" strokeWidth={1} />
-      </button>
-
-      <button
-        type="button"
-        onClick={scrollPrev}
-        className="absolute left-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label={previousAriaLabel}
-      >
-        <ChevronLeft className="h-10 w-10" strokeWidth={1} />
-      </button>
-
-      <button
-        type="button"
-        onClick={scrollNext}
-        className="absolute right-1 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-1.5 text-white backdrop-blur-sm md:hidden"
-        aria-label={nextAriaLabel}
-      >
-        <ChevronRight className="h-10 w-10" strokeWidth={1} />
-      </button>
-
       <div className="min-w-0 overflow-hidden px-1 md:px-4" ref={emblaRef}>
         <div className="flex">
           {slides.map((slide, index) => (
@@ -209,6 +173,24 @@ export function VertVideoSlider({
             </div>
           ))}
         </div>
+      </div>
+      <div className="mt-4 flex items-center justify-center gap-3 sm:gap-4">
+        <button
+          type="button"
+          onClick={scrollPrev}
+          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 p-1.5 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          aria-label={previousAriaLabel}
+        >
+          <ChevronLeft className="h-10 w-10 md:h-12 md:w-12" strokeWidth={1} />
+        </button>
+        <button
+          type="button"
+          onClick={scrollNext}
+          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 p-1.5 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+          aria-label={nextAriaLabel}
+        >
+          <ChevronRight className="h-10 w-10 md:h-12 md:w-12" strokeWidth={1} />
+        </button>
       </div>
     </div>
   )

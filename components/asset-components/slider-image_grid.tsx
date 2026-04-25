@@ -114,24 +114,6 @@ export function ImageGridSlider({
       ) : null}
 
       <div className={cn("relative mx-auto max-w-5xl", shouldRenderHeader ? "mt-10 md:mt-14" : "")}>
-        <button
-          type="button"
-          onClick={scrollPrev}
-          className="absolute left-0 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 p-2 text-white/90 transition hover:text-white lg:flex lg:-translate-x-full"
-          aria-label={prevAriaLabel}
-        >
-          <ChevronLeft className="h-11 w-11 md:h-12 md:w-12" strokeWidth={1} />
-        </button>
-
-        <button
-          type="button"
-          onClick={scrollNext}
-          className="absolute right-0 top-1/2 z-10 hidden -translate-y-1/2 translate-x-1/2 p-2 text-white/90 transition hover:text-white lg:flex lg:translate-x-full"
-          aria-label={nextAriaLabel}
-        >
-          <ChevronRight className="h-11 w-11 md:h-12 md:w-12" strokeWidth={1} />
-        </button>
-
         <div className="min-w-0 overflow-hidden px-1 sm:px-2" ref={emblaRef}>
           <div className="flex">
             {slides.map((slide, index) => (
@@ -155,22 +137,22 @@ export function ImageGridSlider({
         </div>
       </div>
 
-      <div className="mt-3 flex items-center justify-center gap-3 lg:hidden">
+      <div className="mt-4 flex items-center justify-center gap-3 sm:gap-4">
         <button
           type="button"
           onClick={scrollPrev}
-          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 p-1.5 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           aria-label={prevAriaLabel}
         >
-          <ChevronLeft className="h-9 w-9" strokeWidth={1} />
+          <ChevronLeft className="h-10 w-10 md:h-12 md:w-12" strokeWidth={1} />
         </button>
         <button
           type="button"
           onClick={scrollNext}
-          className="rounded-full bg-black/45 p-1.5 text-white backdrop-blur-sm transition hover:bg-black/60"
+          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 p-1.5 text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
           aria-label={nextAriaLabel}
         >
-          <ChevronRight className="h-9 w-9" strokeWidth={1} />
+          <ChevronRight className="h-10 w-10 md:h-12 md:w-12" strokeWidth={1} />
         </button>
       </div>
 
