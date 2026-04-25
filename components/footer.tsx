@@ -40,7 +40,7 @@ const CONTACT = {
   email: "kontakt@expertenfilm.de",
   emailHref: "mailto:kontakt@expertenfilm.de",
   portraitUrl:
-    "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=160&q=80&auto=format&fit=crop",
+    "images/team/julian_no_bg.png",
 }
 
 export function Footer() {
@@ -55,18 +55,15 @@ export function Footer() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/icon.svg"
+                src="images/logo/logo-white.webp"
                 alt=""
-                width={40}
-                height={40}
-                className="h-10 w-10 shrink-0"
+                width={175}
+                height={70}
+                className="w-[175px] object-contain"
               />
-              <span className="text-lg font-bold uppercase tracking-[0.12em] text-white">
-                EXPERTENFILM
-              </span>
             </Link>
 
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-slate-400 sm:max-lg:mx-auto sm:max-lg:text-center lg:mx-0 lg:text-left">
+            <p className="max-w-md text-sm leading-relaxed text-slate-400 sm:max-lg:mx-auto sm:max-lg:text-center lg:mx-0 lg:text-left">
               {CLAIM}
             </p>
 
