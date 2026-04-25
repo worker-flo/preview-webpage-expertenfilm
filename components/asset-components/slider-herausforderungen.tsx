@@ -50,12 +50,12 @@ export function HerausforderungenSlider({
 
   return (
     <div className="w-full">
-      <div className="min-w-0 overflow-hidden" ref={emblaRef}>
+      <div className="min-w-0 overflow-hidden max-w-2xl mx-auto " ref={emblaRef}>
         <div className="flex">
           {slides.map((challenge, index) => (
             <div
               key={`${challenge.title}-${index}`}
-              className="min-w-0 shrink-0 grow-0 basis-full"
+              className="min-w-0 shrink-0 grow-0 basis-full px-4"
             >
               <button
                 type="button"

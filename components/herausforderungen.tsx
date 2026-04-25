@@ -68,12 +68,12 @@ export function Herausforderungen() {
           </p>
         </div>
 
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <HerausforderungenSlider slides={challenges} />
         </div>
 
         {/* Challenge Cards */}
-        <div className="hidden md:flex flex-wrap gap-8 items-center">
+        <div className="hidden lg:grid lg:grid-cols-3 gap-8 items-center">
           {challenges.map((challenge, index) => (
             <div key={index} className="h-full flex-1">
               {/* Content Card */}
