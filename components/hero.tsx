@@ -1,13 +1,35 @@
 "use client"
 
+import { useState } from "react"
 import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
 
 export function Hero() {
+  const [hoveredSide, setHoveredSide] = useState<"left" | "right" | null>(null)
+
   return (
-    <section className="relative min-h-screen overflow-hidden -top-16">
+    <section
+      className="relative min-h-screen overflow-hidden -top-16"
+      onMouseMove={(event) => {
+        const rect = event.currentTarget.getBoundingClientRect()
+        const relativeX = (event.clientX - rect.left) / rect.width
+
+        if (relativeX < 0.4) {
+          setHoveredSide("left")
+          return
+        }
+
+        if (relativeX > 0.6) {
+          setHoveredSide("right")
+          return
+        }
+
+        setHoveredSide(null)
+      }}
+      onMouseLeave={() => setHoveredSide(null)}
+    >
       {/* Background Network Lines */}
       <div className="absolute inset-0 pointer-events-none">
         <svg
@@ -46,12 +68,14 @@ export function Hero() {
       </div>
 
       {/* Camera Image - Left Side */}
-      <div className="absolute left-0 bottom-0 w-[45%] h-[85%] pointer-events-none overflow-hidden">
+      <div className="pointer-events-none absolute left-0 bottom-0 h-[85%] w-[45%] overflow-hidden">
         <Image
           src="/images/section-hero/camera_and_rig.webp"
           alt="Camera Rig"
           fill
-          className="object-cover opacity-90"
+          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+            hoveredSide === "left" ? "opacity-80" : "opacity-40"
+          }`}
           style={{
             maskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
@@ -60,12 +84,14 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="absolute right-0 bottom-0 w-[45%] h-[85%] pointer-events-none overflow-hidden">
+      <div className="pointer-events-none absolute right-0 bottom-0 h-[85%] w-[45%] overflow-hidden">
         <Image
           src="/images/section-hero/roboter_hand_black_eigenes_logo.webp"
           alt="Robot Hand"
           fill
-          className="object-cover opacity-90"
+          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+            hoveredSide === "right" ? "opacity-80" : "opacity-40"
+          }`}
           style={{
             maskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
             WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
