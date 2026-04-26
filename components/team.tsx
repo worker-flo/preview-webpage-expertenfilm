@@ -162,14 +162,14 @@ function TeamMemberCard({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen((v) => !v)}
-          className="group flex w-full items-center justify-between gap-3 rounded-lg border border-white/20 bg-[#050a14] px-4 py-3 text-left text-white transition-colors duration-200 ease-in-out hover:border-cyan-400/30 hover:bg-[#0a1424]"
+          className="group flex w-full items-center justify-between gap-3 rounded-lg border border-white/20 bg-[#050a14] px-4 py-3 text-left text-white transition-colors duration-200 ease-in-out hover:border-[var(--color-accent-teal)]-400/30 hover:bg-[#0a1424]"
         >
           <span className="text-sm font-medium">
             Über {vorname(member.name)}
           </span>
           <Plus
             className={cn(
-              "h-5 w-5 shrink-0 text-cyan-400 transition-transform duration-200 ease-in-out group-hover:scale-110",
+              "h-5 w-5 shrink-0 text-[var(--color-accent-teal)] transition-transform duration-200 ease-in-out group-hover:scale-110",
               open && "rotate-45",
             )}
             strokeWidth={2.25}
