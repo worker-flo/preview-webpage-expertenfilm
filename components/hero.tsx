@@ -5,13 +5,34 @@ import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
+import { LogoSlider } from "@/components/ui/logo-slider"
 
 export function Hero() {
   const [hoveredSide, setHoveredSide] = useState<"left" | "right" | null>(null)
+  const partnerLogos = [
+    { name: "Bongert Consulting", src: "/images/logos-kunden/bongert_consulting.png", heightClass: "h-14" },
+    { name: "EF Logo Hell", src: "/images/logos-kunden/EF_Logo_hell.png", heightClass: "h-16" },
+    { name: "Haag", src: "/images/logos-kunden/haag.png", heightClass: "h-30" },
+    {
+      name: "Kreiskrankenhaus Greiz Ronneburg",
+      src: "/images/logos-kunden/Kreiskrankenhaus-Greiz-Ronneburg-2023.png",
+      heightClass: "h-14",
+    },
+    {
+      name: "Beamtenfinanzen Weiss",
+      src: "/images/logos-kunden/logo-beamtenfinanzen-wei%C3%9F.png",
+      heightClass: "h-12",
+    },
+    { name: "md2x", src: "/images/logos-kunden/md2x.png", heightClass: "h-10" },
+    { name: "Medaworld", src: "/images/logos-kunden/medaworld-logo.png", heightClass: "h-20" },
+    { name: "Rheincare", src: "/images/logos-kunden/Rheincare.png", heightClass: "h-20" },
+    { name: "Weimarer Land", src: "/images/logos-kunden/weimarer_land.png", heightClass: "h-20" },
+    { name: "wtplus", src: "/images/logos-kunden/wtplus.png", heightClass: "h-20" },
+  ]
 
   return (
     <section
-      className="relative overflow-hidden -top-13"
+      className="relative overflow-hidden -top-20"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         const relativeX = (event.clientX - rect.left) / rect.width
@@ -68,7 +89,7 @@ export function Hero() {
       </div>
 
       {/* Camera Image - Left Side */}
-      <div className="hidden sm:block pointer-events-none absolute -left-10 bottom-15 h-[85%] w-[50svw]">
+      <div className="hidden sm:block pointer-events-none absolute -left-10 top-24 h-[80svh] min-h-[360px] max-h-[680px] w-[50svw]">
         <Image
           src="/images/section-hero/camera_and_rig.webp"
           alt="Camera Rig"
@@ -84,7 +105,7 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="hidden sm:block pointer-events-none absolute right-0 bottom-15 h-[85%] w-[50svw]">
+      <div className="hidden sm:block pointer-events-none absolute right-0 top-24 h-[80svh] min-h-[360px] max-h-[680px] w-[50svw]">
         <Image
           src="/images/section-hero/roboter_hand_extended.webp"
           alt="Robot Hand"
@@ -129,6 +150,10 @@ export function Hero() {
             <KundenergebnisseCta variant="hero" />
           </div>
         </div>
+      </div>
+
+      <div className="mx-auto mt-5 w-full max-w-7xl">
+            <LogoSlider logos={partnerLogos} />
       </div>
 
     </section>
