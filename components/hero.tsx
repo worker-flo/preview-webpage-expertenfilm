@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden -top-16 border-2 border-red-500"
+      className="relative overflow-hidden -top-13"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         const relativeX = (event.clientX - rect.left) / rect.width
@@ -84,7 +84,7 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="hidden sm:block pointer-events-none absolute right-0 border-2 border-red-500 bottom-15 h-[85%] w-[50svw]">
+      <div className="hidden sm:block pointer-events-none absolute right-0 bottom-15 h-[85%] w-[50svw]">
         <Image
           src="/images/section-hero/roboter_hand_extended.webp"
           alt="Robot Hand"
@@ -93,8 +93,12 @@ export function Hero() {
             hoveredSide === "right" ? "opacity-80" : "opacity-40"
           }`}
           style={{
-            maskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, black 60%, transparent 100%)',
+            maskImage:
+              "linear-gradient(to right, black 60%, transparent 100%), radial-gradient(circle at top right, transparent 0%, black 60%)",
+            WebkitMaskImage:
+              "linear-gradient(to right, black 60%, transparent 100%), radial-gradient(circle at top right, transparent 0%, black 60%)",
+            maskComposite: "intersect",
+            WebkitMaskComposite: "source-in",
           }}
         />
       </div>
@@ -105,7 +109,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center mt-8 md:mt-16">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="text-white">Das Beste aus</span>
+            <span className="text-white">Das Beste aus Test</span>
             <br />
             <span className="text-[#00ffc4]">Videoproduktion und KI</span>
             <br />
