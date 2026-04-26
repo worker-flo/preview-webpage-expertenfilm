@@ -76,10 +76,23 @@ const iconAnimations = [
   },
 ]
 
+const iconSizeConfig = {
+  desktop: {
+    container: "h-[4.8rem] w-[4.8rem]",
+    icon: "h-[2.4rem] w-[2.4rem]",
+    lens: "h-[1.8rem] w-[1.8rem]",
+  },
+  mobile: {
+    container: "h-[4.2rem] w-[4.2rem]",
+    icon: "h-[2.1rem] w-[2.1rem]",
+    lens: "h-[1.2rem] w-[1.2rem]",
+  },
+}
+
 export function Prozess() {
   const stepsRef = useRef<HTMLDivElement>(null)
   const iconRefs = useRef<Array<HTMLDivElement | null>>([])
-  const [lineBounds, setLineBounds] = useState({ top: 10, bottom: 60 })
+  const [lineBounds, setLineBounds] = useState({ top: 10, bottom: 60, left: 28 })
 
   useEffect(() => {
     const updateLineBounds = () => {
@@ -95,10 +108,12 @@ export function Prozess() {
 
       const top = firstRect.top - containerRect.top + firstRect.height / 2
       const bottom = containerRect.bottom - (lastRect.top + lastRect.height / 2)
+      const left = firstRect.left - containerRect.left + firstRect.width / 2
 
       setLineBounds({
         top: Math.max(0, top),
         bottom: Math.max(0, bottom),
+        left: Math.max(0, left),
       })
     }
 
@@ -139,13 +154,14 @@ export function Prozess() {
           <div className="relative">
             <div ref={stepsRef} className="relative space-y-8">
               <div
-                className="hidden md:block absolute left-7 w-px bg-white/20"
-                style={{ top: `${lineBounds.top}px`, bottom: `${lineBounds.bottom}px` }}
+                className="hidden md:block absolute w-px bg-white/20"
+                style={{ left: `${lineBounds.left}px`, top: `${lineBounds.top}px`, bottom: `${lineBounds.bottom}px` }}
                 aria-hidden="true"
               />
               <motion.div
-                className="hidden md:block absolute left-7 w-px origin-top bg-[#00ffc3]"
+                className="hidden md:block absolute w-px origin-top bg-[#00ffc3]"
                 style={{
+                  left: `${lineBounds.left}px`,
                   top: `${lineBounds.top}px`,
                   bottom: `${lineBounds.bottom}px`,
                   scaleY: accentLineScaleY,
@@ -154,35 +170,43 @@ export function Prozess() {
               />
 
               {steps.map((step, index) => (
-                <article key={index} className="relative md:pl-20">
+                <article key={index} className="relative md:pl-32">
                   <div
                     ref={(element) => {
                       iconRefs.current[index] = element
                     }}
-                    className="hidden md:flex absolute left-0 top-8 w-14 h-14 rounded-xl border border-white/15 bg-[#0a0d3a]/75 backdrop-blur-md items-center justify-center"
+                    className={`hidden md:flex absolute left-0 top-8 ${iconSizeConfig.desktop.container} rounded-xl border border-white/15 bg-[#0a0d3a]/75 backdrop-blur-md items-center justify-center`}
                   >
                     {step.animated ? (
-                      <AudienceAnalysisIcon iconSizeClass="w-7 h-7 text-white/75" lensSizeClass="w-5 h-5 text-[#00ffc4]" />
+                      <AudienceAnalysisIcon
+                        iconSizeClass={`${iconSizeConfig.desktop.icon} text-white/75`}
+                        lensSizeClass={`${iconSizeConfig.desktop.lens} text-[#00ffc4]`}
+                      />
                     ) : (
                       <motion.div
                         animate={iconAnimations[index - 1]?.animate}
                         transition={iconAnimations[index - 1]?.transition}
                       >
-                        <step.icon className="w-7 h-7 text-[#00ffc4] stroke-[1.8]" />
+                        <step.icon className={`${iconSizeConfig.desktop.icon} text-[#00ffc4] stroke-[1.8]`} />
                       </motion.div>
                     )}
                   </div>
 
                   <div className="h-full rounded-2xl border border-white/10 bg-[#121739]/60 backdrop-blur-md p-6 md:p-8">
-                    <div className="md:hidden mb-4 w-12 h-12 rounded-lg border border-white/15 bg-[#0a0d3a]/70 flex items-center justify-center">
+                    <div
+                      className={`md:hidden mb-4 ${iconSizeConfig.mobile.container} rounded-lg border border-white/15 bg-[#0a0d3a]/70 flex items-center justify-center`}
+                    >
                       {step.animated ? (
-                        <AudienceAnalysisIcon iconSizeClass="w-6 h-6" lensSizeClass="w-3 h-3" />
+                        <AudienceAnalysisIcon
+                          iconSizeClass={iconSizeConfig.mobile.icon}
+                          lensSizeClass={iconSizeConfig.mobile.lens}
+                        />
                       ) : (
                         <motion.div
                           animate={iconAnimations[index - 1]?.animate}
                           transition={iconAnimations[index - 1]?.transition}
                         >
-                          <step.icon className="w-6 h-6 text-[#00ffc4] stroke-[1.8]" />
+                          <step.icon className={`${iconSizeConfig.mobile.icon} text-[#00ffc4] stroke-[1.8]`} />
                         </motion.div>
                       )}
                     </div>
