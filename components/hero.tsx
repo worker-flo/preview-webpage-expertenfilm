@@ -11,7 +11,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative min-h-screen overflow-hidden -top-16"
+      className="relative overflow-hidden -top-16 border-2 border-red-500"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         const relativeX = (event.clientX - rect.left) / rect.width
@@ -68,12 +68,12 @@ export function Hero() {
       </div>
 
       {/* Camera Image - Left Side */}
-      <div className="pointer-events-none absolute left-0 bottom-0 h-[85%] w-[45%] overflow-hidden">
+      <div className="hidden sm:block pointer-events-none absolute -left-10 bottom-15 h-[85%] w-[50svw]">
         <Image
           src="/images/section-hero/camera_and_rig.webp"
           alt="Camera Rig"
           fill
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`object-contain transition-opacity duration-1000 ease-in-out ${
             hoveredSide === "left" ? "opacity-80" : "opacity-40"
           }`}
           style={{
@@ -84,12 +84,12 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="pointer-events-none absolute right-0 bottom-0 h-[85%] w-[45%] overflow-hidden">
+      <div className="hidden sm:block pointer-events-none absolute right-0 border-2 border-red-500 bottom-15 h-[85%] w-[50svw]">
         <Image
-          src="/images/section-hero/roboter_hand_black_eigenes_logo.webp"
+          src="/images/section-hero/roboter_hand_extended.webp"
           alt="Robot Hand"
           fill
-          className={`object-cover transition-opacity duration-1000 ease-in-out ${
+          className={`object-contain  transition-opacity duration-1000 ease-in-out ${
             hoveredSide === "right" ? "opacity-80" : "opacity-40"
           }`}
           style={{
