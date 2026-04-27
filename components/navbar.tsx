@@ -205,7 +205,7 @@ export function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 px-4 pt-5 sm:px-5 md:px-6">
-      <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/10 bg-[#0a0d3a]/80 px-5 backdrop-blur-md sm:px-6">
+      <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/15 bg-[#050a14]/95 px-5 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/#" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
@@ -225,7 +225,7 @@ export function Navbar() {
               <div ref={socialsRef} className="relative flex items-center">
                 <button
                   onClick={() => setIsSocialsOpen(!isSocialsOpen)}
-                  className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
+                  className="cursor-pointer flex items-center gap-1 rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                 >
                   <span
                     className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-180" : "rotate-0"}`}
@@ -236,13 +236,13 @@ export function Navbar() {
                 </button>
 
                 {isSocialsOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-12 w-52 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full left-1/2 mt-12 w-52 -translate-x-1/2 animate-in slide-in-from-top-2 rounded-xl border border-white/15 bg-[#050a14]/95 py-3 shadow-[0_20px_40px_rgba(0,0,0,0.35)] duration-200 fade-in">
                     <nav className="flex flex-col">
                       <a
                         href="https://wa.me/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 flex items-center justify-end gap-3 text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                         aria-label="WhatsApp"
                       >
                         <span>WhatsApp</span>
@@ -252,7 +252,7 @@ export function Navbar() {
                         href="https://instagram.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 flex items-center justify-end gap-3 text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                         aria-label="Instagram"
                       >
                         <span>Instagram</span>
@@ -262,7 +262,7 @@ export function Navbar() {
                         href="https://linkedin.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-6 py-3 flex items-center justify-end gap-3 text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                         aria-label="LinkedIn"
                       >
                         <span>LinkedIn</span>
@@ -278,7 +278,7 @@ export function Navbar() {
               <div ref={servicesRef} className="relative flex items-center">
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
+                  className="cursor-pointer flex items-center gap-1 rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                 >
                   <span
                     className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : "rotate-0"}`}
@@ -289,14 +289,14 @@ export function Navbar() {
                 </button>
 
                 {isServicesOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-12 w-64 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="absolute top-full left-1/2 mt-12 w-64 -translate-x-1/2 animate-in slide-in-from-top-2 rounded-xl border border-white/15 bg-[#050a14]/95 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] duration-200 fade-in">
                     <nav className="flex flex-col">
                       {serviceSubpages.map((service) => (
                         <NavMenuLink
                           key={service.href}
                           href={service.href}
                           onClick={() => setIsServicesOpen(false)}
-                          className="px-6 py-3 text-right text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                          className="px-6 py-3 text-right font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                         >
                           {service.label}
                         </NavMenuLink>
@@ -315,7 +315,7 @@ export function Navbar() {
                 <NavMenuLink
                   key={item.href}
                   href={item.href}
-                  className="text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
+                  className="rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                 >
                   {item.label}
                 </NavMenuLink>
@@ -324,7 +324,7 @@ export function Navbar() {
               <button
                 ref={buttonRef}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="cursor-pointer text-white/90 hover:text-[#00ffc4] transition-all duration-300"
+                className="cursor-pointer p-1 text-white/90 transition-all duration-300 hover:scale-[1.03]"
                 aria-label="Menü öffnen"
                 aria-expanded={isMenuOpen}
               >
@@ -335,7 +335,7 @@ export function Navbar() {
               {isMenuOpen && (
                 <div
                   ref={menuRef}
-                  className="absolute -right-6 mt-12 w-64 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute -right-6 mt-12 w-64 animate-in slide-in-from-top-2 rounded-xl border border-white/15 bg-[#050a14]/95 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] duration-200 fade-in"
                 >
                   <nav className="flex flex-col">
                     {menuItems.map((item, index) => (
@@ -343,7 +343,7 @@ export function Navbar() {
                         key={index}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="px-6 py-3 text-right text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        className="px-6 py-3 text-right font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                       >
                         {item.label}
                       </NavMenuLink>
@@ -390,7 +390,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="sm:hidden text-white"
+            className="smm-btn-icon sm:hidden rounded-full p-1 text-white"
             aria-label="Menü öffnen"
             aria-expanded={isMenuOpen}
           >
@@ -400,14 +400,14 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="sm:hidden mt-4 pt-4 border-t border-white/10 pb-4">
+          <div className="mt-4 border-t border-white/15 pb-4 pt-4 sm:hidden">
             <nav className="flex flex-col">
               {menuItems.map((item, index) => (
                 <NavMenuLink
                   key={index}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="py-3 text-white/90 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                  className="rounded-lg py-3 font-medium text-white/90 transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
                 >
                   {item.label}
                 </NavMenuLink>
