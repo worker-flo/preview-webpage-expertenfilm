@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect, type ReactNode } from "react"
 import Link from "next/link"
-import { Menu, X, ChevronLeft } from "lucide-react"
+import { Menu, X, ChevronDown } from "lucide-react"
 import Image from "next/image"
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -58,7 +58,7 @@ function resolveDesktopQuick(
     return false
   }
 
-  const fallbackOrder: DesktopBreakpoint[] = ["2xl", "xl", "lg", "md"]
+  const fallbackOrder: DesktopBreakpoint[] = ["2xl", "xl", "lg", "md", "sm"]
   const currentIndex = fallbackOrder.indexOf(breakpoint)
   const responsiveOrder = fallbackOrder.slice(currentIndex)
 
@@ -73,16 +73,26 @@ function resolveDesktopQuick(
 }
 
 const socialsDesktop: boolean | Partial<Record<DesktopBreakpoint, boolean>> = {
-  md: true, sm:false
+  lg: true
 }
 
+const servicesDesktop: boolean | Partial<Record<DesktopBreakpoint, boolean>> = {
+  sm:true
+}
+
+const serviceSubpages = [
+  { label: "Social Media Marketing", href: "/social-media-marketing" },
+  { label: "Performance Marketing", href: "/performance-marketing" },
+  { label: "Videoproduktion", href: "/videoproduktion" },
+  { label: "Website Erstellung", href: "/website-erstellung" },
+]
+
 const menuItems: NavMenuItem[] = [
-  { label: "Services", href: "/#services", desktopQuick: { md:false, lg:true } },
   { label: "Ihre Herausforderungen", href: "/#herausforderungen", desktopQuick: false},
   { label: "Der Expertenfilm-Prozess", href: "/#prozess", desktopQuick: false},
-  { label: "Kundenerfolge", href: "/#kundenergebnisse", desktopQuick: { md: true} },
-  { label: "Portfolio", href: "/portfolio", desktopQuick: { md: false, lg:true} },
-  { label: "Videoproduktion", href: "/#einblicke", desktopQuick: { md: true} },
+  { label: "Kundenerfolge", href: "/#kundenergebnisse", desktopQuick: { sm: true} },
+  { label: "Portfolio", href: "/portfolio", desktopQuick: { md: true} },
+  { label: "Videoproduktion", href: "/#einblicke", desktopQuick: { lg: true} },
   { label: "Kontakt", href: "/#kontakt", desktopQuick: { md: false} },
   { label: "Über uns", href: "/#team", desktopQuick: false},
   { label: "Häufig gestellte Fragen", href: "/#faq", desktopQuick: false},
@@ -109,11 +119,13 @@ function NavMenuLink({
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSocialsOpen, setIsSocialsOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [activeDesktopBreakpoint, setActiveDesktopBreakpoint] =
     useState<DesktopBreakpoint | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const socialsRef = useRef<HTMLDivElement>(null)
+  const servicesRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     function getCurrentBreakpoint(): DesktopBreakpoint | null {
@@ -153,6 +165,12 @@ export function Navbar() {
       ) {
         setIsSocialsOpen(false)
       }
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target as Node)
+      ) {
+        setIsServicesOpen(false)
+      }
     }
 
     document.addEventListener("mousedown", handleClickOutside)
@@ -168,12 +186,22 @@ export function Navbar() {
     socialsDesktop,
     activeDesktopBreakpoint
   )
+  const showDesktopServices = resolveDesktopQuick(
+    servicesDesktop,
+    activeDesktopBreakpoint
+  )
 
   useEffect(() => {
     if (!showDesktopSocials && isSocialsOpen) {
       setIsSocialsOpen(false)
     }
   }, [showDesktopSocials, isSocialsOpen])
+
+  useEffect(() => {
+    if (!showDesktopServices && isServicesOpen) {
+      setIsServicesOpen(false)
+    }
+  }, [showDesktopServices, isServicesOpen])
 
   return (
     <nav className="sticky top-0 z-50 px-4 pt-5 sm:px-5 md:px-6">
@@ -191,54 +219,91 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center content-center gap-8">
+          <div className="hidden sm:flex items-center content-center gap-8">
             {/* Socials Dropdown */}
             {showDesktopSocials && (
               <div ref={socialsRef} className="relative flex items-center">
-                <div
-                  className={`flex items-center gap-4 overflow-hidden transition-all duration-300 ease-out ${
-                    isSocialsOpen ? "max-w-[200px] opacity-100 mr-2" : "max-w-0 opacity-0"
-                  }`}
-                >
-                  <a
-                    href="https://wa.me/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#25D366] hover:scale-110 transition-transform duration-200"
-                    aria-label="WhatsApp"
-                  >
-                    <WhatsAppIcon className="w-6 h-6" />
-                  </a>
-                  <a
-                    href="https://instagram.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#E4405F] hover:scale-110 transition-transform duration-200"
-                    aria-label="Instagram"
-                  >
-                    <InstagramIcon className="w-6 h-6" />
-                  </a>
-                  <a
-                    href="https://linkedin.com/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#0A66C2] hover:scale-110 transition-transform duration-200"
-                    aria-label="LinkedIn"
-                  >
-                    <LinkedInIcon className="w-6 h-6" />
-                  </a>
-                </div>
                 <button
                   onClick={() => setIsSocialsOpen(!isSocialsOpen)}
                   className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
                 >
                   <span
-                    className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-0" : "rotate-180"}`}
+                    className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-180" : "rotate-0"}`}
                   >
-                    <ChevronLeft className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4" />
                   </span>
                   Socials
                 </button>
+
+                {isSocialsOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-12 w-52 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-3 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <nav className="flex flex-col">
+                      <a
+                        href="https://wa.me/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 flex items-center justify-end gap-3 text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        aria-label="WhatsApp"
+                      >
+                        <span>WhatsApp</span>
+                        <WhatsAppIcon className="w-5 h-5 text-[#25D366]" />
+                      </a>
+                      <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 flex items-center justify-end gap-3 text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        aria-label="Instagram"
+                      >
+                        <span>Instagram</span>
+                        <InstagramIcon className="w-5 h-5 text-[#E4405F]" />
+                      </a>
+                      <a
+                        href="https://linkedin.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-6 py-3 flex items-center justify-end gap-3 text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        aria-label="LinkedIn"
+                      >
+                        <span>LinkedIn</span>
+                        <LinkedInIcon className="w-5 h-5 text-[#0A66C2]" />
+                      </a>
+                    </nav>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {showDesktopServices && (
+              <div ref={servicesRef} className="relative flex items-center">
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
+                >
+                  <span
+                    className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : "rotate-0"}`}
+                  >
+                    <ChevronDown className="w-4 h-4" />
+                  </span>
+                  Services
+                </button>
+
+                {isServicesOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-12 w-64 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <nav className="flex flex-col">
+                      {serviceSubpages.map((service) => (
+                        <NavMenuLink
+                          key={service.href}
+                          href={service.href}
+                          onClick={() => setIsServicesOpen(false)}
+                          className="px-6 py-3 text-right text-[white] hover:bg-[#0a0d3a]/5 hover:text-[#00ffc4] transition-colors duration-200 font-medium"
+                        >
+                          {service.label}
+                        </NavMenuLink>
+                      ))}
+                    </nav>
+                  </div>
+                )}
               </div>
             )}
 
@@ -255,7 +320,7 @@ export function Navbar() {
                   {item.label}
                 </NavMenuLink>
               ))}
-            <div className="relative mt-1 transition-all duration-300 ease">
+            <div className="relative mt-1 transition-all duration-300">
               <button
                 ref={buttonRef}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -270,7 +335,7 @@ export function Navbar() {
               {isMenuOpen && (
                 <div
                   ref={menuRef}
-                  className="absolute top-full right-0 mt-12 w-64 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
+                  className="absolute -right-6 mt-12 w-64 bg-[#0a0d3a]/80 backdrop-blur-md rounded-xl shadow-xl border border-white/20 py-4 animate-in fade-in slide-in-from-top-2 duration-200"
                 >
                   <nav className="flex flex-col">
                     {menuItems.map((item, index) => (
@@ -283,6 +348,39 @@ export function Navbar() {
                         {item.label}
                       </NavMenuLink>
                     ))}
+                    <div className="mx-6 my-2 h-px bg-white/10" />
+                    <div className="px-6 pt-2 pb-1 flex items-center justify-end gap-4">
+                      <a
+                        href="https://wa.me/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-[#25D366] hover:scale-110 transition-transform duration-200"
+                        aria-label="WhatsApp"
+                      >
+                        <WhatsAppIcon className="w-5 h-5" />
+                      </a>
+                      <a
+                        href="https://instagram.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-[#E4405F] hover:scale-110 transition-transform duration-200"
+                        aria-label="Instagram"
+                      >
+                        <InstagramIcon className="w-5 h-5" />
+                      </a>
+                      <a
+                        href="https://linkedin.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsMenuOpen(false)}
+                        className="text-[#0A66C2] hover:scale-110 transition-transform duration-200"
+                        aria-label="LinkedIn"
+                      >
+                        <LinkedInIcon className="w-5 h-5" />
+                      </a>
+                    </div>
                   </nav>
                 </div>
               )}
@@ -292,7 +390,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden text-white"
+            className="sm:hidden text-white"
             aria-label="Menü öffnen"
             aria-expanded={isMenuOpen}
           >
@@ -302,7 +400,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pt-4 border-t border-white/10 pb-4">
+          <div className="sm:hidden mt-4 pt-4 border-t border-white/10 pb-4">
             <nav className="flex flex-col">
               {menuItems.map((item, index) => (
                 <NavMenuLink
