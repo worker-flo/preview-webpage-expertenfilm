@@ -148,7 +148,7 @@ export function Kontakt() {
               <button
                 type="submit"
                 disabled={!privacyAccepted}
-                className="mt-2 w-full rounded-lg border border-white/25 bg-transparent py-3.5 text-base font-medium text-white transition-colors hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-40"
+                className="smm-btn-surface mt-2 w-full rounded-lg py-3.5 text-base font-medium disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Anfrage absenden
               </button>

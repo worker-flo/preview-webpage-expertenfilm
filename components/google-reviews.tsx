@@ -114,7 +114,7 @@ export function GoogleReviews() {
               href={data.googleMapsUrl}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2 text-sm font-medium text-white transition-colors hover:border-[#00ffc4]/80 hover:text-[#00ffc4]"
+              className="smm-btn-surface inline-flex items-center gap-2 rounded-full px-5 py-2 text-sm font-medium"
             >
               Alle Google-Bewertungen ansehen
               <ExternalLink className="h-4 w-4" aria-hidden />

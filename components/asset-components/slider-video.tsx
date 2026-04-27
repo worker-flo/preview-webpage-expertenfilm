@@ -356,7 +356,7 @@ export function VideoSlider({
         <button
           type="button"
           onClick={scrollPrev}
-          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-1 text-white/75 transition hover:bg-white/10 hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+          className="smm-btn-icon cursor-pointer inline-flex items-center justify-center rounded-full p-1"
           aria-label={previousAriaLabel}
         >
           <ChevronLeft className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1} />
@@ -364,7 +364,7 @@ export function VideoSlider({
         <button
           type="button"
           onClick={scrollNext}
-          className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-1 text-white/75 transition hover:bg-white/10 hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+          className="smm-btn-icon cursor-pointer inline-flex items-center justify-center rounded-full p-1"
           aria-label={nextAriaLabel}
         >
           <ChevronRight className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1} />

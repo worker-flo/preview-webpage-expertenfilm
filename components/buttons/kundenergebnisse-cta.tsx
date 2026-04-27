@@ -54,7 +54,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "group mt-10 inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-xl border border-slate-800 bg-[#050b18]/80 px-5 py-4 transition-colors hover:border-teal-500/25 hover:bg-[#0a1228]/90 lg:mt-auto",
+          "smm-btn-surface group mt-10 inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-xl px-5 py-4 lg:mt-auto",
           className,
         )}
       >
@@ -63,7 +63,7 @@ export function KundenergebnisseCta({
           <p className="mt-1 text-sm text-slate-400">{resolvedDescription}</p>
         </div>
         <ArrowUpRight
-          className="h-8 w-8 shrink-0 text-teal-400 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+          className="h-8 w-8 shrink-0 text-[#00ffc4] transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
           strokeWidth={1.75}
           aria-hidden
         />
@@ -76,7 +76,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "group relative inline-flex gap-4 w-fit max-w-full items-center justify-center rounded-xl border border-[#5b62e5]/50 bg-[#0a0d3a]/60 px-6 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80",
+          "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center gap-4 rounded-xl px-6 py-5 text-left hover:scale-[1.02]",
           className,
         )}
       >
@@ -100,7 +100,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "group inline-flex w-fit max-w-full border border-[#5b62e5]/50 bg-[#0a0d3a]/65 rounded-xl px-5 py-4 text-left transition-all duration-300 hover:border-[#00ffc4]/60",
+          "smm-btn-surface group inline-flex w-fit max-w-full rounded-xl px-5 py-4 text-left",
           className,
         )}
       >
@@ -122,7 +122,7 @@ export function KundenergebnisseCta({
     <Link
       href={href}
       className={cn(
-        "group relative inline-flex w-fit max-w-full rounded-xl border border-[#5b62e5]/50 bg-[#0a0d3a]/60 px-6 py-5 text-left backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-[#00ffc4]/50 hover:bg-[#0a0d3a]/80",
+        "smm-btn-surface group relative inline-flex w-fit max-w-full rounded-xl px-6 py-5 text-left hover:scale-[1.02]",
         className,
       )}
     >

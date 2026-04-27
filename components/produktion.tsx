@@ -258,7 +258,7 @@ export function Produktion() {
           >
             <motion.button
               type="button"
-              className="absolute right-4 top-4 rounded-full bg-black/60 px-3 py-1.5 text-sm text-white transition hover:bg-black/80"
+              className="smm-btn-surface absolute right-4 top-4 rounded-full px-3 py-1.5 text-sm"
               onClick={() => setActiveImage(null)}
               aria-label="Bild schliessen"
               initial={{ opacity: 0, y: -6 }}

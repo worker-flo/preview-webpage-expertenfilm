@@ -325,7 +325,7 @@ function FallstudieCard({
       <button
         type="button"
         onClick={onToggle}
-        className="mt-3 inline-flex items-center justify-center gap-2 self-start rounded-full border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white transition hover:bg-white/10 md:text-sm"
+        className="smm-btn-surface mt-3 inline-flex items-center justify-center gap-2 self-start rounded-full px-3 py-1.5 text-xs font-medium md:text-sm"
         aria-expanded={isExpanded}
         aria-controls={detailsId}
       >
@@ -445,7 +445,7 @@ export function KundenergebnisseCarousel({
           <button
             type="button"
             onClick={scrollPrev}
-            className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-1 text-white/75 transition hover:bg-white/10 hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            className="smm-btn-icon cursor-pointer inline-flex items-center justify-center rounded-full p-1"
             aria-label="Vorherige Fallstudie"
           >
             <ChevronLeft className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1} />
@@ -453,7 +453,7 @@ export function KundenergebnisseCarousel({
           <button
             type="button"
             onClick={scrollNext}
-            className="cursor-pointer inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 p-1 text-white/75 transition hover:bg-white/10 hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+            className="smm-btn-icon cursor-pointer inline-flex items-center justify-center rounded-full p-1"
             aria-label="Nächste Fallstudie"
           >
             <ChevronRight className="h-7 w-7 md:h-8 md:w-8" strokeWidth={1} />

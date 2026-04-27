@@ -163,3 +163,53 @@
     animation: none !important;
   }
 }
+
+.smm-btn-surface {
+  border: 1px solid rgb(255 255 255 / 0.15);
+  background: rgb(5 10 20 / 0.95);
+  color: rgb(255 255 255);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.smm-btn-surface:hover {
+  border-color: rgb(0 255 196 / 0.45);
+  background: rgb(10 20 36 / 0.95);
+  color: rgb(0 255 196);
+}
+
+.smm-btn-surface:focus-visible {
+  outline: none;
+  border-color: rgb(0 255 196 / 0.6);
+  box-shadow:
+    0 0 0 2px rgb(0 255 196 / 0.35),
+    0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.smm-btn-icon {
+  border: 1px solid rgb(255 255 255 / 0.15);
+  background: rgb(5 10 20 / 0.95);
+  color: rgb(255 255 255 / 0.85);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.smm-btn-icon:hover {
+  border-color: rgb(0 255 196 / 0.45);
+  background: rgb(10 20 36 / 0.95);
+  color: rgb(0 255 196);
+}
+
+.smm-btn-icon:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgb(0 255 196 / 0.4);
+}
