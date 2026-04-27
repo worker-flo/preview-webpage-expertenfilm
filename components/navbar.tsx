@@ -33,19 +33,59 @@ type NavMenuItem = {
   label: string
   href: string
   /** Erscheint als zusätzlicher Link in der Desktop-Leiste (neben Socials / Burger) */
-  desktopQuick?: boolean
+  desktopQuick?: boolean | Partial<Record<DesktopBreakpoint, boolean>>
+}
+
+type DesktopBreakpoint = "sm" | "md" | "lg" | "xl" | "2xl"
+
+const desktopBreakpoints: { key: DesktopBreakpoint; query: string }[] = [
+  { key: "2xl", query: "(min-width: 1536px)" },
+  { key: "xl", query: "(min-width: 1280px)" },
+  { key: "lg", query: "(min-width: 1024px)" },
+  { key: "md", query: "(min-width: 768px)" },
+  { key: "sm", query: "(min-width: 640px)" },
+]
+
+function resolveDesktopQuick(
+  desktopQuick: NavMenuItem["desktopQuick"],
+  breakpoint: DesktopBreakpoint | null
+) {
+  if (typeof desktopQuick === "boolean") {
+    return desktopQuick
+  }
+
+  if (!desktopQuick || !breakpoint) {
+    return false
+  }
+
+  const fallbackOrder: DesktopBreakpoint[] = ["2xl", "xl", "lg", "md"]
+  const currentIndex = fallbackOrder.indexOf(breakpoint)
+  const responsiveOrder = fallbackOrder.slice(currentIndex)
+
+  for (const size of responsiveOrder) {
+    const value = desktopQuick[size]
+    if (typeof value === "boolean") {
+      return value
+    }
+  }
+
+  return false
+}
+
+const socialsDesktop: boolean | Partial<Record<DesktopBreakpoint, boolean>> = {
+  md: true, sm:false
 }
 
 const menuItems: NavMenuItem[] = [
-  { label: "Services", href: "/#services" },
-  { label: "Ihre Herausforderungen", href: "/#herausforderungen" },
-  { label: "Der Expertenfilm-Prozess", href: "/#prozess" },
-  { label: "Kundenerfolge", href: "/#kundenergebnisse" },
-  { label: "Portfolio", href: "/portfolio", desktopQuick: true },
-  { label: "Einblicke in die Produktion", href: "/#einblicke" },
-  { label: "Kontakt", href: "/#kontakt" },
-  { label: "Über uns", href: "/#team", desktopQuick: true },
-  { label: "Häufig gestellte Fragen", href: "/#faq" },
+  { label: "Services", href: "/#services", desktopQuick: { md:false, lg:true } },
+  { label: "Ihre Herausforderungen", href: "/#herausforderungen", desktopQuick: false},
+  { label: "Der Expertenfilm-Prozess", href: "/#prozess", desktopQuick: false},
+  { label: "Kundenerfolge", href: "/#kundenergebnisse", desktopQuick: { md: true} },
+  { label: "Portfolio", href: "/portfolio", desktopQuick: { md: false, lg:true} },
+  { label: "Videoproduktion", href: "/#einblicke", desktopQuick: { md: true} },
+  { label: "Kontakt", href: "/#kontakt", desktopQuick: { md: false} },
+  { label: "Über uns", href: "/#team", desktopQuick: false},
+  { label: "Häufig gestellte Fragen", href: "/#faq", desktopQuick: false},
 ]
 
 function NavMenuLink({
@@ -69,11 +109,35 @@ function NavMenuLink({
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSocialsOpen, setIsSocialsOpen] = useState(false)
+  const [activeDesktopBreakpoint, setActiveDesktopBreakpoint] =
+    useState<DesktopBreakpoint | null>(null)
   const menuRef = useRef<HTMLDivElement>(null)
   const buttonRef = useRef<HTMLButtonElement>(null)
   const socialsRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    function getCurrentBreakpoint(): DesktopBreakpoint | null {
+      for (const breakpoint of desktopBreakpoints) {
+        if (window.matchMedia(breakpoint.query).matches) {
+          return breakpoint.key
+        }
+      }
+      return null
+    }
+
+    function handleBreakpointChange() {
+      setActiveDesktopBreakpoint(getCurrentBreakpoint())
+    }
+
+    handleBreakpointChange()
+
+    const mediaQueryLists = desktopBreakpoints.map((breakpoint) =>
+      window.matchMedia(breakpoint.query)
+    )
+    mediaQueryLists.forEach((mediaQueryList) => {
+      mediaQueryList.addEventListener("change", handleBreakpointChange)
+    })
+
     function handleClickOutside(event: MouseEvent) {
       if (
         menuRef.current &&
@@ -92,8 +156,24 @@ export function Navbar() {
     }
 
     document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside)
+      mediaQueryLists.forEach((mediaQueryList) => {
+        mediaQueryList.removeEventListener("change", handleBreakpointChange)
+      })
+    }
   }, [])
+
+  const showDesktopSocials = resolveDesktopQuick(
+    socialsDesktop,
+    activeDesktopBreakpoint
+  )
+
+  useEffect(() => {
+    if (!showDesktopSocials && isSocialsOpen) {
+      setIsSocialsOpen(false)
+    }
+  }, [showDesktopSocials, isSocialsOpen])
 
   return (
     <nav className="sticky top-0 z-50 px-4 pt-5 sm:px-5 md:px-6">
@@ -113,55 +193,59 @@ export function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center content-center gap-8">
             {/* Socials Dropdown */}
-            <div ref={socialsRef} className="relative flex items-center">
-              <div
-                className={`flex items-center gap-4 overflow-hidden transition-all duration-300 ease-out ${
-                  isSocialsOpen ? "max-w-[200px] opacity-100 mr-2" : "max-w-0 opacity-0"
-                }`}
-              >
-                <a
-                  href="https://wa.me/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#25D366] hover:scale-110 transition-transform duration-200"
-                  aria-label="WhatsApp"
+            {showDesktopSocials && (
+              <div ref={socialsRef} className="relative flex items-center">
+                <div
+                  className={`flex items-center gap-4 overflow-hidden transition-all duration-300 ease-out ${
+                    isSocialsOpen ? "max-w-[200px] opacity-100 mr-2" : "max-w-0 opacity-0"
+                  }`}
                 >
-                  <WhatsAppIcon className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://instagram.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#E4405F] hover:scale-110 transition-transform duration-200"
-                  aria-label="Instagram"
+                  <a
+                    href="https://wa.me/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#25D366] hover:scale-110 transition-transform duration-200"
+                    aria-label="WhatsApp"
+                  >
+                    <WhatsAppIcon className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#E4405F] hover:scale-110 transition-transform duration-200"
+                    aria-label="Instagram"
+                  >
+                    <InstagramIcon className="w-6 h-6" />
+                  </a>
+                  <a
+                    href="https://linkedin.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#0A66C2] hover:scale-110 transition-transform duration-200"
+                    aria-label="LinkedIn"
+                  >
+                    <LinkedInIcon className="w-6 h-6" />
+                  </a>
+                </div>
+                <button
+                  onClick={() => setIsSocialsOpen(!isSocialsOpen)}
+                  className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
                 >
-                  <InstagramIcon className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://linkedin.com/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-[#0A66C2] hover:scale-110 transition-transform duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <LinkedInIcon className="w-6 h-6" />
-                </a>
+                  <span
+                    className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-0" : "rotate-180"}`}
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </span>
+                  Socials
+                </button>
               </div>
-              <button
-                onClick={() => setIsSocialsOpen(!isSocialsOpen)}
-                className="cursor-pointer flex items-center gap-1 text-white/90 hover:text-[#00ffc4] transition-colors duration-300 font-medium"
-              >
-                <span
-                  className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-0" : "rotate-180"}`}
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </span>
-                Socials
-              </button>
-            </div>
+            )}
 
             {menuItems
-              .filter((item) => item.desktopQuick)
+              .filter((item) =>
+                resolveDesktopQuick(item.desktopQuick, activeDesktopBreakpoint)
+              )
               .map((item) => (
                 <NavMenuLink
                   key={item.href}
