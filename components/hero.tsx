@@ -31,7 +31,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden -top-20"
+      className="section-spotlight section-spotlight--hero relative overflow-hidden border-t border-white/10 -top-12.5"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         const relativeX = (event.clientX - rect.left) / rect.width
@@ -67,8 +67,7 @@ export function Hero() {
             <line x1="520" y1="280" x2="550" y2="350" />
             <line x1="520" y1="280" x2="580" y2="250" />
             <line x1="300" y1="100" x2="250" y2="180" />
-            <line x1="250" y1="180" x2="200" y2="250" />
-            <line x1="250" y1="180" x2="280" y2="280" />
+            <line x1="250" y1="180" x2="200" y2="225" />
           </g>
           {/* Network nodes */}
           <g fill="#5b62e5">
@@ -81,8 +80,35 @@ export function Hero() {
             <circle cx="550" cy="350" r="5" />
             <circle cx="580" cy="250" r="4" />
             <circle cx="250" cy="180" r="6" />
-            <circle cx="200" cy="250" r="5" />
-            <circle cx="280" cy="280" r="4" />
+            <circle cx="200" cy="225" r="5" />
+          </g>
+        </svg>
+
+        <svg
+          className="absolute top-90 left-30 h-[520px] w-[520px] opacity-25"
+          viewBox="0 0 600 600"
+          fill="none"
+        >
+          {/* Left network connection lines */}
+          <g stroke="#5b62e5" strokeWidth="2">
+            <line x1="300" y1="500" x2="220" y2="420" />
+            <line x1="220" y1="420" x2="170" y2="450" />
+            <line x1="220" y1="420" x2="130" y2="370" />
+            <line x1="300" y1="500" x2="360" y2="540" />
+            <line x1="360" y1="540" x2="420" y2="550" />
+            <line x1="130" y1="370" x2="90" y2="320" />
+            <line x1="130" y1="370" x2="70" y2="410" />
+          </g>
+          {/* Left network nodes */}
+          <g fill="#5b62e5">
+            <circle cx="300" cy="500" r="8" />
+            <circle cx="220" cy="420" r="6" />
+            <circle cx="170" cy="450" r="5" />
+            <circle cx="130" cy="370" r="6" />
+            <circle cx="360" cy="540" r="5" />
+            <circle cx="420" cy="550" r="4" />
+            <circle cx="90" cy="320" r="5" />
+            <circle cx="70" cy="410" r="4" />
           </g>
         </svg>
       </div>

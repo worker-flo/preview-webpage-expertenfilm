@@ -119,7 +119,7 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
     category: "Hotellerie- und Tourismusbranche",
     embedUrl:
       "https://player.mediadelivery.net/embed/614528/f912c2a4-e5a7-4e8e-9d8e-1a00333a4008?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
-    thumbnail:
+    poster:
       "https://images.unsplash.com/photo-1542317851-edeaba95315d?w=960&q=80&auto=format&fit=crop",
   },
   {
@@ -127,7 +127,7 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
     category: "Ambulanter Pflegedienst",
     embedUrl:
       "https://player.mediadelivery.net/embed/614528/34068b70-8d16-411d-a383-d0c2498157e2?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
-    thumbnail:
+    poster:
       "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=960&q=80&auto=format&fit=crop",
   },
   {
@@ -135,7 +135,7 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
     category: "Fitness- und Sport-Coaching",
     embedUrl:
       "https://player.mediadelivery.net/embed/614528/3f9cd5aa-25d4-4208-94f4-a03f27c375b9?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
-    thumbnail:
+    poster:
       "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=960&q=80&auto=format&fit=crop",
   },
   {
@@ -143,7 +143,7 @@ const videobeispieleKundenItems: VideobeispielKundeItem[] = [
     category: "Bautransportunternehmen",
     embedUrl:
       "https://player.mediadelivery.net/embed/614528/a314f22f-6072-4ed6-8b66-bee674b17783?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
-    thumbnail:
+    poster:
       "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=960&q=80&auto=format&fit=crop",
   },
 ]
@@ -197,25 +197,27 @@ export function Kundenergebnisse() {
   return (
     <section
       id="kundenergebnisse"
-      className="py-16 font-sans text-white md:py-24"
+      className="section-spotlight section-spotlight--violet border-t border-white/10 py-16 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-[80vw] px-5 md:px-8">
-        <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
-          <span className="block">Ergebnisse, Projekte & Fallstudien</span>
-          <span className="mt-1 block md:mt-2">
-            Sehen Sie sich Beispiele unserer Arbeit an
-          </span>
-        </h2>
+        <div className="flex min-h-[100svh] flex-col justify-center">
+          <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
+            <span className="block">Ergebnisse, Projekte & Fallstudien</span>
+            <span className="mt-1 block md:mt-2">
+              Sehen Sie sich Beispiele unserer Arbeit an
+            </span>
+          </h2>
 
-        <p className="mx-auto mt-6 max-w-3xl text-center text-base font-normal leading-relaxed text-white md:mt-8 md:text-lg">
-          Über die letzten Jahre konnten wir das Marketing von vielen
-          Unternehmern verbessern. Ob als langfristiger Partner über einen
-          längeren Zeitraum oder für kürzere Projekte. Je nach Ihren Zielen und
-          Anforderungen finden wir für Sie die passende Lösung.
-        </p>
+          <p className="mx-auto mt-6 max-w-3xl text-center text-base font-normal leading-relaxed text-white md:mt-8 md:text-lg">
+            Über die letzten Jahre konnten wir das Marketing von vielen
+            Unternehmern verbessern. Ob als langfristiger Partner über einen
+            längeren Zeitraum oder für kürzere Projekte. Je nach Ihren Zielen und
+            Anforderungen finden wir für Sie die passende Lösung.
+          </p>
 
-        <div className="mx-auto mt-12 flex  w-fulljustify-center md:mt-16 lg:mt-20">
+          <div className="mx-auto mt-12 flex w-fulljustify-center md:mt-16 lg:mt-20">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
+          </div>
         </div>
       </div>
 

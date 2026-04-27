@@ -45,35 +45,35 @@ const leistungen = [
 
 export function Arbeitsweise() {
   return (
-    <section id="arbeitsweise" className="bg-transparent py-20 md:py-28">
+    <section id="arbeitsweise" className="section-spotlight section-spotlight--teal bg-transparent border-t border-white/10 py-20 md:py-28">
       <div className="mx-auto max-w-6cl px-5 md:px-8">
-        <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-14">
+        <div className="flex min-h-[100svh] flex-col justify-center">
+          <h2 className="mb-14 text-center text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             Unsere Arbeitsweise
-        </h2>
+          </h2>
 
-        <div className="grid grid-cols-1 gap-8 max-w-6xl mx-auto md:grid-cols-3">
-          {leistungen.map((item, index) => (
-            <article
-              key={index}
-              className="mx-auto group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 text-center transition duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8"
-            >
-              
-
-              <div className="mb-7 mx-auto">
-                <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95 shadow-[0_0_24px_rgba(0,0,0,0.4)]">
-                  <item.icon className="h-10 w-10 text-[var(--color-accent-teal)] stroke-[1.6]" />
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+            {leistungen.map((item, index) => (
+              <article
+                key={index}
+                className="mx-auto group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 text-center transition duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8"
+              >
+                <div className="mb-7 mx-auto">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95 shadow-[0_0_24px_rgba(0,0,0,0.4)]">
+                    <item.icon className="h-10 w-10 text-[var(--color-accent-teal)] stroke-[1.6]" />
+                  </div>
                 </div>
-              </div>
 
-              <h3 className="mb-4 min-w-0 break-words text-1xl font-semibold leading-tight text-white [overflow-wrap:anywhere] [hyphens:auto] md:text-xl">
-                {item.title}
-              </h3>
+                <h3 className="mb-4 min-w-0 break-words text-1xl font-semibold leading-tight text-white [overflow-wrap:anywhere] [hyphens:auto] md:text-xl">
+                  {item.title}
+                </h3>
 
-              <p className="mx-auto mt-auto min-w-0 max-w-xs break-words text-base leading-relaxed text-slate-400 [overflow-wrap:anywhere] [hyphens:auto]">
-                {item.description}
-              </p>
-            </article>
-          ))}
+                <p className="mx-auto mt-auto min-w-0 max-w-xs break-words text-base leading-relaxed text-slate-400 [overflow-wrap:anywhere] [hyphens:auto]">
+                  {item.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
 
         <div>

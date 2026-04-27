@@ -114,7 +114,7 @@ export function Produktion() {
   return (
     <section
       id="einblicke"
-      className="border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
+      className="section-spotlight section-spotlight--mixed border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-7 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">

@@ -54,24 +54,25 @@ export function Herausforderungen() {
   const [isThirdActive, setIsThirdActive] = useState(false)
 
   return (
-    <section id="herausforderungen" className="bg-transparent px-5 py-20 md:px-8">
+    <section id="herausforderungen" className="section-spotlight section-spotlight--violet bg-transparent border-t border-white/10 px-5 py-20 md:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ihre Herausforderungen
-          </h2>
-          <p className="text-slate-400 text-lg">
-            Die folgenden Probleme sind für Sie bald Geschichte
-          </p>
-        </div>
+        <div className="flex min-h-[100svh] flex-col justify-center">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              Ihre Herausforderungen
+            </h2>
+            <p className="text-slate-400 text-lg">
+              Die folgenden Probleme sind für Sie bald Geschichte
+            </p>
+          </div>
 
-        <div className="lg:hidden">
-          <HerausforderungenSlider slides={challengeSlides} />
-        </div>
+          <div className="lg:hidden">
+            <HerausforderungenSlider slides={challengeSlides} />
+          </div>
 
-        {/* Challenge Cards */}
-        <div className="hidden lg:flex gap-8 items-start">
+          {/* Challenge Cards */}
+          <div className="hidden lg:flex gap-8 items-start">
           <div className="flex flex-1">
             <button
               type="button"
@@ -227,6 +228,7 @@ export function Herausforderungen() {
               </div>
             </button>
           </div>
+        </div>
         </div>
       </div>
     </section>

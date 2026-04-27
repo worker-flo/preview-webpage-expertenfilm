@@ -138,7 +138,7 @@ export function Prozess() {
   const accentLineScaleY = useTransform(scrollYProgress, [0.1, 0.9], [0, 1])
 
   return (
-    <section id="prozess" className="bg-transparent py-20 md:py-28">
+    <section id="prozess" className="section-spotlight section-spotlight--mixed bg-transparent border-t border-white/10 py-20 md:py-28">
       <div className="mx-auto max-w-5xl px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-14">
           <div className="lg:sticky lg:top-[30%] text-center h-fit">

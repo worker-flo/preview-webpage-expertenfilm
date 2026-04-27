@@ -142,7 +142,7 @@ function VideobeispielKartePlayer({
   return (
     <div
       ref={shellRef}
-      className="relative aspect-video w-full overflow-hidden rounded-xl bg-black ring-1 ring-white/10"
+      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -190,7 +190,7 @@ function VideobeispielKartePlayer({
               e.stopPropagation()
               togglePlay()
             }}
-            className="pointer-events-auto flex h-14 w-14 items-center justify-center rounded-full bg-white/30 text-white backdrop-blur-sm transition hover:bg-white/40 sm:h-16 sm:w-16"
+            className="smm-btn-surface pointer-events-auto flex h-14 w-14 items-center justify-center rounded-full sm:h-16 sm:w-16"
             aria-label={playing ? 'Pause' : 'Abspielen'}
           >
             {playing ? (
@@ -204,14 +204,14 @@ function VideobeispielKartePlayer({
 
       {!isEmbed && (
         <div
-          className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-black/90 px-2 py-1.5 sm:px-3 sm:py-2"
+          className="absolute inset-x-0 bottom-0 border-t border-white/15 bg-[#050a14]/95 px-2 py-1.5 sm:px-3 sm:py-2"
           onClick={(e) => e.stopPropagation()}
         >
           <div className="flex items-center gap-1 sm:gap-2">
             <button
               type="button"
               onClick={togglePlay}
-              className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
+              className="shrink-0 rounded p-0.5 text-white transition hover:bg-[#0a1424] sm:p-1"
               aria-label={playing ? 'Pause' : 'Abspielen'}
             >
               {playing ? (
@@ -278,14 +278,14 @@ function VideobeispielKartePlayer({
                 v.muted = m
                 setMuted(m)
               }}
-              className="h-1 w-10 shrink-0 cursor-pointer appearance-none rounded-full bg-white/30 accent-white sm:w-14"
+              className="h-1 w-10 shrink-0 cursor-pointer appearance-none rounded-full bg-white/30 accent-[#00ffc4] sm:w-14"
               aria-label="Lautstärke"
             />
 
             <button
               type="button"
               onClick={toggleMute}
-              className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
+              className="shrink-0 rounded p-0.5 text-white transition hover:bg-[#0a1424] sm:p-1"
               aria-label={muted ? 'Ton einschalten' : 'Ton stummschalten'}
             >
               {muted ? (
@@ -297,7 +297,7 @@ function VideobeispielKartePlayer({
 
             <button
               type="button"
-              className="shrink-0 rounded p-0.5 text-white/85 transition hover:bg-white/10 sm:p-1"
+              className="shrink-0 rounded p-0.5 text-white/85 transition hover:bg-[#0a1424] sm:p-1"
               aria-label="Weitere Optionen"
             >
               <MoreHorizontal
@@ -309,7 +309,7 @@ function VideobeispielKartePlayer({
             <button
               type="button"
               onClick={toggleFullscreen}
-              className="shrink-0 rounded p-0.5 text-white transition hover:bg-white/10 sm:p-1"
+              className="shrink-0 rounded p-0.5 text-white transition hover:bg-[#0a1424] sm:p-1"
               aria-label="Vollbild"
             >
               <Maximize2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" strokeWidth={1.5} />
@@ -354,7 +354,7 @@ export function VideobeispieleKundenprojekteGrid({
           <div className="flex">
             {items.map((item) => (
               <div key={item.title} className="min-w-0 shrink-0 grow-0 basis-full">
-                <article className="rounded-2xl border border-white/10 bg-slate-800/50 p-6 shadow-lg backdrop-blur-sm">
+                <article className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                   <VideobeispielKartePlayer
                     videoUrl={item.videoUrl}
                     poster={item.poster}
@@ -399,7 +399,7 @@ export function VideobeispieleKundenprojekteGrid({
         {items.map((item) => (
           <article
             key={item.title}
-            className="rounded-2xl border border-white/10 bg-slate-800/50 p-6 shadow-lg backdrop-blur-sm md:p-8"
+            className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8"
           >
             <VideobeispielKartePlayer
               videoUrl={item.videoUrl}
