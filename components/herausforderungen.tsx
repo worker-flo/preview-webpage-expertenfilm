@@ -80,7 +80,7 @@ export function Herausforderungen() {
               aria-pressed={isFirstActive}
               aria-label={`${challengeOne.title} ${isFirstActive ? "zurücksetzen" : "aktivieren"}`}
             >
-              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-xl border border-white/10 bg-slate-900/40 p-6 backdrop-blur-md transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
+              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
                 <div className={challengeToggleBadgeClassName}>
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />
@@ -90,7 +90,7 @@ export function Herausforderungen() {
                 </div>
 
                 <div className="mx-auto">
-                  <div className="h-20 w-20 rounded-xl border border-white/10 bg-slate-900/60 flex items-center justify-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95">
                     {challengeOne.icon}
                   </div>
                 </div>
@@ -132,7 +132,7 @@ export function Herausforderungen() {
               aria-pressed={isSecondActive}
               aria-label={`${challengeTwo.title} ${isSecondActive ? "zurücksetzen" : "aktivieren"}`}
             >
-              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-xl border border-white/10 bg-slate-900/40 p-6 backdrop-blur-md transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
+              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
                 <div className={challengeToggleBadgeClassName}>
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />
@@ -142,7 +142,7 @@ export function Herausforderungen() {
                 </div>
 
                 <div className="mx-auto">
-                  <div className="h-20 w-20 rounded-xl border border-white/10 bg-slate-900/60 flex items-center justify-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95">
                     {challengeTwo.icon}
                   </div>
                 </div>
@@ -184,7 +184,7 @@ export function Herausforderungen() {
               aria-pressed={isThirdActive}
               aria-label={`${challengeThree.title} ${isThirdActive ? "zurücksetzen" : "aktivieren"}`}
             >
-              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-xl border border-white/10 bg-slate-900/40 p-6 backdrop-blur-md transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
+              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
                 <div className={challengeToggleBadgeClassName}>
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />
@@ -194,7 +194,7 @@ export function Herausforderungen() {
                 </div>
 
                 <div className="mx-auto">
-                  <div className="h-20 w-20 rounded-xl border border-white/10 bg-slate-900/60 flex items-center justify-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95">
                     {challengeThree.icon}
                   </div>
                 </div>

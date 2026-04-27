@@ -74,11 +74,11 @@ export function Services() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative bg-[#1a1d3a]/80 border border-[#2a2d4a] rounded-2xl p-8 flex flex-col items-center transition duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:shadow-[0_14px_40px_rgba(0,0,0,0.35)]"
+                className="group relative flex flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 transition duration-300 hover:scale-[1.02] hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
               >
                 {/* Icon */}
                 <div className="mb-6">
-                  <service.icon className="w-12 h-12 text-[#5b8def] stroke-[1.5]" />
+                  <service.icon className="h-12 w-12 text-[var(--color-accent-teal)] stroke-[1.5]" />
                 </div>
 
                 {/* Title */}
@@ -101,7 +101,7 @@ export function Services() {
                 <div className="mt-auto pt-7">
                   <Link
                     href={service.href}
-                    className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#8daeff] group-focus-within:text-[#8daeff] focus-visible:text-[#8daeff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8daeff]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1d3a] after:absolute after:inset-0 after:content-['']"
+                    className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#00ffc4] group-focus-within:text-[#00ffc4] focus-visible:text-[#00ffc4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ffc4]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a14] after:absolute after:inset-0 after:content-['']"
                   >
                     <span className="relative z-10 inline-flex items-center gap-2">
                       Mehr erfahren
@@ -122,11 +122,11 @@ export function Services() {
           {services.map((service, index) => (
             <div
               key={index}
-              className="group relative bg-[#1a1d3a]/80 border border-[#2a2d4a] rounded-2xl p-8 flex flex-col items-center transition duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:shadow-[0_14px_40px_rgba(0,0,0,0.35)]"
+              className="group relative flex flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 transition duration-300 hover:scale-[1.02] hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
             >
               {/* Icon */}
               <div className="mb-6">
-                <service.icon className="w-12 h-12 text-[#5b8def] stroke-[1.5]" />
+                <service.icon className="h-12 w-12 text-[var(--color-accent-teal)] stroke-[1.5]" />
               </div>
 
               {/* Title */}
@@ -149,7 +149,7 @@ export function Services() {
               <div className="mt-auto pt-7">
                 <Link
                   href={service.href}
-                  className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#8daeff] group-focus-within:text-[#8daeff] focus-visible:text-[#8daeff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8daeff]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1d3a] after:absolute after:inset-0 after:content-['']"
+                  className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#00ffc4] group-focus-within:text-[#00ffc4] focus-visible:text-[#00ffc4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ffc4]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a14] after:absolute after:inset-0 after:content-['']"
                 >
                   <span className="relative z-10 inline-flex items-center gap-2">
                     Mehr erfahren

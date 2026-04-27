@@ -75,7 +75,7 @@ export function HerausforderungenSlider({
                 aria-pressed={activeCards[index]}
                 aria-label={`${challenge.title} ${activeCards[index] ? "zuruecksetzen" : "aktivieren"}`}
               >
-                <div className="h-full w-full flex-1 flex flex-col rounded-xl border border-white/10 bg-slate-900/40 p-6 backdrop-blur-md transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_16px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40">
+                <div className="h-full w-full flex-1 flex flex-col rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40">
                   <div className={challengeToggleBadgeClassName}>
                     <span className="relative inline-flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />
@@ -85,7 +85,7 @@ export function HerausforderungenSlider({
                   </div>
 
                   <div className="mb-6 mx-auto">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/10 bg-slate-900/60">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95">
                       {challenge.icon}
                     </div>
                   </div>

@@ -175,7 +175,7 @@ export function Prozess() {
                     ref={(element) => {
                       iconRefs.current[index] = element
                     }}
-                    className={`hidden md:flex absolute left-0 top-8 ${iconSizeConfig.desktop.container} rounded-xl border border-white/15 bg-[#0a0d3a]/75 backdrop-blur-md items-center justify-center`}
+                    className={`hidden md:flex absolute left-0 top-8 ${iconSizeConfig.desktop.container} items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95`}
                   >
                     {step.animated ? (
                       <AudienceAnalysisIcon
@@ -192,9 +192,9 @@ export function Prozess() {
                     )}
                   </div>
 
-                  <div className="h-full rounded-2xl border border-white/10 bg-[#121739]/60 backdrop-blur-md p-6 md:p-8">
+                  <div className="h-full rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8">
                     <div
-                      className={`md:hidden mb-4 ${iconSizeConfig.mobile.container} rounded-lg border border-white/15 bg-[#0a0d3a]/70 flex items-center justify-center`}
+                      className={`md:hidden mb-4 ${iconSizeConfig.mobile.container} flex items-center justify-center rounded-lg border border-white/15 bg-[#050a14]/95`}
                     >
                       {step.animated ? (
                         <AudienceAnalysisIcon

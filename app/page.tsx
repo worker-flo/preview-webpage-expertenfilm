@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { GoogleReviews } from "@/components/google-reviews"
 import { Services } from "@/components/services"
 import { Arbeitsweise } from "@/components/arbeitsweise"
 import { Kundenergebnisse } from "@/components/kundenergebnisse"

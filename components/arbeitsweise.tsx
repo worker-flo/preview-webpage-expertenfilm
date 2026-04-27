@@ -55,12 +55,12 @@ export function Arbeitsweise() {
           {leistungen.map((item, index) => (
             <article
               key={index}
-              className="mx-auto group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/40 p-6 text-center backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:shadow-[0_16px_40px_rgba(0,0,0,0.35)] md:p-8"
+              className="mx-auto group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 text-center transition duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8"
             >
               
 
               <div className="mb-7 mx-auto">
-                <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/10 bg-slate-900/60 shadow-[0_0_24px_rgba(0,0,0,0.4)]">
+                <div className="flex h-20 w-20 items-center justify-center rounded-xl border border-white/15 bg-[#050a14]/95 shadow-[0_0_24px_rgba(0,0,0,0.4)]">
                   <item.icon className="h-10 w-10 text-[var(--color-accent-teal)] stroke-[1.6]" />
                 </div>
               </div>
@@ -107,7 +107,7 @@ export function Arbeitsweise() {
                 {arbeitsweiseVideos.map((video, index) => (
                   <article
                     key={`${video.title}-${index}`}
-                    className="relative overflow-hidden rounded-2xl bg-black ring-1 ring-white/10"
+                    className="relative overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
                   >
                     <div className="pointer-events-none absolute left-4 top-4 z-10">
                       <p className="text-[10px] font-medium uppercase tracking-[0.2em] text-white/80">

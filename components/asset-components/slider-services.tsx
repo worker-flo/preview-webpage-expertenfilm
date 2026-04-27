@@ -53,9 +53,9 @@ export function ServicesSlider({
               key={`${service.title}-${index}`}
               className="min-w-0 shrink-0 grow-0 basis-full px-1"
             >
-              <article className="group relative flex h-full flex-col items-center rounded-2xl border border-[#2a2d4a] bg-[#1a1d3a]/80 p-8 text-center transition duration-300 hover:scale-[1.02] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:shadow-[0_14px_40px_rgba(0,0,0,0.35)]">
+              <article className="group relative flex h-full flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 text-center transition duration-300 hover:scale-[1.02] hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                 <div className="mb-6">
-                  <service.icon className="h-12 w-12 text-[#5b8def] stroke-[1.5]" />
+                  <service.icon className="h-12 w-12 text-[var(--color-accent-teal)] stroke-[1.5]" />
                 </div>
 
                 <h3 className="mb-6 text-lg font-bold leading-tight text-white md:text-xl">
@@ -76,7 +76,7 @@ export function ServicesSlider({
                 <div className="mt-auto pt-7">
                   <Link
                     href={service.href}
-                    className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#8daeff] group-focus-within:text-[#8daeff] focus-visible:text-[#8daeff] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#8daeff]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1d3a] after:absolute after:inset-0 after:content-['']"
+                    className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#00ffc4] group-focus-within:text-[#00ffc4] focus-visible:text-[#00ffc4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ffc4]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a14] after:absolute after:inset-0 after:content-['']"
                   >
                     <span className="relative z-10 inline-flex items-center gap-2">
                       Mehr erfahren

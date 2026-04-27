@@ -196,7 +196,7 @@ function SlideCard({
   return (
     <div
       className={cn(
-        "flex w-full flex-1 flex-col justify-center rounded-2xl border border-white/15 bg-white/10 p-8 shadow-inner backdrop-blur-md md:min-h-0 md:self-center md:p-10",
+        "flex w-full flex-1 flex-col justify-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:min-h-0 md:self-center md:p-10",
         cardClassName,
       )}
     >

@@ -147,7 +147,7 @@ function FallstudieVideo({
   return (
     <div
       ref={shellRef}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black ring-1 ring-white/10"
+      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -309,7 +309,7 @@ function FallstudieCard({
 
   return (
     <article
-      className="mx-auto flex w-full flex-col gap-2 overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-slate-800/70 via-slate-900/75 to-[#050505]/95 p-4 shadow-[0_0_60px_rgba(0,0,0,0.45)] backdrop-blur-md sm:p-6 md:p-7"
+      className="mx-auto flex w-full flex-col gap-2 overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:p-6 md:p-7"
     >
       <header className="mb-3 flex items-center gap-2.5 md:mb-4">
         <ClientMark />

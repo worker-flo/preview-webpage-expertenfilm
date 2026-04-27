@@ -120,7 +120,7 @@ function TeamMemberCard({
         {/* Hintere Glass-Ebene*/}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-5 top-5 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/20 bg-white/5 transition-transform duration-200 ease-out"
+          className="pointer-events-none absolute left-5 top-5 z-0 h-[calc(100%-0.75rem)] w-[calc(100%-0.75rem)] rounded-2xl border border-white/15 bg-[#050a14]/95 transition-transform duration-200 ease-out"
           style={{
             transform: `translate3d(${tilt.x * 1.2 * -0.6}px, ${tilt.y * 1.2 * -0.6}px, 0)`,
             transitionDuration: isResetting ? "5000ms" : "200ms",
@@ -129,7 +129,7 @@ function TeamMemberCard({
 
         {/* Porträt + Overlay */}
         <div
-          className="relative z-10 mt-2 ml-0 overflow-hidden rounded-2xl border border-white/20 backdrop-blur-lg shadow-[0_20px_50px_rgba(0,0,0,0.45)] transition-transform duration-200 ease-out sm:ml-1"
+          className="relative z-10 mt-2 ml-0 overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-200 ease-out sm:ml-1"
           style={{
             transform: `rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) translate3d(${tilt.x * 1.2 * 0.35}px, ${tilt.y * 1.2  * 0.35}px, 0)`,
             transformStyle: "preserve-3d",
@@ -162,7 +162,7 @@ function TeamMemberCard({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => setOpen((v) => !v)}
-          className="group flex w-full items-center justify-between gap-3 rounded-lg border border-white/20 bg-[#050a14] px-4 py-3 text-left text-white transition-colors duration-200 ease-in-out hover:border-[var(--color-accent-teal)]-400/30 hover:bg-[#0a1424]"
+          className="group flex w-full items-center justify-between gap-3 rounded-lg border border-white/15 bg-[#050a14]/95 px-4 py-3 text-left text-white transition-colors duration-200 ease-in-out hover:border-[#00ffc4]/40 hover:bg-[#0a1424]"
         >
           <span className="text-sm font-medium">
             Über {vorname(member.name)}
@@ -188,7 +188,7 @@ function TeamMemberCard({
               : "max-h-0 opacity-0",
           )}
         >
-          <div className="rounded-lg border border-white/15 bg-[#050a14]/95 px-4 py-3 text-left text-sm leading-relaxed text-slate-300">
+          <div className="rounded-lg border border-white/15 bg-[#050a14]/95 px-4 py-3 text-left text-sm leading-relaxed text-slate-300 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
             <p>
               Platzhalter: Hier erscheint später ein kurzer Steckbrief zu{' '}
               {vorname(member.name)} – Schwerpunkte, Erfahrung und was Sie in

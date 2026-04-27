@@ -1,11 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { ChevronRight } from "lucide-react"
 import Image from "next/image"
 
 import { KontaktCta, KundenergebnisseCta, PortfolioCta } from "@/components/buttons"
 import { LogoSlider } from "@/components/ui/logo-slider"
+import { GoogleReviews } from "./google-reviews"
 
 export function Hero() {
   const [hoveredSide, setHoveredSide] = useState<"left" | "right" | null>(null)
@@ -151,7 +151,9 @@ export function Hero() {
         </div>
       </div>
 
-      <div className="mx-auto mt-5 w-full max-w-7xl">
+      <GoogleReviews />
+
+      <div className="flex items-center justify-center bottom-0 mx-auto w-full max-w-7xl mt-10 ">
             <LogoSlider logos={partnerLogos} />
       </div>
 

@@ -43,7 +43,7 @@ export function LogoSlider({
               src={logo.src}
               alt={logo.name}
               className={cn(
-                "block w-auto object-contain opacity-80 transition-opacity hover:opacity-100",
+                "block w-auto object-contain opacity-80 transition-opacity hover:opacity-100 drop-shadow-md",
                 logo.heightClass ?? "h-12",
               )}
               loading="lazy"
