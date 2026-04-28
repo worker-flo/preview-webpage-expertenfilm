@@ -54,7 +54,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface group mt-10 inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-xl px-5 py-4 lg:mt-auto",
+          "smm-btn-surface group mt-10 inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-xl px-5 py-4 transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)] lg:mt-auto",
           className,
         )}
       >
@@ -76,7 +76,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center gap-4 rounded-xl px-6 py-5 text-left hover:scale-[1.02]",
+          "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center gap-4 rounded-xl px-6 py-5 text-left transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
           className,
         )}
       >
@@ -100,7 +100,7 @@ export function KundenergebnisseCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface group inline-flex w-fit max-w-full rounded-xl px-5 py-4 text-left",
+          "smm-btn-surface group inline-flex w-fit max-w-full rounded-xl px-5 py-4 text-left transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
           className,
         )}
       >
@@ -122,7 +122,7 @@ export function KundenergebnisseCta({
     <Link
       href={href}
       className={cn(
-        "smm-btn-surface group relative inline-flex w-fit max-w-full rounded-xl px-6 py-5 text-left hover:scale-[1.02]",
+        "smm-btn-surface group relative inline-flex w-fit max-w-full rounded-xl px-6 py-5 text-left transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
         className,
       )}
     >

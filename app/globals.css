@@ -169,18 +169,26 @@
   background: rgb(5 10 20 / 0.95);
   color: rgb(255 255 255);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  transform: translateZ(0);
+  transform-origin: center;
+  will-change: transform;
+  backface-visibility: hidden;
   transition:
-    border-color 200ms ease,
-    background-color 200ms ease,
-    color 200ms ease,
-    transform 200ms ease,
-    box-shadow 200ms ease;
+    border-color 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    color 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 320ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 360ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .smm-btn-surface:hover {
   border-color: rgb(0 255 196 / 0.45);
   background: rgb(10 20 36 / 0.95);
   color: rgb(0 255 196);
+  box-shadow:
+    0 0 8px rgb(0 255 196 / 0.16),
+    0 0 16px rgb(0 255 196 / 0.08),
+    0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .smm-btn-surface:focus-visible {
