@@ -464,7 +464,7 @@ export function KundenergebnisseCarousel({
         </p>
       </div>
 
-      <div className="mx-auto hidden w-full items-center md:grid md:grid-cols-2 md:gap-4 lg:grid-cols-3 lg:gap-7 ">
+      <div className="mx-auto hidden max-w-6xl items-center md:grid md:grid-cols-2 md:gap-4">
         {slides.slice(0, 3).map((slide, index) => (
           <FallstudieCard
             key={`${slide.clientName}-desktop-${index}`}

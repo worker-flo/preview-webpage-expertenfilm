@@ -52,23 +52,6 @@ const fallstudienSlides: KundenergebnisSlide[] = [
       "Wiederverwendbare Videovarianten für mehrere Kanäle",
     ],
   },
-  {
-    clientName: "Placeholder",
-    videoUrl:
-      "https://vz-617e21d0-8be.b-cdn.net/placeholder.mp4",
-    thumbnail:
-      "https://vz-617e21d0-8be.b-cdn.net/placeholder.jpg",
-    videoCaption: "",
-    herausforderung:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    loesungen:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    ergebnisse: [
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.",
-    ],
-  },
 ]
 
 const kundenstimmenVideo = {
@@ -199,7 +182,9 @@ export function Kundenergebnisse() {
       id="kundenergebnisse"
       className="section-spotlight section-spotlight--violet border-t border-white/10 py-16 font-sans text-white md:py-24"
     >
+      {/* Div: Ergebnisse, Projekte & Fallstudien */}
       <div className="mx-auto max-w-[80vw] px-5 md:px-8">
+        {/* Div: Header */}
         <div className="flex min-h-[100svh] flex-col justify-center">
           <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
             <span className="block">Ergebnisse, Projekte & Fallstudien</span>
@@ -215,38 +200,49 @@ export function Kundenergebnisse() {
             Anforderungen finden wir für Sie die passende Lösung.
           </p>
 
-          <div className="mx-auto mt-12 flex w-fulljustify-center md:mt-16 lg:mt-20">
+          {/* Div: Case Studies */} 
+          <div className="mx-auto mt-12 flex w-full justify-center md:mt-16 lg:mt-20">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
           </div>
-        </div>
-      </div>
 
-      <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-12">
-            <div className="text-left">
-              <h3 className="mb-4 text-3xl font-bold text-white md:text-4xl">
-                Ungefilterte Kundenstimmen aus 3 Jahren Arbeit
-              </h3>
-              <p className="mb-5 text-base leading-relaxed text-white/90 md:text-lg">
-                In diesem Video sehen Sie echte, ungeskriptete Reaktionen unserer
-                Kundinnen und Kunden direkt aus der Zusammenarbeit.
-              </p>
+          {/* Div: Video Kundenstimmen aus 3 Jahren */}
+          <div className="mx-auto max-w-6xl mt-4">
+            <div
+              className="overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:p-6 md:p-7"
+              role="region"
+              aria-labelledby="kundenstimmen-schnitt-heading"
+            >
+              <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:items-center md:gap-12">
+                <div className="text-left">
+                  <h3
+                    id="kundenstimmen-schnitt-heading"
+                    className="mb-4 text-2xl font-bold text-white"
+                  >
+                    Ungefilterte Kundenstimmen aus 3 Jahren Arbeit
+                  </h3>
+                  <p className="mb-5 text-base leading-relaxed text-white/90 md:text-lg md:mb-0">
+                    Ein Zusammenschnitt weiterer Kundenstimmen in einem Video
+                  </p>
+                </div>
+
+                <div className="mx-0 min-w-0">
+                  <VideoPlayer
+                    embedUrl={kundenstimmenVideo.embedUrl}
+                    poster={kundenstimmenVideo.poster}
+                    mutedByDefault
+                    playAriaLabel="Abspielen"
+                    pauseAriaLabel="Pause"
+                    fullscreenAriaLabel="Vollbild"
+                    optionsAriaLabel="Weitere Optionen"
+                />
+                </div>
+              </div>
             </div>
 
-            <div className="mx-0">
-              <VideoPlayer
-                embedUrl={kundenstimmenVideo.embedUrl}
-                poster={kundenstimmenVideo.poster}
-                mutedByDefault
-                playAriaLabel="Abspielen"
-                pauseAriaLabel="Pause"
-                fullscreenAriaLabel="Vollbild"
-                optionsAriaLabel="Weitere Optionen"
-              />
-            </div>
-          </div>
+
         </div>
+        </div>
+
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">

@@ -169,7 +169,7 @@ export function VideoPlayer({
       <div
         ref={shellRef}
         className={cn(
-          "relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/5",
+          "relative mx-auto border border-white/15 aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-2xl ring-1 ring-white/5",
           className,
         )}
         onMouseEnter={() => setHovering(true)}
