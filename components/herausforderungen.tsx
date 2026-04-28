@@ -15,8 +15,7 @@ const challengeOne: HerausforderungSlide = {
   beforeText:
     "Die Neukundengewinnung ist unberechenbar oder funktioniert überhaupt nicht. Nachhaltige und planbare Ergebnisse bleiben aus.",
   afterPoints: [
-    "[PLACEHOLDER NACH KLICK] Alte Vorgehensweisen werden verworfen.",
-    "[PLACEHOLDER NACH KLICK] Ein strukturierter, planbarer Prozess wird eingefuehrt.",
+    "Entwurf und Ausführung einer Marketing-Strategie zur Neukundengewinnung. Planbare Ergebnisse und Umsätze.",
   ],
 }
 
@@ -26,8 +25,7 @@ const challengeTwo: HerausforderungSlide = {
   beforeText:
     "Ihr Angebot ist exzellent, aber potenzielle Kunden verstehen es nicht oder haben kein Vertrauen. Die Folge sind ewige Preis-Diskussionen und verlorene Deals.",
   afterPoints: [
-    "[PLACEHOLDER NACH KLICK] Klare Positionierung macht den Mehrwert sofort sichtbar.",
-    "[PLACEHOLDER NACH KLICK] Vertrauensstiftender Content liefert planbar qualifizierte Anfragen.",
+    "Klare Positionierung Ihres Angebots und der Nutzen. Vertrauensstiftender Content liefert planbar qualifizierte Anfragen.",
   ],
 }
 
@@ -37,8 +35,7 @@ const challengeThree: HerausforderungSlide = {
   beforeText:
     "Veraltete Marketing-Strategien kosten Sie täglich Zeit und Geld. Das Angebot ist stark, wird aber nicht sichtbar und erreicht nicht die richtigen Menschen.",
   afterPoints: [
-    "[PLACEHOLDER NACH KLICK] Moderne, KI-gestuetzte Kampagnen schaffen Sichtbarkeit.",
-    "[PLACEHOLDER NACH KLICK] Klare Prozesse sorgen fuer messbar bessere Ergebnisse.",
+    "Mit uns als Partner profitieren Sie von aktuellen Methoden und Tools. Wir sorgen für Sichtbarkeit und messbare Ergebnisse.",
   ],
 }
 
@@ -114,10 +111,6 @@ export function Herausforderungen() {
                         <CornerDownRight className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffc3]" strokeWidth={1.75} aria-hidden />
                         <span className="leading-relaxed text-[#00ffc3]">{challengeOne.afterPoints[0]}</span>
                       </li>
-                      <li className="flex items-start gap-2.5">
-                        <CornerDownRight className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffc3]" strokeWidth={1.75} aria-hidden />
-                        <span className="leading-relaxed text-[#00ffc3]">{challengeOne.afterPoints[1]}</span>
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -166,10 +159,6 @@ export function Herausforderungen() {
                         <CornerDownRight className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffc3]" strokeWidth={1.75} aria-hidden />
                         <span className="leading-relaxed text-[#00ffc3]">{challengeTwo.afterPoints[0]}</span>
                       </li>
-                      <li className="flex items-start gap-2.5">
-                        <CornerDownRight className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffc3]" strokeWidth={1.75} aria-hidden />
-                        <span className="leading-relaxed text-[#00ffc3]">{challengeTwo.afterPoints[1]}</span>
-                      </li>
                     </ul>
                   </div>
                 </div>
@@ -217,10 +206,6 @@ export function Herausforderungen() {
                       <li className="flex items-start gap-2.5">
                         <CornerDownRight className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffc3]" strokeWidth={1.75} aria-hidden />
                         <span className="leading-relaxed text-[#00ffc3]">{challengeThree.afterPoints[0]}</span>
-                      </li>
-                      <li className="flex items-start gap-2.5">
-                        <CornerDownRight className="mt-0.5 h-4 w-4 shrink-0 text-[#00ffc3]" strokeWidth={1.75} aria-hidden />
-                        <span className="leading-relaxed text-[#00ffc3]">{challengeThree.afterPoints[1]}</span>
                       </li>
                     </ul>
                   </div>
