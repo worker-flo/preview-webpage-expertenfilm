@@ -33,7 +33,7 @@ export function SectionWebsiteLeistungen() {
       aria-labelledby="website-leistungen-heading"
       className="relative py-14 md:py-20"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="mx-auto px-6 lg:px-8 max-w-lg sm:max-w-xl md:max-w-3xl lg:max-w-4xl">
         <div className="max-w-3xl">
           <h2
             id="website-leistungen-heading"

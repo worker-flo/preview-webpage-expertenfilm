@@ -65,7 +65,7 @@ export function GoogleReviews() {
   if (isLoading) {
     return (
       <section className="section-spotlight border-t border-white/10 py-16 text-white md:py-20">
-        <div className="mx-auto max-w-3xl px-5 sm:px-6 lg:px-8">
+        <div className="mx-auto px-5 sm:px-6 lg:px-8">
           <p className="text-center text-white/70">Google-Bewertungen werden geladen...</p>
         </div>
       </section>
@@ -78,7 +78,7 @@ export function GoogleReviews() {
 
   return (
     <section className="py-16 text-white md:py-20">
-      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-md md:max-w-3xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">Was Kunden auf Google ueber uns sagen</h2>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-white/90">

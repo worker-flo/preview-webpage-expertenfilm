@@ -223,7 +223,7 @@ export function Team() {
       id="team"
       className="section-spotlight section-spotlight--violet border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto px-5 sm:px-6 lg:px-8 sm:max-w-lg md:max-w-3xl lg:max-w-4xl mx-auto">
         <h2 className="text-center text-3xl font-bold tracking-tight text-white md:text-4xl">
           Das Expertenfilm-Team
         </h2>

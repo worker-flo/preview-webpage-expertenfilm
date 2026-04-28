@@ -52,7 +52,7 @@ export function Arbeitsweise() {
             Unsere Arbeitsweise
           </h2>
 
-          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mx-auto grid grid-cols-1 gap-8 md:grid-cols-3 max-w-md sm:max-w-xl md:max-w-3xl lg:max-w-4xl">
             {leistungen.map((item, index) => (
               <article
                 key={index}
@@ -77,7 +77,7 @@ export function Arbeitsweise() {
         </div>
 
         <div>
-          <div className="rounded-3xl  py-14 text-center font-sans text-white md:py-20">
+          <div className="rounded-3xl py-14 text-center font-sans text-white md:py-20 max-w-lg sm:max-w-lg md:max-w-2xl lg:max-w-4xl mx-auto">
             <div className="px-5 sm:px-6 md:px-10 lg:px-16">
               <h3 className="text-3xl font-semibold tracking-tight text-white md:text-4xl lg:text-5xl">
                 So sieht ein typischer Arbeitstag aus:

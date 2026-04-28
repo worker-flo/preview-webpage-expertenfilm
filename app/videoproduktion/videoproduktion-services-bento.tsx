@@ -4,7 +4,7 @@ import type { ComponentType, ReactNode } from "react"
 import {
   BadgeCheck,
   Clapperboard,
-  MessageSquareQuote,
+  MessagesSquare,
   Workflow,
 } from "lucide-react"
 
@@ -14,60 +14,11 @@ const ACCENT = "text-[#00ffc4]"
 const CARD =
   "rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md md:p-7"
 
-function AbstractTestimonialsIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 64"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn("h-11 w-11 shrink-0", ACCENT, className)}
-      aria-hidden
-    >
-      <rect
-        x="8"
-        y="11"
-        width="26"
-        height="22"
-        rx="4"
-        stroke="currentColor"
-        strokeWidth="2"
-      />
-      <path
-        d="M18 20h8M18 25h11"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <path
-        d="M20 33l-5 6"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-      />
-      <circle cx="47" cy="25" r="9" stroke="currentColor" strokeWidth="2" />
-      <path
-        d="m43.8 25.4 2.2 2.4 4.4-5.1"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M12 46c9.5-4.5 30.5-4.5 40 0"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeDasharray="3 3"
-        opacity={0.7}
-      />
-    </svg>
-  )
-}
-
 const SERVICES = [
   {
     key: "testimonials",
     title: "Authentische Testimonials",
-    icon: AbstractTestimonialsIcon,
+    Icon: MessagesSquare,
     body: (
       <>
         Wir fangen echte Stimmen ein, die Vertrauen aufbauen und Einwände Ihrer
@@ -169,7 +120,7 @@ export function VideoproduktionServicesBento() {
       aria-labelledby="videoproduktion-services-heading"
       className="relative border-t border-white/10 py-16 md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-6 lg:px-8">
+      <div className="px-6 lg:px-8 max-w-md sm:max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto">
         <h2
           id="videoproduktion-services-heading"
           className="mb-10 text-center text-2xl font-bold tracking-tight text-white md:mb-14 md:text-3xl"
@@ -183,7 +134,6 @@ export function VideoproduktionServicesBento() {
               key={item.key}
               title={item.title}
               body={item.body}
-              icon={"icon" in item ? item.icon : undefined}
               IconLucide={"Icon" in item ? item.Icon : undefined}
               gridClass={item.gridClass}
             />

@@ -131,7 +131,7 @@ export function SocialMediaServicesBento() {
         aria-labelledby="social-media-services-heading"
         className="relative border-t border-white/10 py-16 md:py-24"
       >
-        <div className="mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="px-6 lg:px-8 max-w-md sm:max-w-lg md:max-w-4xl lg:max-w-5xl mx-auto">
           <h2
             id="social-media-services-heading"
             className="mb-10 text-center text-2xl font-bold tracking-tight text-white md:mb-14 md:text-3xl"

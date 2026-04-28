@@ -25,8 +25,8 @@ export default function VideoproduktionPage() {
       <Navbar />
 
       <section className="section-spotlight section-spotlight--mixed relative min-h-[85vh] overflow-hidden">
-        <div className="relative z-10 container mx-auto px-6 pb-16 pt-32 md:pb-24 md:pt-36">
-          <div className="mx-auto max-w-4xl text-center">
+        <div className="relative z-10 container px-6 pb-16 pt-32 md:pb-24 md:pt-36 max-w-md sm:max-w-lg md:max-w-3xl lg:max-w-4xl mx-auto">
+          <div className="text-center">
             <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               <span className="text-white">Professionelle </span>
               <span className="text-[#00ffc4]">Videoproduktion</span>
@@ -36,7 +36,7 @@ export default function VideoproduktionPage() {
               Deine Expertise als unangefochtene Marke
             </p>
 
-            <p className="mx-auto mt-8 max-w-3xl text-left text-base leading-relaxed text-white/75 md:text-center md:text-lg">
+            <p className="mx-auto mt-8 max-w-3xl text-center text-base leading-relaxed text-white/75 md:text-center md:text-lg">
               Setzen Sie neue Standards mit einer Videoproduktion, die Ihre
               Expertise unterstreicht. Wir produzieren High-End Imagefilme und
               authentische Testimonials, die Einwände entkräften und Ihre Marke

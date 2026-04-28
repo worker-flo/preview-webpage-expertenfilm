@@ -415,13 +415,13 @@ export function KundenergebnisseCarousel({
 
   return (
     <div className="w-full">
-      <div className="relative px-3 pb-4 sm:px-4 md:hidden">
-        <div className="min-w-0 overflow-hidden px-0" ref={emblaRef}>
-          <div className="flex">
+      <div className="relative pb-4 md:hidden">
+        <div className="min-w-0 px-0" ref={emblaRef}>
+          <div className="flex -mx-6">
             {slides.map((slide, index) => (
               <div
                 key={`${slide.clientName}-${index}`}
-                className="min-w-0 shrink-0 grow-0 basis-full px-0 sm:px-2"
+                className="min-w-0 shrink-0 grow-0 basis-full px-4"
               >
                 <FallstudieCard
                   slide={slide}

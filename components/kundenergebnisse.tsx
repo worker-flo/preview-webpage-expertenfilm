@@ -197,7 +197,7 @@ export function Kundenergebnisse() {
       className="section-spotlight section-spotlight--violet border-t border-white/10 py-16 font-sans text-white md:py-24"
     >
       {/* Div: Ergebnisse, Projekte & Fallstudien */}
-      <div className="mx-auto max-w-6xl px-5 md:px-8">
+      <div className="mx-auto px-5 md:px-8 max-w-lg sm:max-w-lg md:max-w-3xl lg:max-w-4xl">
         {/* Div: Header */}
         <div className="flex min-h-[100svh] flex-col justify-center">
           <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -222,7 +222,7 @@ export function Kundenergebnisse() {
           {/* Div: Video Kundenstimmen aus 3 Jahren */}
           <div className="mx-auto max-w-4xl mt-4">
             <div
-              className="overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:p-6 md:p-7"
+              className="overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:p-7 md:p-8"
               role="region"
               aria-labelledby="kundenstimmen-schnitt-heading"
             >
@@ -264,7 +264,7 @@ export function Kundenergebnisse() {
           <h3 className="mb-10 text-center text-2xl font-bold text-white md:mb-12 md:text-3xl">
             Weitere Testimonials:
           </h3>
-          <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
+          <div className="max-w-md sm:max-w-lg md:max-w-3xl lg:max-w-4xl mx-auto">
             <VideoContentSlider
               slides={weitereTestimonialsSlides}
               previousAriaLabel="Vorheriges Testimonial"

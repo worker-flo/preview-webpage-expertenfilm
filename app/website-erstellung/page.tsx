@@ -22,7 +22,7 @@ export default function WebsiteErstellungPage() {
       <Navbar />
 
       <section className="section-spotlight section-spotlight--mixed relative overflow-hidden border-t border-white/10 pt-28">
-        <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
+        <div className="relative z-10 mx-auto px-6 lg:px-8 max-w-lg sm:max-w-lg md:max-w-3xl lg:max-w-5xl ">
           <div className="grid grid-cols-2 gap-8 pb-10 md:gap-10 md:pb-14 lg:grid-cols-[1fr_0.5fr] lg:items-end">
             <div className="max-w-4xl">
               <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">

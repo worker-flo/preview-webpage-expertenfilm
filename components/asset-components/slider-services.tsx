@@ -28,7 +28,7 @@ export function ServicesSlider({
   previousAriaLabel = "Vorheriger Service",
   nextAriaLabel = "Naechster Service",
 }: ServicesSliderProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "start" })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: "center" })
   const [selected, setSelected] = React.useState(0)
 
   const scrollPrev = React.useCallback(() => emblaApi?.scrollPrev(), [emblaApi])
@@ -47,13 +47,13 @@ export function ServicesSlider({
   return (
     <div className="w-full">
       <div className="min-w-0" ref={emblaRef}>
-        <div className="flex flex-row gap-4">
+        <div className="flex flex-row">
           {slides.map((service, index) => (
             <div
               key={`${service.title}-${index}`}
-              className="min-w-0 shrink-0 grow-0 basis-full px-1"
+              className="flex min-w-0 shrink-0 grow-0 basis-full justify-center px-6"
             >
-              <article className="group smm-card-hover relative flex h-full flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 text-center transition duration-300 hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
+              <article className="group smm-card-hover relative mx-auto flex h-full w-full max-w-lg flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 text-center transition duration-300 hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
                 <div className="mb-6">
                   <service.icon className="h-12 w-12 text-[var(--color-accent-teal)] stroke-[1.5]" />
                 </div>

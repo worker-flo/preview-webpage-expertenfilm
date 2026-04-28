@@ -28,7 +28,7 @@ export function HerausforderungenSlider({
   previousAriaLabel = "Vorherige Herausforderung",
   nextAriaLabel = "Naechste Herausforderung",
 }: HerausforderungenSliderProps) {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start" })
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" })
   const [selected, setSelected] = React.useState(0)
   const [activeCards, setActiveCards] = React.useState<boolean[]>(
     slides.map(() => false),
@@ -66,12 +66,12 @@ export function HerausforderungenSlider({
           {slides.map((challenge, index) => (
             <div
               key={`${challenge.title}-${index}`}
-              className="min-w-0 shrink-0 grow-0 basis-full px-4"
+              className="flex min-w-0 shrink-0 grow-0 basis-full justify-center px-4"
             >
               <button
                 type="button"
                 onClick={() => toggleCard(index)}
-                className="group flex h-full w-full rounded-xl focus:outline-none"
+                className="group flex h-full w-full max-w-lg rounded-xl focus:outline-none"
                 aria-pressed={activeCards[index]}
                 aria-label={`${challenge.title} ${activeCards[index] ? "zuruecksetzen" : "aktivieren"}`}
               >

@@ -25,7 +25,7 @@ export default function PerformanceMarketingPage() {
 
       <section className="section-spotlight section-spotlight--teal relative -top-8 flex min-h-[calc(100svh-6rem)] items-center overflow-hidden border-t border-white/10">
         <div className="relative z-10 container mx-auto px-6 py-16 md:py-24">
-          <div className="mx-auto max-w-4xl text-center">
+          <div className="text-center max-w-md sm:max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto">
             <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               <span className="text-white">Performance </span>
               <span className="text-[#00ffc4]">Marketing</span>

@@ -43,7 +43,7 @@ export function SectionWebsitePortfolio() {
   return (
     <div
       aria-labelledby="website-portfolio-heading"
-      className="relative py-10 md:py-14"
+      className="relative py-10 md:py-14 max-w-lg sm:max-w-lg md:max-w-3xl lg:max-w-5xl mx-auto"
     >
       <div className="mx-auto max-w-6xl px-6 lg:px-8">
         <div className="flex flex-row ">

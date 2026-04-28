@@ -139,7 +139,7 @@ export function Prozess() {
 
   return (
     <section id="prozess" className="section-spotlight section-spotlight--mixed bg-transparent border-t border-white/10 py-20 md:py-28">
-      <div className="mx-auto max-w-5xl px-5 md:px-8">
+      <div className="mx-auto px-5 md:px-8 max-w-md sm:max-w-lg md:max-w-2xl lg:max-w-4xl">
         <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-10 lg:gap-14">
           <div className="lg:sticky lg:top-[30%] text-center h-fit">
             <h2 className="text-white text-3xl md:text-4xl font-bold leading-tight">

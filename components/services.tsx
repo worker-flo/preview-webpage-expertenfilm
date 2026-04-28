@@ -63,49 +63,21 @@ const services: ServiceSlide[] = [
 export function Services() {
   return (
     <section id="services" className="section-spotlight section-spotlight--teal border-t border-white/10 py-20">
-      <div className="container mx-auto px-5 sm:max-w-md sm:px-6 md:max-w-6xl">
+      <div className="container mx-auto px-5 sm:px-6 max-w-3xl  ">
         <div className="flex min-h-[100svh] flex-col justify-center">
           {/* Section Title */}
           <h2 className="mb-16 text-center text-3xl font-bold text-white md:text-4xl lg:text-5xl">
             Unsere Services:
           </h2>
 
-          <div className="mx-auto max-w-sm sm:hidden">
-            <div className="grid grid-cols-1 gap-6">
-              {services.map((service, index) => (
-                <div key={index}>
-                  <div className="flex flex-1 flex-col gap-4">
-                    {service.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="flex items-start gap-3">
-                        <feature.icon className="w-5 h-5 text-white/60 mt-0.5 flex-shrink-0" />
-                        <span className="text-white/70 text-sm leading-relaxed">
-                          {feature.text}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
 
-                  <div className="mt-auto pt-7">
-                    <Link
-                      href={service.href}
-                      className="text-sm font-medium text-white/75 transition-colors group-hover:text-[#00ffc4] group-focus-within:text-[#00ffc4] focus-visible:text-[#00ffc4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ffc4]/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050a14] after:absolute after:inset-0 after:content-['']"
-                    >
-                      <span className="relative z-10 inline-flex items-center gap-2">
-                        Mehr erfahren
-                        <ArrowRight className="h-4 w-4" aria-hidden />
-                      </span>
-                    </Link>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="hidden sm:block md:hidden sm:mx-auto sm:max-w-6xl">
+          {/* Mobile View */}
+          <div className="md:hidden sm:block sm:mx-auto">
             <ServicesSlider slides={services} />
           </div>
 
-          <div className="mx-auto hidden max-w-6xl grid-cols-2 gap-6 md:grid">
+          {/* Desktop View */}
+          <div className="hidden md:grid grid-cols-2 gap-6 mx-auto lg:max-w-4xl md:max-w-3xl max-w-lg  ">
             {services.map((service, index) => (
               <div
                 key={index}
