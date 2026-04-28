@@ -11,6 +11,9 @@ type TeamMember = {
   name: string
   role: string
   imageUrl: string
+  mail: string
+  mobile: string
+  text: string
 }
 
 const TEAM: TeamMember[] = [
@@ -19,30 +22,50 @@ const TEAM: TeamMember[] = [
     role: "Gründer",
     imageUrl:
       "/images/team/julian_no_bg.png",
+    mail: "julian.becker@expertenfilm.de",
+    mobile: "0171 8702628",
+    text:
+      "Julian verantwortet die strategische Ausrichtung von EXPERTENFILM und begleitet Projekte von der ersten Idee bis zur finalen Umsetzung.",
   },
   {
     name: "Julius Schmidt",
     role: "Editor & Videograf",
     imageUrl:
     "/images/team/julius_no_bg.png",
+    mail: "julius.schmidt@expertenfilm.de",
+    mobile: "+49 1523 1059050",
+    text:
+      "Julius sorgt als Editor und Videograf für einen präzisen Schnitt und visuelle Qualität, die Marken klar und hochwertig positioniert.",
   },
   {
     name: "Pepe Kappitz",
     role: "Cutter & Feel Good Manager",
     imageUrl:
     "/images/team/pepe_no_bg.png",
+    mail: "pepe.kappitz@expertenfilm.de",
+    mobile: "-",
+    text:
+      "Pepe verbindet strukturiertes Postproduktions-Handwerk mit einem sicheren Gespür für Storytelling und Teamdynamik am Set.",
   },
   {
     name: "Leon Becker",
     role: "Projektmanager",
     imageUrl:
     "/images/team/leon_no_bg.png",
+    mail: "leon.becker@expertenfilm.de",
+    mobile: "+49 171 3205301",
+    text:
+      "Leon steuert Timings, Abstimmungen und Abläufe, damit jedes Kundenprojekt effizient geplant und zuverlässig umgesetzt wird.",
   },
   {
     name: "Steffen Kronberg",
     role: "Social Media Manager",
     imageUrl:
     "/images/team/steffen_no_bg.png",
+    mail: "steffen.kronberg@expertenfilm.de",
+    mobile: "+49 176 71610747",
+    text:
+      "Steffen ist unser Kompass in der sich ständig drehenden Social-Media-Welt. Als Social Media Manager hat er nicht nur die Algorithmen im Griff, sondern weiß genau, wie wir aus flüchtigen Trends echte Markenmomente machen.",
   },
 ]
 
@@ -189,11 +212,27 @@ function TeamMemberCard({
           )}
         >
           <div className="rounded-lg border border-white/15 bg-[#050a14]/95 px-4 py-3 text-left text-sm leading-relaxed text-slate-300 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
-            <p>
-              Platzhalter: Hier erscheint später ein kurzer Steckbrief zu{' '}
-              {vorname(member.name)} – Schwerpunkte, Erfahrung und was Sie in
-              der Zusammenarbeit erwartet.
-            </p>
+            <div className="space-y-3">
+              <p>
+                <span className="font-semibold text-white">Mail:</span>{" "}
+                <a
+                  href={`mailto:${member.mail}`}
+                  className="text-slate-200 underline decoration-white/25 underline-offset-4 transition-colors hover:text-[var(--color-accent-teal)]"
+                >
+                  {member.mail}
+                </a>
+              </p>
+              <p>
+                <span className="font-semibold text-white">Mobil:</span>{" "}
+                <a
+                  href={`tel:${member.mobile.replace(/\s+/g, "")}`}
+                  className="text-slate-200 underline decoration-white/25 underline-offset-4 transition-colors hover:text-[var(--color-accent-teal)]"
+                >
+                  {member.mobile}
+                </a>
+              </p>
+              <p>{member.text}</p>
+            </div>
           </div>
         </div>
       </div>
