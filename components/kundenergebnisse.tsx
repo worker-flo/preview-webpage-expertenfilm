@@ -197,7 +197,7 @@ export function Kundenergebnisse() {
       className="section-spotlight section-spotlight--violet border-t border-white/10 py-16 font-sans text-white md:py-24"
     >
       {/* Div: Ergebnisse, Projekte & Fallstudien */}
-      <div className="mx-auto px-5 md:px-8 max-w-lg sm:max-w-lg md:max-w-3xl lg:max-w-4xl">
+      <div className="mx-auto px-5 md:px-8 max-w-sm sm:max-w-lg md:max-w-3xl lg:max-w-4xl">
         {/* Div: Header */}
         <div className="flex min-h-[100svh] flex-col justify-center">
           <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -214,8 +214,8 @@ export function Kundenergebnisse() {
             Anforderungen finden wir für Sie die passende Lösung.
           </p>
 
-          {/* Div: Case Studies */} 
-          <div className="mx-auto mt-12 flex max-w-4xl justify-center md:mt-16 lg:mt-20">
+          {/* Div: Case Studies */}
+          <div className="mx-auto mt-12 w-full min-w-0 max-w-4xl md:mt-16 lg:mt-20">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
           </div>
 

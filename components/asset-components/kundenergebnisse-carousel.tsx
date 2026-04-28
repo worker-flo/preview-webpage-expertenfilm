@@ -414,14 +414,14 @@ export function KundenergebnisseCarousel({
   }, [emblaApi])
 
   return (
-    <div className="w-full">
+    <div className="mx-auto w-full">
       <div className="relative pb-4 md:hidden">
-        <div className="min-w-0 px-0" ref={emblaRef}>
-          <div className="flex -mx-6">
+        <div className="min-w-0 w-full px-0" ref={emblaRef}>
+          <div className="flex">
             {slides.map((slide, index) => (
               <div
                 key={`${slide.clientName}-${index}`}
-                className="min-w-0 shrink-0 grow-0 basis-full px-4"
+                className="min-w-0 shrink-0 grow-0 basis-full px-2 sm:px-3"
               >
                 <FallstudieCard
                   slide={slide}
@@ -464,23 +464,46 @@ export function KundenergebnisseCarousel({
         </p>
       </div>
 
-      <div className="mx-auto hidden max-w-6xl items-center md:grid md:grid-cols-2 md:gap-4">
-        {slides.slice(0, 3).map((slide, index) => (
-          <FallstudieCard
-            key={`${slide.clientName}-desktop-${index}`}
-            slide={slide}
-            isActive
-            isExpanded={expandedDesktopIndices.includes(index)}
-            onToggle={() => {
-              setExpandedDesktopIndices((prev) => {
-                if (prev.includes(index)) {
-                  return prev.filter((i) => i !== index)
-                }
-                return [...prev, index]
-              })
-            }}
-          />
-        ))}
+      <div className="mx-auto hidden w-full max-w-6xl md:grid md:grid-cols-2 md:gap-4">
+        {slides.slice(0, 3).map((slide, index) =>
+          index === 2 ? (
+            <div
+              key={`${slide.clientName}-desktop-${index}`}
+              className="flex w-full justify-center md:col-span-2"
+            >
+              <div className="w-full md:max-w-xl lg:max-w-2xl">
+                <FallstudieCard
+                  slide={slide}
+                  isActive
+                  isExpanded={expandedDesktopIndices.includes(index)}
+                  onToggle={() => {
+                    setExpandedDesktopIndices((prev) => {
+                      if (prev.includes(index)) {
+                        return prev.filter((i) => i !== index)
+                      }
+                      return [...prev, index]
+                    })
+                  }}
+                />
+              </div>
+            </div>
+          ) : (
+            <FallstudieCard
+              key={`${slide.clientName}-desktop-${index}`}
+              slide={slide}
+              isActive
+              isExpanded={expandedDesktopIndices.includes(index)}
+              onToggle={() => {
+                setExpandedDesktopIndices((prev) => {
+                  if (prev.includes(index)) {
+                    return prev.filter((i) => i !== index)
+                  }
+                  return [...prev, index]
+                })
+              }}
+            />
+          )
+        )}
       </div>
     </div>
   )
