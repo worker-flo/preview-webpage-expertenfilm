@@ -55,7 +55,7 @@ export function Hero() {
         className="pointer-events-none absolute inset-0 z-0"
         aria-hidden
       >
-        <div className="absolute -left-24 h-[28rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(0,255,196,0.1)_0%,_rgba(0,255,196,0)_72%)] -z-1" />
+        <div className="lg:hidden absolute -left-24 h-[28rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(0,255,196,0.1)_0%,_rgba(0,255,196,0)_72%)] -z-1" />
         <div className="absolute right-[-10rem] bottom-[30rem] h-[30rem] w-[36rem] rounded-full bg-[radial-gradient(circle,_rgba(91,98,229,0.16)_0%,_rgba(91,98,229,0)_74%)] -z-1" />
       </div>
 
@@ -94,7 +94,7 @@ export function Hero() {
         </svg>
 
         <svg
-          className="absolute top-90 left-30 h-[520px] w-[520px] opacity-25"
+          className="absolute top-90 left-0 h-[520px] w-[520px] opacity-25"
           viewBox="0 0 600 600"
           fill="none"
         >
@@ -123,7 +123,7 @@ export function Hero() {
       </div>
 
       {/* Camera Image - Left Side */}
-      <div className="hidden sm:block pointer-events-none absolute -left-10 top-24 h-[80svh] min-h-[360px] max-h-[680px] w-[50svw]">
+      <div className="hidden lg:block pointer-events-none absolute -left-10 top-24 h-[80svh] min-h-[360px] max-h-[680px] w-[50svw]">
         <Image
           src="/images/section-hero/camera_and_rig.webp"
           alt="Camera Rig"
@@ -139,7 +139,7 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="hidden sm:block pointer-events-none absolute -right-[6svw] top-20 z-[1] h-[82svh] min-h-[360px] max-h-[680px] w-[52svw]">
+      <div className="hidden lg:block pointer-events-none absolute -right-[6svw] top-20 z-[1] h-[82svh] min-h-[360px] max-h-[680px] w-[52svw]">
         <Image
           src="/images/section-hero/roboter_hand_extended.webp"
           alt="Robot Hand"
