@@ -31,7 +31,7 @@ export function Hero() {
 
   return (
     <section
-      className="section-spotlight section-spotlight--hero relative overflow-hidden border-t border-white/10 -top-12.5"
+      className="relative overflow-hidden border-t border-white/10 -top-12.5"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         const relativeX = (event.clientX - rect.left) / rect.width
@@ -50,8 +50,17 @@ export function Hero() {
       }}
       onMouseLeave={() => setHoveredSide(null)}
     >
+      {/* Manual spotlight overlays (local to hero) */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0"
+        aria-hidden
+      >
+        <div className="absolute -left-24 h-[28rem] w-[34rem] rounded-full bg-[radial-gradient(circle,_rgba(0,255,196,0.1)_0%,_rgba(0,255,196,0)_72%)] -z-1" />
+        <div className="absolute right-[-10rem] bottom-[30rem] h-[30rem] w-[36rem] rounded-full bg-[radial-gradient(circle,_rgba(91,98,229,0.16)_0%,_rgba(91,98,229,0)_74%)] -z-1" />
+      </div>
+
       {/* Background Network Lines */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 z-[1] pointer-events-none">
         <svg
           className="absolute top-20 right-0 w-[600px] h-[600px] opacity-30"
           viewBox="0 0 600 600"
@@ -130,7 +139,7 @@ export function Hero() {
       </div>
 
       {/* Robot Hand Image - Right Side */}
-      <div className="hidden sm:block pointer-events-none absolute right-0 top-24 h-[80svh] min-h-[360px] max-h-[680px] w-[50svw]">
+      <div className="hidden sm:block pointer-events-none absolute -right-[6svw] top-20 z-[1] h-[82svh] min-h-[360px] max-h-[680px] w-[52svw]">
         <Image
           src="/images/section-hero/roboter_hand_extended.webp"
           alt="Robot Hand"

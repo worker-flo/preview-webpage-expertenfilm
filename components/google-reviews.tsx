@@ -77,7 +77,7 @@ export function GoogleReviews() {
   }
 
   return (
-    <section className="section-spotlight py-16 text-white md:py-20">
+    <section className="py-16 text-white md:py-20">
       <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">Was Kunden auf Google ueber uns sagen</h2>

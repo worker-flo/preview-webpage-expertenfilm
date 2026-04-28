@@ -23,7 +23,7 @@ const SERVICES = [
       </>
     ),
     gridClass:
-      "md:col-span-2 md:row-start-1 md:col-start-1",
+      "md:col-span-2 md:row-start-1 md:col-start-1 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "content",
@@ -36,7 +36,7 @@ const SERVICES = [
         um genau die Botschaften zu finden, die Ihre Lead-Kosten senken.
       </>
     ),
-    gridClass: "md:col-start-3 md:row-start-1",
+    gridClass: "md:col-start-3 md:row-start-1 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "smm",
@@ -52,7 +52,7 @@ const SERVICES = [
         statt Stockfotos und Floskeln.
       </>
     ),
-    gridClass: "md:col-start-1 md:row-start-2",
+    gridClass: "md:col-start-1 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "leads",
@@ -64,7 +64,7 @@ const SERVICES = [
         Umsatz, mehr Gewinn.
       </>
     ),
-    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2",
+    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
 ]
 

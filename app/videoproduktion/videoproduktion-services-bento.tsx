@@ -78,7 +78,7 @@ const SERVICES = [
         wirken stärker als jedes Werbeversprechen.
       </>
     ),
-    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1",
+    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "storytelling",
@@ -92,7 +92,7 @@ const SERVICES = [
       </>
     ),
     gridClass:
-      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)]",
+      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)] hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "synergy",
@@ -105,7 +105,7 @@ const SERVICES = [
         skalierbar.
       </>
     ),
-    gridClass: "md:col-start-1 md:row-start-2",
+    gridClass: "md:col-start-1 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "cinema-meets-marketing",
@@ -118,7 +118,7 @@ const SERVICES = [
         nur gut aussieht, sondern auch messbar verkauft.
       </>
     ),
-    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2",
+    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
 ] as const
 
@@ -139,7 +139,7 @@ function ServiceCard({
     <article
       className={cn(
         CARD,
-        "transition-transform duration-300 hover:-translate-y-1",
+        "transition-transform duration-300",
         gridClass,
       )}
     >

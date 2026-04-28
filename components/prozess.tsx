@@ -192,7 +192,7 @@ export function Prozess() {
                     )}
                   </div>
 
-                  <div className="hover-glow-teal h-full rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] smm-card-hover md:p-8">
+                  <div className="hover-glow-teal h-full rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8 hover-scale-1_02 hover-glow-teal">
                     <div
                       className={`md:hidden mb-4 ${iconSizeConfig.mobile.container} flex items-center justify-center rounded-lg border border-white/15 bg-[#050a14]/95`}
                     >

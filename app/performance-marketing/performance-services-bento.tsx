@@ -50,7 +50,7 @@ const SERVICES = [
         .
       </>
     ),
-    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1 hover-scale-1_02",
+    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "creative-optimization",
@@ -63,7 +63,7 @@ const SERVICES = [
       </>
     ),
     gridClass:
-      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)] hover-scale-1_02",
+      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)] hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "lead-qualification",
@@ -75,7 +75,7 @@ const SERVICES = [
         sortiert unpassende Anfragen bereits im Funnel aus.
       </>
     ),
-    gridClass: "md:col-start-1 md:row-start-2 hover-scale-1_02",
+    gridClass: "md:col-start-1 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "hybrid-creatives",
@@ -87,7 +87,7 @@ const SERVICES = [
         mit KI-Varianten, damit vor dem Klick schon Vertrauen entsteht.
       </>
     ),
-    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal ",
+    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
 ] as const
 
