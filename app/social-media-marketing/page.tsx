@@ -17,13 +17,13 @@ export default function SocialMediaMarketingPage() {
   return (
     <main>
       <div
-        className="fixed inset-0 -z-10 h-100vh w-100vw bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)]"
+        className="fixed inset-0 -z-10 h-100vh w-100vw bg-[linear-gradient(180deg,_#050a14_0%,_#040912_55%,_#03070f_100%)]"
         aria-hidden
       />
 
       <Navbar />
 
-      <section className="relative min-h-[85vh] overflow-hidden">
+      <section className="section-spotlight section-spotlight--teal relative min-h-[85vh] overflow-hidden border-t border-white/10">
         /* Background Network Lines */
         <div className="pointer-events-none absolute inset-0">
           <svg

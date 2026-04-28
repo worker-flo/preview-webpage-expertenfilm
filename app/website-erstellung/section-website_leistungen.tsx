@@ -29,7 +29,7 @@ const LEISTUNGEN: WebsiteLeistungItem[] = [
 
 export function SectionWebsiteLeistungen() {
   return (
-    <section
+    <div
       aria-labelledby="website-leistungen-heading"
       className="relative py-14 md:py-20"
     >
@@ -109,6 +109,6 @@ export function SectionWebsiteLeistungen() {
           </article>
         </div>
       </div>
-    </section>
+    </div>
   )
 }

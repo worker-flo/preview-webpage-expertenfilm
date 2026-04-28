@@ -41,7 +41,7 @@ const WEBSITE_PORTFOLIO_ITEMS: WebsitePortfolioItem[] = [
 
 export function SectionWebsitePortfolio() {
   return (
-    <section
+    <div
       aria-labelledby="website-portfolio-heading"
       className="relative py-10 md:py-14"
     >
@@ -90,6 +90,6 @@ export function SectionWebsitePortfolio() {
         </div>
       </div>
 
-    </section>
+    </div>
   )
 }

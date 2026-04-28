@@ -15,35 +15,13 @@ export default function WebsiteErstellungPage() {
   return (
     <main>
       <div
-        className="fixed inset-0 -z-10 h-100vh w-100vw bg-[linear-gradient(225deg,_#000336_0%,_#000000_100%)]"
+        className="fixed inset-0 -z-10 h-100vh w-100vw bg-[linear-gradient(180deg,_#050a14_0%,_#040912_55%,_#03070f_100%)]"
         aria-hidden
       />
 
       <Navbar />
 
-      <section className="relative overflow-hidden pt-28 mt-20">
-        <div className="pointer-events-none absolute inset-0">
-          <svg
-            className="absolute right-0 top-16 h-[420px] w-[420px] opacity-25 md:h-[520px] md:w-[520px]"
-            viewBox="0 0 600 600"
-            fill="none"
-            aria-hidden
-          >
-            <g stroke="#5b62e5" strokeWidth="2">
-              <line x1="300" y1="100" x2="450" y2="200" />
-              <line x1="450" y1="200" x2="520" y2="280" />
-              <line x1="300" y1="100" x2="250" y2="180" />
-              <line x1="250" y1="180" x2="200" y2="250" />
-            </g>
-            <g fill="#5b62e5">
-              <circle cx="300" cy="100" r="8" />
-              <circle cx="450" cy="200" r="6" />
-              <circle cx="520" cy="280" r="6" />
-              <circle cx="250" cy="180" r="6" />
-            </g>
-          </svg>
-        </div>
-
+      <section className="section-spotlight section-spotlight--mixed relative overflow-hidden border-t border-white/10 pt-28">
         <div className="relative z-10 mx-auto max-w-6xl px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 pb-10 md:gap-10 md:pb-14 lg:grid-cols-[1fr_0.5fr] lg:items-end">
             <div className="max-w-4xl">
@@ -86,10 +64,9 @@ export default function WebsiteErstellungPage() {
           </div>
           </div>
         </div>
+        <SectionWebsitePortfolio />
+        <SectionWebsiteLeistungen />
       </section>
-
-      <SectionWebsitePortfolio />
-      <SectionWebsiteLeistungen />
 
       <Footer />
     </main>

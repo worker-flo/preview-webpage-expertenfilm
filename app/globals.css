@@ -300,7 +300,35 @@
 .section-spotlight {
   position: relative;
   isolation: isolate;
+  overflow: hidden;
   background-repeat: no-repeat;
+}
+
+.section-spotlight::before,
+.section-spotlight::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-spotlight::before {
+  top: 0;
+  height: 4.5rem;
+  background: linear-gradient(to bottom, #03070f 0%, transparent 100%);
+}
+
+.section-spotlight::after {
+  bottom: 0;
+  height: 5.5rem;
+  background: linear-gradient(to bottom, transparent 0%, #03070f 100%);
+}
+
+.section-spotlight > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-spotlight--teal {
