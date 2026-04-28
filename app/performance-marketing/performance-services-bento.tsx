@@ -50,7 +50,7 @@ const SERVICES = [
         .
       </>
     ),
-    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1",
+    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1 hover-scale-1_02",
   },
   {
     key: "creative-optimization",
@@ -63,7 +63,7 @@ const SERVICES = [
       </>
     ),
     gridClass:
-      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)]",
+      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)] hover-scale-1_02",
   },
   {
     key: "lead-qualification",
@@ -75,7 +75,7 @@ const SERVICES = [
         sortiert unpassende Anfragen bereits im Funnel aus.
       </>
     ),
-    gridClass: "md:col-start-1 md:row-start-2",
+    gridClass: "md:col-start-1 md:row-start-2 hover-scale-1_02",
   },
   {
     key: "hybrid-creatives",
@@ -87,7 +87,7 @@ const SERVICES = [
         mit KI-Varianten, damit vor dem Klick schon Vertrauen entsteht.
       </>
     ),
-    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2",
+    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal ",
   },
 ] as const
 
@@ -138,7 +138,7 @@ export function PerformanceServicesBento() {
             id="performance-services-heading"
             className="mb-10 text-center text-2xl font-bold tracking-tight text-white md:mb-14 md:text-3xl"
           >
-            Services im Überblick
+            Unsere Serivces im Performance Marketing
           </h2>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-2">
