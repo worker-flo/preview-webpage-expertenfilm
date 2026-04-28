@@ -1,11 +1,9 @@
  "use client"
 
-import { useState } from "react"
 import { Camera, ClipboardCheck, Handshake } from "lucide-react"
-import { AnimatePresence, motion } from "framer-motion"
 
 import { KontaktCta } from "@/components/buttons"
-import { BentoGridImages, type BentoGridImage } from "@/components/asset-components/bento_grid-images"
+import { BentoGridImages } from "@/components/asset-components/bento_grid-images"
 import { ImageGridSlider, type ImageGridSlide } from "@/components/asset-components/slider-image_grid"
 
 const BENTO_IMAGES = [
@@ -87,10 +85,6 @@ const impressionenSlides: ImageGridSlide[] = [
   {
     images: [
       {
-        src: "/images/produktion/weitere/empchair-kunden.webp",
-        alt: "Filmisches Licht-Setup bei einem Dreh",
-      },
-      {
         src: "/images/produktion/testo_gym/testo_gym-julian_filmt_2.webp",
         alt: "Kameraoperator in Aktion",
       },
@@ -98,19 +92,21 @@ const impressionenSlides: ImageGridSlide[] = [
         src: "/images/produktion/weitere/kamera-close_up_1.webp",
         alt: "Blick durch den Sucher auf ein Testimonial-Setup",
       },
+      {
+        src: "/images/produktion/weitere/empchair-kunden.webp",
+        alt: "Filmisches Licht-Setup bei einem Dreh",
+      },
     ],
   },
 ]
 
 export function Produktion() {
-  const [activeImage, setActiveImage] = useState<BentoGridImage | null>(null)
-
   return (
     <section
       id="einblicke"
       className="section-spotlight section-spotlight--mixed border-t border-white/10 py-10 font-sans text-white "
     >
-      <div className="mx-auto pl-5 md:pl-8 max-w-lg sm:max-w-lg md:max-w-2xl lg:max-w-4xl ">
+      <div className="mx-auto pl-5 md:pl-8 max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl ">
         <div className="grid min-h-[100svh] grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
           <div className="min-w-0 max-w-[65ch]">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-4xl">
@@ -147,7 +143,7 @@ export function Produktion() {
             />
           </div>
 
-          <BentoGridImages images={BENTO_IMAGES} onImageClick={setActiveImage} />
+          <BentoGridImages images={BENTO_IMAGES} />
         </div>
 
         <div className="mt-12 pt-10 md:mt-16 md:pt-14">
@@ -168,45 +164,6 @@ export function Produktion() {
           />
         </div>
       </div>
-
-      <AnimatePresence>
-        {activeImage ? (
-          <motion.div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4"
-            onClick={() => setActiveImage(null)}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Bild vergroessert"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.22, ease: "easeOut" }}
-          >
-            <motion.button
-              type="button"
-              className="smm-btn-surface absolute right-4 top-4 rounded-full px-3 py-1.5 text-sm"
-              onClick={() => setActiveImage(null)}
-              aria-label="Bild schliessen"
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.2, ease: "easeOut" }}
-            >
-              Schliessen
-            </motion.button>
-            <motion.img
-              src={activeImage.src}
-              alt={activeImage.alt}
-              className="max-h-[90vh] w-auto max-w-[95vw] rounded-2xl object-contain ring-1 ring-white/20"
-              onClick={(e) => e.stopPropagation()}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.92 }}
-              transition={{ duration: 0.24, ease: "easeOut" }}
-            />
-          </motion.div>
-        ) : null}
-      </AnimatePresence>
     </section>
   )
 }

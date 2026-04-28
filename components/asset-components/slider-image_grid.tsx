@@ -37,6 +37,36 @@ function getGridColsClass(columns: 2 | 3 | 4) {
   return "grid-cols-2"
 }
 
+/** Bei 2 Spalten und &lt;4 Bildern: erstes Bild über 2 Zeilen; Rasterhöhe gleichmäßig. */
+function getShortSlideTwoColLayout(
+  index: number,
+  total: number,
+): { gridExtra: string; itemExtra: string; cardAspect: "default" | "fill" } {
+  if (total >= 4 || total === 0) {
+    return { gridExtra: "", itemExtra: "", cardAspect: "default" }
+  }
+  if (total === 1) {
+    return {
+      gridExtra: "grid-rows-2",
+      itemExtra: "col-span-2 row-span-2",
+      cardAspect: "fill",
+    }
+  }
+  if (total === 2) {
+    return {
+      gridExtra: "grid-rows-2",
+      itemExtra: index === 0 ? "row-span-2" : "",
+      cardAspect: index === 0 ? "fill" : "default",
+    }
+  }
+  // total === 3
+  return {
+    gridExtra: "grid-rows-2",
+    itemExtra: index === 0 ? "row-span-2" : "",
+    cardAspect: index === 0 ? "fill" : "default",
+  }
+}
+
 function SlideGrid({
   images,
   columns,
@@ -50,30 +80,50 @@ function SlideGrid({
   imageClassName?: string
   onImageClick: (image: ImageItem) => void
 }) {
+  const total = images.length
+  const useShortTwoCol = columns === 2 && total > 0 && total < 4
+
   return (
-    <div className={cn("grid gap-2 sm:gap-4 md:gap-6", getGridColsClass(columns))}>
-      {images.map((img) => (
-        <button
-          type="button"
-          key={`${img.src}-${img.alt}`}
-          onClick={() => onImageClick(img)}
-          className={cn(
-            "group border border-white/15 relative overflow-hidden rounded-2xl transition",
-            cardAspectClassName,
-          )}
-          aria-label={`${img.alt} vergroessern`}
-        >
-          <img
-            src={img.src}
-            alt={img.alt}
+    <div
+      className={cn(
+        "grid gap-2 sm:gap-4 md:gap-6",
+        getGridColsClass(columns),
+        useShortTwoCol ? getShortSlideTwoColLayout(0, total).gridExtra : "",
+      )}
+    >
+      {images.map((img, index) => {
+        const layout = useShortTwoCol
+          ? getShortSlideTwoColLayout(index, total)
+          : { gridExtra: "", itemExtra: "", cardAspect: "default" as const }
+        const aspectCls =
+          layout.cardAspect === "fill"
+            ? "aspect-auto h-full min-h-0"
+            : cardAspectClassName
+
+        return (
+          <button
+            type="button"
+            key={`${img.src}-${img.alt}`}
+            onClick={() => onImageClick(img)}
             className={cn(
-              "h-full w-full object-cover cursor-pointer transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]",
-              imageClassName,
+              "group border border-white/15 relative min-h-0 overflow-hidden rounded-2xl transition",
+              aspectCls,
+              layout.itemExtra,
             )}
-            loading="lazy"
-          />
-        </button>
-      ))}
+            aria-label={`${img.alt} vergroessern`}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              className={cn(
+                "h-full w-full object-cover cursor-pointer transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]",
+                imageClassName,
+              )}
+              loading="lazy"
+            />
+          </button>
+        )
+      })}
     </div>
   )
 }
