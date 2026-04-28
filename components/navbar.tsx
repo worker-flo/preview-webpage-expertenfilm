@@ -389,7 +389,7 @@ export function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="smm-btn-icon sm:hidden rounded-full p-1 text-white"
+            className="smm-btn-icon sm:hidden p-1 text-white"
             aria-label="Menü öffnen"
             aria-expanded={isMenuOpen}
           >

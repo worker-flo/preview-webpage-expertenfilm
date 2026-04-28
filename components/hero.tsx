@@ -94,7 +94,7 @@ export function Hero() {
         </svg>
 
         <svg
-          className="absolute top-90 left-0 h-[520px] w-[520px] opacity-25"
+          className="absolute md:top-90  top-72 -left-7 h-[520px] w-[520px] opacity-25"
           viewBox="0 0 600 600"
           fill="none"
         >
