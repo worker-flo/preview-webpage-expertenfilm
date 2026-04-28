@@ -9,7 +9,8 @@ import { cn } from "@/lib/utils"
 export type VertVideoSlide = {
   id?: string
   title?: string
-  videoUrl: string
+  videoUrl?: string
+  embedUrl?: string
   thumbnail: string
   overlayLabel?: string
 }
@@ -38,6 +39,10 @@ function SlideMedia({
   mediaContainerClassName?: string
 }) {
   const videoRef = React.useRef<HTMLVideoElement>(null)
+  const resolvedEmbedUrl =
+    slide.embedUrl ??
+    (slide.videoUrl?.includes("player.mediadelivery.net/embed/") ? slide.videoUrl : undefined)
+  const isEmbed = Boolean(resolvedEmbedUrl)
   const [playing, setPlaying] = React.useState(false)
   const [muted, setMuted] = React.useState(mutedByDefault)
   const [hovering, setHovering] = React.useState(false)
@@ -81,18 +86,29 @@ function SlideMedia({
       onMouseLeave={() => setHovering(false)}
     >
       <div className={cn("relative w-full", mediaAspectClassName)}>
-        <video
-          ref={videoRef}
-          className="absolute inset-0 h-full w-full object-cover"
-          src={slide.videoUrl}
-          poster={slide.thumbnail}
-          playsInline
-          muted={muted}
-          preload="metadata"
-          onPlay={() => setPlaying(true)}
-          onPause={() => setPlaying(false)}
-          onClick={togglePlay}
-        />
+        {isEmbed ? (
+          <iframe
+            className="absolute inset-0 h-full w-full"
+            src={resolvedEmbedUrl}
+            title={slide.title ?? slide.overlayLabel ?? "Vertikales Video"}
+            loading="lazy"
+            allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+            allowFullScreen
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src={slide.videoUrl}
+            poster={slide.thumbnail}
+            playsInline
+            muted={muted}
+            preload="metadata"
+            onPlay={() => setPlaying(true)}
+            onPause={() => setPlaying(false)}
+            onClick={togglePlay}
+          />
+        )}
 
         <div
           className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/40"
@@ -105,7 +121,7 @@ function SlideMedia({
           </p>
         ) : null}
 
-        {(!playing || hovering) && (
+        {!isEmbed && (!playing || hovering) && (
           <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
             <button
               type="button"
@@ -160,7 +176,7 @@ export function VertVideoSlider({
         <div className="flex">
           {slides.map((slide, index) => (
             <div
-              key={slide.id ?? `${slide.videoUrl}-${index}`}
+              key={slide.id ?? `${slide.embedUrl ?? slide.videoUrl ?? "slide"}-${index}`}
               className="min-w-0 shrink-0 grow-0 basis-full px-2 sm:px-3 md:px-4"
             >
               <SlideMedia

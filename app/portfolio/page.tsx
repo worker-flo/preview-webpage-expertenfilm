@@ -22,29 +22,7 @@ export default function PortfolioPage() {
 
       <Navbar />
 
-      <section className="section-spotlight section-spotlight--mixed relative min-h-[85vh] overflow-hidden border-t border-white/10">
-        <div className="pointer-events-none absolute inset-0">
-          <svg
-            className="absolute right-0 top-16 h-[420px] w-[420px] opacity-25 md:h-[520px] md:w-[520px]"
-            viewBox="0 0 600 600"
-            fill="none"
-            aria-hidden
-          >
-            <g stroke="#5b62e5" strokeWidth="2">
-              <line x1="300" y1="100" x2="450" y2="200" />
-              <line x1="450" y1="200" x2="520" y2="280" />
-              <line x1="300" y1="100" x2="250" y2="180" />
-              <line x1="250" y1="180" x2="200" y2="250" />
-            </g>
-            <g fill="#5b62e5">
-              <circle cx="300" cy="100" r="8" />
-              <circle cx="450" cy="200" r="6" />
-              <circle cx="520" cy="280" r="6" />
-              <circle cx="250" cy="180" r="6" />
-            </g>
-          </svg>
-        </div>
-
+      <section className="section-spotlight section-spotlight--mixed relative min-h-[65vh] overflow-hidden">
         <div className="relative z-10 container mx-auto px-6 pb-16 pt-32 md:pb-24 md:pt-36">
           <div className="mx-auto max-w-4xl text-center">
             <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
@@ -73,7 +51,6 @@ export default function PortfolioPage() {
 
       <SectionContentPortfolio />
 
-      <Kontakt />
       <Footer />
     </main>
   )

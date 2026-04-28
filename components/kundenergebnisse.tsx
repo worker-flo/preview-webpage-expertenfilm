@@ -80,18 +80,18 @@ const weitereTestimonialsSlides: VideoContentSlide[] = [
   },
   {
     id: "testimonial-lb_coaching",
-    brandMarkLines: ["CRAFT", "LAB"],
+    brandMarkLines: ["LB", "COACHING"],
     overlayLabel: "Kundenerfahrung",
     embedUrl:
       "https://player.mediadelivery.net/embed/614528/3e99a3d9-08c1-426a-a1ba-8cd3d2fbe31c?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
     thumbnail:
       "https://vz-617e21d0-8be.b-cdn.net/3e99a3d9-08c1-426a-a1ba-8cd3d2fbe31c/thumbnail_ddd02802.jpg",
-    title: "Craft Lab",
-    category: "B2B Software",
+    title: "LB Coaching",
+    category: "Life Coaching",
     points: [
-      "Erklärvideos und Demos, die komplexe Features greifbar machen",
-      "Einheitlicher Markenauftritt über Website und Social Media",
-      "Messbar höhere Engagement-Rate auf organischen Kanälen",
+      "Durch unsere Videos erreicht Lambert Menschen, die auf der Suche nach einem Mentor sind",
+      "Wir spielen die Videos an Lamberts Zielgruppe aus, dafür nutzen wir unseren hauseigenen Prozess",
+      "Dadurch konnten wir Menschen mit Lambert in Konakt bringen, deren Leben er nun verändern kann",
     ],
   },
 ]
@@ -172,6 +172,20 @@ const projektHighlightSlides: VideoContentSlide[] = [
       "Sichtbarkeit in der lokalen Zielgruppe war zersplittert und schwer erklärbar",
       "Mit stimmigen Kurzvideos und klaren Hooks haben wir Aufmerksamkeit und Buchungen gesteigert",
       "Die Kampagnen liefern seitdem planbare Anfragen mit nachvollziehbarem Werbebudget",
+    ],
+  },
+  {
+    id: "projekt-rheincare",
+    title: "Rheincare GmbH",
+    category: "Pfelgedienst",
+    embedUrl:
+      "https://player.mediadelivery.net/embed/614528/4242506e-63fb-44d4-be4f-20bffac3f0cc?autoplay=false&loop=false&muted=false&preload=false&responsive=true",
+    thumbnail:
+      "https://vz-617e21d0-8be.b-cdn.net/4242506e-63fb-44d4-be4f-20bffac3f0cc/thumbnail.jpg",
+    points: [
+      "Placeholder",
+      "Placeholder",
+      "Placeholder",
     ],
   },
 ]

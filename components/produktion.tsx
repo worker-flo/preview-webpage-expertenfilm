@@ -10,23 +10,24 @@ import { ImageGridSlider, type ImageGridSlide } from "@/components/asset-compone
 
 const BENTO_IMAGES = [
   {
-    src: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=600&q=80&auto=format&fit=crop",
+    src: "/images/produktion/hoodie/hoodie-girl.webp",
     alt: "Kameraausrüstung unterwegs am Set",
   },
   {
-    src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=600&q=80&auto=format&fit=crop",
+    src: "/images/produktion/hoodie/hoodie-kamera-close_up_2.webp",
     alt: "Monitor und Kamera-Rig im Detail",
   },
+
   {
-    src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=1200&q=80&auto=format&fit=crop",
-    alt: "Interview-Situation im Studio",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1601506521937-0120a2f92427?w=600&q=80&auto=format&fit=crop",
+    src: "/images/produktion/medaworld/medaworld-julian_denkt.webp",
     alt: "Kameramann mit Blick auf den Monitor",
   },
   {
-    src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80&auto=format&fit=crop",
+    src: "/images/produktion/weitere/kamera-close_up_2.webp",
+    alt: "Zwei Personen am Set beim Blick aufs Display",
+  },
+  {
+    src: "/images/produktion/weitere/julian_mit_kunde.webp",
     alt: "Zwei Personen am Set beim Blick aufs Display",
   },
 ] as const
@@ -50,19 +51,19 @@ const impressionenSlides: ImageGridSlide[] = [
   {
     images: [
       {
-        src: "https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/testo_gym/testo_gym-essen.webp",
         alt: "Videoproduktion mit Kamera und Set-Licht",
       },
       {
-        src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/testo_gym/testo_gym-julian.webp",
         alt: "Crew bei Aufnahmen im Studio",
       },
       {
-        src: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/testo_gym/testo_gym-studio.webp",
         alt: "Professionelle Kamera mit Objektiv",
       },
       {
-        src: "https://images.unsplash.com/photo-1601506521937-0120a2f92427?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/testo_gym/testo_gym-bodybuilder.webp",
         alt: "Kameramann am Monitor während eines Drehs",
       },
     ],
@@ -70,40 +71,32 @@ const impressionenSlides: ImageGridSlide[] = [
   {
     images: [
       {
-        src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/medaworld/medaworld-julian_beraet.webp",
         alt: "Interview-Setup mit professioneller Ausleuchtung",
       },
       {
-        src: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/medaworld/medaworld-julian_filmt.webp",
         alt: "Schnitt und Material-Review im Produktionsprozess",
       },
       {
-        src: "https://images.unsplash.com/photo-1581985673473-0784a7a44e39?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/medaworld/medaworld-julian_bizeps.webp",
         alt: "Regie-Monitor mit laufender Aufnahme",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1535016120720-40c646be5580?w=900&q=80&auto=format&fit=crop",
-        alt: "Produktionsteam am Set in Abstimmung",
       },
     ],
   },
   {
     images: [
       {
-        src: "https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/weitere/empchair-kunden.webp",
         alt: "Filmisches Licht-Setup bei einem Dreh",
       },
       {
-        src: "https://images.unsplash.com/photo-1525675454455-17ea15f23b69?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/testo_gym/testo_gym-julian_filmt_2.webp",
         alt: "Kameraoperator in Aktion",
       },
       {
-        src: "https://images.unsplash.com/photo-1542204637-e67bc7d41e48?w=900&q=80&auto=format&fit=crop",
+        src: "/images/produktion/weitere/kamera-close_up_1.webp",
         alt: "Blick durch den Sucher auf ein Testimonial-Setup",
-      },
-      {
-        src: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80&auto=format&fit=crop",
-        alt: "Team am Set beim finalen Feinschliff",
       },
     ],
   },
