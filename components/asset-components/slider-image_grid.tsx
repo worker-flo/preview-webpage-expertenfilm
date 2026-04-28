@@ -58,7 +58,7 @@ function SlideGrid({
           key={`${img.src}-${img.alt}`}
           onClick={() => onImageClick(img)}
           className={cn(
-            "border border-white/15 relative overflow-hidden rounded-2xl transition",
+            "group border border-white/15 relative overflow-hidden rounded-2xl transition",
             cardAspectClassName,
           )}
           aria-label={`${img.alt} vergroessern`}
@@ -66,7 +66,10 @@ function SlideGrid({
           <img
             src={img.src}
             alt={img.alt}
-            className={cn("h-full w-full object-cover cursor-pointer", imageClassName)}
+            className={cn(
+              "h-full w-full object-cover cursor-pointer transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]",
+              imageClassName,
+            )}
             loading="lazy"
           />
         </button>

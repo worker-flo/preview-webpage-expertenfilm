@@ -92,7 +92,7 @@ export function GoogleReviews() {
           {visibleReviews.map((review, index) => (
             <article
               key={`${review.authorName}-${index}`}
-              className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-5 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+              className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-5 shadow-[0_20px_40px_rgba(0,0,0,0.35)] smm-card-hover"
             >
               <div className="flex items-start justify-between gap-4">
                 <p className="text-sm font-semibold text-white">{review.authorName}</p>

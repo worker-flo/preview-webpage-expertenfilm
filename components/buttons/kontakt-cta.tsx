@@ -56,7 +56,7 @@ export function KontaktCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center gap-4 rounded-xl px-6 py-5 text-left transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
+          "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center gap-4 rounded-xl px-6 py-5 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           className,
         )}
       >
@@ -80,7 +80,7 @@ export function KontaktCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface group inline-flex w-fit max-w-full rounded-xl px-5 py-4 text-left transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
+          "smm-btn-surface group inline-flex w-fit max-w-full rounded-xl px-5 py-4 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           className,
         )}
       >
@@ -103,7 +103,7 @@ export function KontaktCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-2xl px-5 py-4 transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
+          "smm-btn-surface inline-flex w-fit max-w-full items-center justify-between gap-4 rounded-2xl px-5 py-4 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           className,
         )}
       >
@@ -129,7 +129,7 @@ export function KontaktCta({
       <Link
         href={href}
         className={cn(
-          "smm-btn-surface group inline-flex w-fit max-w-[36rem] flex-col rounded-xl px-5 py-4 transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
+          "smm-btn-surface group inline-flex w-fit max-w-[36rem] flex-col rounded-xl px-5 py-4 transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
           className,
         )}
       >
@@ -138,7 +138,7 @@ export function KontaktCta({
             {resolvedTitle}
           </span>
           <ChevronsDown
-            className="h-6 w-6 shrink-0 text-teal-400 motion-reduce:group-hover:animate-none group-hover:animate-bounce"
+            className="h-6 w-6 shrink-0 text-teal-400"
             strokeWidth={2.25}
             aria-hidden
           />
@@ -155,7 +155,7 @@ export function KontaktCta({
     <Link
       href={href}
       className={cn(
-        "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center rounded-xl px-6 py-5 text-left transition-all duration-300 hover:bg-[#0b1b1a] hover:ring-[#00ffc4]/45 hover:shadow-[0_0_18px_rgba(0,255,196,0.45),0_0_44px_rgba(0,255,196,0.22)]",
+        "smm-btn-surface group relative inline-flex w-fit max-w-full items-center justify-center rounded-xl px-6 py-5 text-left transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]",
         className,
       )}
     >

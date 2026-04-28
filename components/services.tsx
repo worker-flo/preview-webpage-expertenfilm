@@ -75,7 +75,7 @@ export function Services() {
               {services.map((service, index) => (
                 <div
                   key={index}
-                  className="group relative flex flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 transition duration-300 hover:scale-[1.02] hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+                  className="group smm-card-hover relative flex flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 transition-[transform,box-shadow,border-color,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-white/25 hover:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-teal)_34%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-teal)_18%,transparent),0_20px_40px_rgba(0,0,0,0.35)] focus-within:border-white/25 focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-l)_34%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-teal)_18%,transparent),0_20px_40px_rgba(0,0,0,0.35)]"
                 >
                   {/* Icon */}
                   <div className="mb-6">
@@ -123,7 +123,7 @@ export function Services() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="group relative flex flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 transition duration-300 hover:scale-[1.02] hover:border-white/25 hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] focus-within:scale-[1.02] focus-within:border-white/25 focus-within:shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+                className="group smm-card-hover relative flex flex-col items-center rounded-2xl border border-white/15 bg-[#050a14]/95 p-8 transition-[transform,box-shadow,border-color,background-color] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] hover:border-white/25 hover:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-teal)_34%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-teal)_18%,transparent),0_20px_40px_rgba(0,0,0,0.35)] focus-within:border-white/25 focus-within:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-teal)_34%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-teal)_18%,transparent),0_20px_40px_rgba(0,0,0,0.35)]"
               >
                 {/* Icon */}
                 <div className="mb-6">

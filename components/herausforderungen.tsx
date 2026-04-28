@@ -77,11 +77,11 @@ export function Herausforderungen() {
             <button
               type="button"
               onClick={() => setIsFirstActive((prev) => !prev)}
-              className="group h-full w-full rounded-xl focus:outline-none"
+              className="group h-full w-full cursor-pointer rounded-xl focus:outline-none"
               aria-pressed={isFirstActive}
               aria-label={`${challengeOne.title} ${isFirstActive ? "zurücksetzen" : "aktivieren"}`}
             >
-              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
+              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:scale-[1.01] group-hover:border-white/25 group-hover:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-blue)_36%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-blue)_20%,transparent),0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:scale-[1.01] group-focus-visible:border-white/25 group-focus-visible:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-blue)_36%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-blue)_20%,transparent),0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
                 <div className={challengeToggleBadgeClassName}>
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />
@@ -129,11 +129,11 @@ export function Herausforderungen() {
             <button
               type="button"
               onClick={() => setIsSecondActive((prev) => !prev)}
-              className="group h-full w-full rounded-xl focus:outline-none"
+              className="group h-full w-full cursor-pointer rounded-xl focus:outline-none"
               aria-pressed={isSecondActive}
               aria-label={`${challengeTwo.title} ${isSecondActive ? "zurücksetzen" : "aktivieren"}`}
             >
-              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
+              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:scale-[1.01] group-hover:border-white/25 group-hover:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-blue)_36%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-blue)_20%,transparent),0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:scale-[1.01] group-focus-visible:border-white/25 group-focus-visible:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-blue)_36%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-blue)_20%,transparent),0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
                 <div className={challengeToggleBadgeClassName}>
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />
@@ -181,11 +181,11 @@ export function Herausforderungen() {
             <button
               type="button"
               onClick={() => setIsThirdActive((prev) => !prev)}
-              className="group h-full w-full rounded-xl focus:outline-none"
+              className="group h-full w-full cursor-pointer rounded-xl focus:outline-none"
               aria-pressed={isThirdActive}
               aria-label={`${challengeThree.title} ${isThirdActive ? "zurücksetzen" : "aktivieren"}`}
             >
-              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
+              <div className="relative grid h-full w-full grid-rows-[auto_auto_auto_auto] gap-6 rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:scale-[1.01] group-hover:border-white/25 group-hover:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-blue)_36%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-blue)_20%,transparent),0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:scale-[1.01] group-focus-visible:border-white/25 group-focus-visible:shadow-[0_0_10px_color-mix(in_srgb,var(--color-accent-blue)_36%,transparent),0_0_22px_color-mix(in_srgb,var(--color-accent-blue)_20%,transparent),0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40 md:p-8">
                 <div className={challengeToggleBadgeClassName}>
                   <span className="relative inline-flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />

@@ -61,7 +61,7 @@ export function HerausforderungenSlider({
 
   return (
     <div className="w-full">
-      <div className="min-w-0 overflow-hidden max-w-2xl mx-auto " ref={emblaRef}>
+      <div className="min-w-0 overflow-hidden max-w-2xl mx-auto" ref={emblaRef}>
         <div className="flex">
           {slides.map((challenge, index) => (
             <div
@@ -75,7 +75,7 @@ export function HerausforderungenSlider({
                 aria-pressed={activeCards[index]}
                 aria-label={`${challenge.title} ${activeCards[index] ? "zuruecksetzen" : "aktivieren"}`}
               >
-                <div className="h-full w-full flex-1 flex flex-col rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:-translate-y-0.5 group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:-translate-y-0.5 group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40">
+                <div className="h-full w-full flex-1 flex flex-col rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 transition duration-300 group-hover:scale-[1.01] group-hover:border-white/25 group-hover:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:scale-[1.01] group-focus-visible:border-white/25 group-focus-visible:shadow-[0_20px_40px_rgba(0,0,0,0.35)] group-focus-visible:ring-2 group-focus-visible:ring-[#00ffc3]/40">
                   <div className={challengeToggleBadgeClassName}>
                     <span className="relative inline-flex h-2 w-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00ffc3]/30 opacity-60" />

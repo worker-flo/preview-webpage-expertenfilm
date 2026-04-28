@@ -142,7 +142,7 @@ function VideobeispielKartePlayer({
   return (
     <div
       ref={shellRef}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+      className= "relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -354,7 +354,7 @@ export function VideobeispieleKundenprojekteGrid({
           <div className="flex">
             {items.map((item) => (
               <div key={item.title} className="min-w-0 shrink-0 grow-0 basis-full">
-                <article className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)]">
+                <article className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] smm-card-hover">
                   <VideobeispielKartePlayer
                     videoUrl={item.videoUrl}
                     poster={item.poster}
@@ -399,7 +399,7 @@ export function VideobeispieleKundenprojekteGrid({
         {items.map((item) => (
           <article
             key={item.title}
-            className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] md:p-8"
+            className="rounded-2xl border border-white/15 bg-[#050a14]/95 p-6 shadow-[0_20px_40px_rgba(0,0,0,0.35)] smm-card-hover md:p-8"
           >
             <VideobeispielKartePlayer
               videoUrl={item.videoUrl}

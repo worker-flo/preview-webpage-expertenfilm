@@ -147,7 +147,7 @@ function FallstudieVideo({
   return (
     <div
       ref={shellRef}
-      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)]"
+      className="relative aspect-video w-full overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 shadow-[0_20px_40px_rgba(0,0,0,0.35)] smm-card-hover"
       onMouseEnter={() => setHovering(true)}
       onMouseLeave={() => setHovering(false)}
     >
@@ -309,7 +309,7 @@ function FallstudieCard({
 
   return (
     <article
-      className="mx-auto flex w-full flex-col gap-2 overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:p-6 md:p-7"
+      className="mx-auto flex w-full flex-col gap-2 overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] smm-card-hover sm:p-6 md:p-7"
     >
       <header className="mb-3 flex items-center gap-2.5 md:mb-4">
         <ClientMark />
@@ -325,7 +325,7 @@ function FallstudieCard({
       <button
         type="button"
         onClick={onToggle}
-        className="smm-btn-surface mt-3 inline-flex items-center justify-center gap-2 self-start rounded-full px-3 py-1.5 text-xs font-medium md:text-sm"
+        className="cursor-pointer smm-btn-surface mt-3 inline-flex items-center justify-center gap-2 self-start rounded-full px-3 py-1.5 text-xs font-medium md:text-sm"
         aria-expanded={isExpanded}
         aria-controls={detailsId}
       >

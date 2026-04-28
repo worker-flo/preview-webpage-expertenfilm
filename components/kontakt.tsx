@@ -59,7 +59,7 @@ export function Kontakt() {
             <KundenergebnisseCta variant="kontakt" />
           </div>
 
-          <div className="min-w-0 max-w-lg mx-auto rounded-3xl border border-white/10 bg-slate-950/60 p-6 shadow-xl backdrop-blur-sm md:p-8">
+          <div className="hover-scale-1_02 min-w-0 max-w-lg mx-auto rounded-3xl border border-white/10 bg-slate-950/60 p-6 shadow-xl backdrop-blur-sm md:p-8">
             <form className="space-y-5" onSubmit={handleSubmit} noValidate>
               <div>
                 <label htmlFor="kontakt-name" className="sr-only">

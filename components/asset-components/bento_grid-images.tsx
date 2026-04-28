@@ -17,65 +17,65 @@ export function BentoGridImages({ images, onImageClick }: BentoGridImagesProps) 
         <button
           type="button"
           onClick={() => onImageClick(images[0])}
-          className="cursor-pointer relative col-start-1 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+          className="group cursor-pointer relative col-start-1 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
           aria-label={`${images[0].alt} vergroessern`}
         >
           <img
             src={images[0].src}
             alt={images[0].alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
             loading="lazy"
           />
         </button>
         <button
           type="button"
           onClick={() => onImageClick(images[1])}
-          className="cursor-pointer relative col-start-2 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+          className="group cursor-pointer relative col-start-2 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
           aria-label={`${images[1].alt} vergroessern`}
         >
           <img
             src={images[1].src}
             alt={images[1].alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
             loading="lazy"
           />
         </button>
         <button
           type="button"
           onClick={() => onImageClick(images[2])}
-          className="cursor-pointer relative col-span-2 row-span-2 row-start-3 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+          className="group cursor-pointer relative col-span-2 row-span-2 row-start-3 overflow-hidden rounded-2xl ring-1 ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
           aria-label={`${images[2].alt} vergroessern`}
         >
           <img
             src={images[2].src}
             alt={images[2].alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
             loading="lazy"
           />
         </button>
         <button
           type="button"
           onClick={() => onImageClick(images[3])}
-          className="cursor-pointer relative col-start-1 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+          className="group cursor-pointer relative col-start-1 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
           aria-label={`${images[3].alt} vergroessern`}
         >
           <img
             src={images[3].src}
             alt={images[3].alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
             loading="lazy"
           />
         </button>
         <button
           type="button"
           onClick={() => onImageClick(images[4])}
-          className="cursor-pointer relative col-start-2 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
+          className="group cursor-pointer relative col-start-2 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
           aria-label={`${images[4].alt} vergroessern`}
         >
           <img
             src={images[4].src}
             alt={images[4].alt}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] group-focus-visible:scale-[1.03]"
             loading="lazy"
           />
         </button>
