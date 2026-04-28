@@ -225,7 +225,7 @@ export function Navbar() {
               <div ref={socialsRef} className="relative flex items-center">
                 <button
                   onClick={() => setIsSocialsOpen(!isSocialsOpen)}
-                  className="cursor-pointer flex items-center gap-1 rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                  className="cursor-pointer flex items-center gap-1 rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:text-[#00ffc4]"
                 >
                   <span
                     className={`transition-transform duration-300 ${isSocialsOpen ? "rotate-180" : "rotate-0"}`}
@@ -242,7 +242,7 @@ export function Navbar() {
                         href="https://wa.me/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:text-[#00ffc4]"
                         aria-label="WhatsApp"
                       >
                         <span>WhatsApp</span>
@@ -252,7 +252,7 @@ export function Navbar() {
                         href="https://instagram.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:text-[#00ffc4]"
                         aria-label="Instagram"
                       >
                         <span>Instagram</span>
@@ -262,7 +262,7 @@ export function Navbar() {
                         href="https://linkedin.com/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                        className="flex items-center justify-end gap-3 px-6 py-3 font-medium text-[white] transition-colors duration-200 hover:text-[#00ffc4]"
                         aria-label="LinkedIn"
                       >
                         <span>LinkedIn</span>
@@ -278,7 +278,7 @@ export function Navbar() {
               <div ref={servicesRef} className="relative flex items-center">
                 <button
                   onClick={() => setIsServicesOpen(!isServicesOpen)}
-                  className="cursor-pointer flex items-center gap-1 rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                  className="cursor-pointer flex items-center gap-1 rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:text-[#00ffc4]"
                 >
                   <span
                     className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : "rotate-0"}`}
@@ -315,7 +315,7 @@ export function Navbar() {
                 <NavMenuLink
                   key={item.href}
                   href={item.href}
-                  className="rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                  className="rounded-lg px-2 py-1 font-medium text-white/90 transition-colors duration-300 hover:text-[#00ffc4]"
                 >
                   {item.label}
                 </NavMenuLink>
@@ -343,7 +343,7 @@ export function Navbar() {
                         key={index}
                         href={item.href}
                         onClick={() => setIsMenuOpen(false)}
-                        className="px-6 py-3 text-right font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                        className="px-6 py-3 text-right font-medium text-[white] transition-colors duration-200 hover:text-[#00ffc4]"
                       >
                         {item.label}
                       </NavMenuLink>
@@ -407,7 +407,7 @@ export function Navbar() {
                   key={index}
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="rounded-lg py-3 font-medium text-white/90 transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                  className="rounded-lg py-3 font-medium text-white/90 transition-colors duration-200 hover:text-[#00ffc4]"
                 >
                   {item.label}
                 </NavMenuLink>
