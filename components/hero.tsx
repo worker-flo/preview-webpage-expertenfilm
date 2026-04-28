@@ -164,7 +164,7 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center mt-8 md:mt-16">
           {/* Headline */}
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
-            <span className="text-white">Das Beste aus Test</span>
+            <span className="text-white">Das Beste aus</span>
             <br />
             <span className="text-[#00ffc4]">Videoproduktion und KI</span>
             <br />

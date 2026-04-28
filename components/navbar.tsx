@@ -94,7 +94,6 @@ const menuItems: NavMenuItem[] = [
   { label: "Portfolio", href: "/portfolio", desktopQuick: { md: true} },
   { label: "Kontakt", href: "/#kontakt", desktopQuick: { md: false} },
   { label: "Über uns", href: "/#team", desktopQuick: false},
-  { label: "Häufig gestellte Fragen", href: "/#faq", desktopQuick: false},
 ]
 
 function NavMenuLink({
@@ -207,7 +206,7 @@ export function Navbar() {
       <div className="mx-auto w-full max-w-6xl rounded-xl border border-white/15 bg-[#050a14]/95 px-5 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/#" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
+          <Link href="/" rel="noopener noreferrer" className="flex items-center gap-2 cursor-pointer">
             <Image
               src="/images/logo/logo-white.webp"
               alt="Logo"
@@ -337,6 +336,14 @@ export function Navbar() {
                   className="absolute -right-6 mt-12 w-64 animate-in slide-in-from-top-2 rounded-xl border border-white/15 bg-[#050a14]/95 py-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] duration-200 fade-in"
                 >
                   <nav className="flex flex-col">
+                    <NavMenuLink
+                      href="/#services"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="px-6 py-3 text-right text-sm font-medium text-[white] transition-colors duration-200 hover:text-[#00ffc4]"
+                    >
+                      Services
+                    </NavMenuLink>
+                    <div className="mx-6 my-2 h-px bg-white/10" />
                     {menuItems.map((item, index) => (
                       <NavMenuLink
                         key={index}
@@ -401,6 +408,14 @@ export function Navbar() {
         {isMenuOpen && (
           <div className="mt-4 border-t border-white/15 pb-4 pt-4 sm:hidden">
             <nav className="flex flex-col">
+              <NavMenuLink
+                href="/#services"
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-lg py-3 text-sm font-medium text-white/90 transition-colors duration-200 hover:text-[#00ffc4]"
+              >
+                Services
+              </NavMenuLink>
+              <div className="my-2 h-px bg-white/10" />
               {menuItems.map((item, index) => (
                 <NavMenuLink
                   key={index}
@@ -411,6 +426,39 @@ export function Navbar() {
                   {item.label}
                 </NavMenuLink>
               ))}
+              <div className="my-2 h-px bg-white/10" />
+              <div className="flex items-center justify-start gap-4 pb-1 pt-2">
+                <a
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-[#25D366] transition-transform duration-200 hover:scale-110"
+                  aria-label="WhatsApp"
+                >
+                  <WhatsAppIcon className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-[#E4405F] transition-transform duration-200 hover:scale-110"
+                  aria-label="Instagram"
+                >
+                  <InstagramIcon className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-[#0A66C2] transition-transform duration-200 hover:scale-110"
+                  aria-label="LinkedIn"
+                >
+                  <LinkedInIcon className="h-5 w-5" />
+                </a>
+              </div>
             </nav>
           </div>
         )}
