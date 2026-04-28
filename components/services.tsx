@@ -63,7 +63,7 @@ const services: ServiceSlide[] = [
 export function Services() {
   return (
     <section id="services" className="section-spotlight section-spotlight--teal border-t border-white/10 py-20">
-      <div className="container mx-auto px-5 sm:px-6 max-w-3xl  ">
+      <div className="container mx-auto px-5 sm:px-6 max-w-3xl">
         <div className="flex min-h-[100svh] flex-col justify-center">
           {/* Section Title */}
           <h2 className="mb-16 text-center text-3xl font-bold text-white md:text-4xl lg:text-5xl">
@@ -72,12 +72,12 @@ export function Services() {
 
 
           {/* Mobile View */}
-          <div className="md:hidden sm:block sm:mx-auto">
+          <div className="md:hidden sm:block sm:mx-auto lg:max-w-4xl md:max-w-3xl max-w-lg">
             <ServicesSlider slides={services} />
           </div>
 
           {/* Desktop View */}
-          <div className="hidden md:grid grid-cols-2 gap-6 mx-auto lg:max-w-4xl md:max-w-3xl max-w-lg  ">
+          <div className="hidden md:grid grid-cols-2 gap-6 lg:max-w-4xl md:max-w-3xl max-w-lg mx-auto ">
             {services.map((service, index) => (
               <div
                 key={index}
