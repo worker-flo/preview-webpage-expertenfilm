@@ -108,13 +108,13 @@ export function Produktion() {
   return (
     <section
       id="einblicke"
-      className="section-spotlight section-spotlight--mixed border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
+      className="section-spotlight section-spotlight--mixed border-t border-white/10 py-10 font-sans text-white "
     >
-      <div className="mx-auto max-w-6xl px-6 sm:px-7 lg:px-8">
+      <div className="mx-auto max-w-5xl pl-5 md:pl-8">
         <div className="grid min-h-[100svh] grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
           <div className="min-w-0 max-w-[65ch]">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-4xl">
-              Mehr Einblicke in unsere Produktionstage:
+              Einblicke in unsere Produktionstage:
             </h2>
 
             <p className="mt-6 text-lg font-bold text-white lg:text-xl">
@@ -153,11 +153,11 @@ export function Produktion() {
         <div className="mt-12 pt-10 md:mt-16 md:pt-14">
           <ImageGridSlider
             slides={impressionenSlides}
-            title="Impressionen aus der Produktion"
+            title="Weitere Einblicke in unsere Produktion"
             description={
               <>
                 <span className="block">
-                  Weitere Einblicke aus unserer Produktion.
+                  Einige Bilder die während unserer Arbeit geschossen wurden:
                 </span>
               </>
             }

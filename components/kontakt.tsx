@@ -31,7 +31,7 @@ export function Kontakt() {
       id="kontakt"
       className="section-spotlight section-spotlight--teal border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-5 sm:px-6 lg:px-8">
         <h2 className="text-center md:text-left text-3xl font-bold tracking-tight text-white md:text-4xl">
           Gemeinsam durchstarten!
         </h2>
@@ -59,7 +59,7 @@ export function Kontakt() {
             <KundenergebnisseCta variant="kontakt" />
           </div>
 
-          <div className="min-w-0 max-w-lg mx-auto rounded-3xl border border-white/10 bg-slate-950/60 p-6 shadow-xl backdrop-blur-sm md:p-8  hover-scale-1_02 hover-glow-blue">
+          <div className="min-w-0 max-w-5xl mx-auto rounded-3xl border border-white/10 bg-slate-950/60 p-6 shadow-xl backdrop-blur-sm md:p-8  hover-scale-1_02 hover-glow-blue">
             <form className="space-y-5" onSubmit={handleSubmit} noValidate>
               <div>
                 <label htmlFor="kontakt-name" className="sr-only">

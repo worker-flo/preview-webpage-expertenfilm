@@ -78,7 +78,7 @@ const SERVICES = [
         wirken stärker als jedes Werbeversprechen.
       </>
     ),
-    gridClass: "md:col-span-2 md:row-start-1 md:col-start-1 hover-scale-1_02 hover-glow-teal",
+    gridClass: "md:col-span-1 md:row-start-1 md:col-start-1 hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "storytelling",
@@ -92,7 +92,7 @@ const SERVICES = [
       </>
     ),
     gridClass:
-      "md:col-start-3 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)] hover-scale-1_02 hover-glow-teal",
+      "md:col-start-2 md:row-span-1 md:row-start-1 md:min-h-[min(22rem,52vh)] hover-scale-1_02 hover-glow-teal",
   },
   {
     key: "synergy",
@@ -118,7 +118,7 @@ const SERVICES = [
         nur gut aussieht, sondern auch messbar verkauft.
       </>
     ),
-    gridClass: "md:col-span-2 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal",
+    gridClass: "md:col-span-1 md:col-start-2 md:row-start-2 hover-scale-1_02 hover-glow-teal",
   },
 ] as const
 
@@ -177,7 +177,7 @@ export function VideoproduktionServicesBento() {
           Services im Überblick
         </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 md:grid-rows-2">
           {SERVICES.map((item) => (
             <ServiceCard
               key={item.key}

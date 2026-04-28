@@ -52,7 +52,7 @@ export function Arbeitsweise() {
             Unsere Arbeitsweise
           </h2>
 
-          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3">
             {leistungen.map((item, index) => (
               <article
                 key={index}

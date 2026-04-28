@@ -55,7 +55,7 @@ export function Herausforderungen() {
 
   return (
     <section id="herausforderungen" className="section-spotlight section-spotlight--violet bg-transparent border-t border-white/10 px-5 py-20 md:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="mx-auto max-w-5xl">
         <div className="flex min-h-[100svh] flex-col justify-center">
           {/* Header */}
           <div className="text-center mb-16">

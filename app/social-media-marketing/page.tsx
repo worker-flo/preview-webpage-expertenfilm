@@ -23,7 +23,7 @@ export default function SocialMediaMarketingPage() {
 
       <Navbar />
 
-      <section className="section-spotlight section-spotlight--teal relative min-h-[85vh] overflow-hidden border-t border-white/10">
+      <section className="section-spotlight section-spotlight--teal relative min-h-[85vh] overflow-hidden">
         /* Background Network Lines */
         <div className="pointer-events-none absolute inset-0">
           <svg

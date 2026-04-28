@@ -23,30 +23,21 @@ import {
 
 const services: ServiceSlide[] = [
   {
+    icon: Video,
+    title: "Videoproduktion",
+    href: "/videoproduktion",
+    features: [
+      { icon: Play, text: "Professionelle Videoproduktion" },
+      { icon: Camera, text: "High-End Kamera-Equipment" },
+    ],
+  },
+  {
     icon: Smartphone,
     title: "Social Media Marketing mit KI-Power",
     href: "/social-media-marketing",
     features: [
       { icon: Rocket, text: "Automatisierte Reichweite" },
       { icon: Brain, text: "Content Strategie mit KI-Boost" },
-    ],
-  },
-  {
-    icon: Megaphone,
-    title: "Performance Marketing",
-    href: "/performance-marketing",
-    features: [
-      { icon: TrendingUp, text: "Marketing-ROI Optimierung" },
-      { icon: Target, text: "Facebook Ads" },
-    ],
-  },
-  {
-    icon: Video,
-    title: "High-End Videoproduktion",
-    href: "/videoproduktion",
-    features: [
-      { icon: Play, text: "Professionelle Videoproduktion" },
-      { icon: Camera, text: "High-End Kamera-Equipment" },
     ],
   },
   {
@@ -58,11 +49,20 @@ const services: ServiceSlide[] = [
       { icon: TextSearch, text: "SEO-Optimierung" },
     ],
   },
+  {
+    icon: Megaphone,
+    title: "Performance Marketing",
+    href: "/performance-marketing",
+    features: [
+      { icon: TrendingUp, text: "Marketing-ROI Optimierung" },
+      { icon: Target, text: "Facebook Ads" },
+    ],
+  },
 ]
 
 export function Services() {
   return (
-    <section id="services" className="section-spotlight section-spotlight--teal border-t border-white/10 py-20 ">
+    <section id="services" className="section-spotlight section-spotlight--teal border-t border-white/10 py-20">
       <div className="container mx-auto px-5 sm:max-w-md sm:px-6 md:max-w-6xl">
         <div className="flex min-h-[100svh] flex-col justify-center">
           {/* Section Title */}

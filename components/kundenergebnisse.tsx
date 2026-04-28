@@ -197,7 +197,7 @@ export function Kundenergebnisse() {
       className="section-spotlight section-spotlight--violet border-t border-white/10 py-16 font-sans text-white md:py-24"
     >
       {/* Div: Ergebnisse, Projekte & Fallstudien */}
-      <div className="mx-auto max-w-[80vw] px-5 md:px-8">
+      <div className="mx-auto max-w-6xl px-5 md:px-8">
         {/* Div: Header */}
         <div className="flex min-h-[100svh] flex-col justify-center">
           <h2 className="text-center text-3xl font-bold leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
@@ -215,12 +215,12 @@ export function Kundenergebnisse() {
           </p>
 
           {/* Div: Case Studies */} 
-          <div className="mx-auto mt-12 flex w-full justify-center md:mt-16 lg:mt-20">
+          <div className="mx-auto mt-12 flex max-w-4xl justify-center md:mt-16 lg:mt-20">
             <KundenergebnisseCarousel slides={fallstudienSlides} />
           </div>
 
           {/* Div: Video Kundenstimmen aus 3 Jahren */}
-          <div className="mx-auto max-w-6xl mt-4">
+          <div className="mx-auto max-w-4xl mt-4">
             <div
               className="overflow-hidden rounded-2xl border border-white/15 bg-[#050a14]/95 p-4 shadow-[0_20px_40px_rgba(0,0,0,0.35)] sm:p-6 md:p-7"
               role="region"
@@ -260,7 +260,7 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
           <h3 className="mb-10 text-center text-2xl font-bold text-white md:mb-12 md:text-3xl">
             Weitere Testimonials:
           </h3>
@@ -277,11 +277,11 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
           <h3 className="text-center text-2xl font-bold text-white md:text-3xl">
             Videobeispiele aus Kundenprojekten
           </h3>
-          <p className="mx-auto mt-4 max-w-3xl text-center text-base text-white/75 md:mt-5 md:text-lg">
+          <p className="mx-auto mt-4 max-w-5xl text-center text-base text-white/75 md:mt-5 md:text-lg">
             Natürlich erfordert jedes Projekt unterschiedliche Inhalte. Dies sind
             lediglich einige Auszüge unserer Arbeit.
           </p>
@@ -292,7 +292,7 @@ export function Kundenergebnisse() {
       </div>
 
       <div className="mt-12 w-full border-t border-white/10 py-14 md:mt-16 md:py-20">
-        <div className="mx-auto max-w-6xl px-5 md:px-8">
+        <div className="mx-auto max-w-5xl px-5 md:px-8">
           <div className="-mx-2 md:mx-0 md:px-2 lg:px-6">
             <VideoContentSlider
               slides={projektHighlightSlides}

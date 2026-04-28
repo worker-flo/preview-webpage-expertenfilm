@@ -31,7 +31,7 @@ export function Hero() {
 
   return (
     <section
-      className="relative overflow-hidden border-t border-white/10 -top-12.5"
+      className="relative overflow-hidden -top-12.5"
       onMouseMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect()
         const relativeX = (event.clientX - rect.left) / rect.width
@@ -159,7 +159,7 @@ export function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-5 pt-32 pb-20 sm:px-6">
+      <div className="relative z-10 mx-auto w-full max-w-6xl px-5 pt-32 pb-20 sm:px-6">
         {/* Main Content */}
         <div className="max-w-4xl mx-auto text-center mt-8 md:mt-16">
           {/* Headline */}
@@ -188,7 +188,7 @@ export function Hero() {
 
       <GoogleReviews />
 
-      <div className="flex items-center justify-center bottom-0 mx-auto w-full max-w-7xl mt-10 ">
+      <div className="flex items-center justify-center bottom-0 mx-auto mt-10 w-full max-w-6xl">
             <LogoSlider logos={partnerLogos} />
       </div>
 

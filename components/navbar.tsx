@@ -81,9 +81,9 @@ const servicesDesktop: boolean | Partial<Record<DesktopBreakpoint, boolean>> = {
 }
 
 const serviceSubpages = [
+  { label: "Videoproduktion", href: "/videoproduktion" },
   { label: "Social Media Marketing", href: "/social-media-marketing" },
   { label: "Performance Marketing", href: "/performance-marketing" },
-  { label: "Videoproduktion", href: "/videoproduktion" },
   { label: "Website Erstellung", href: "/website-erstellung" },
 ]
 
@@ -92,7 +92,6 @@ const menuItems: NavMenuItem[] = [
   { label: "Der Expertenfilm-Prozess", href: "/#prozess", desktopQuick: false},
   { label: "Kundenerfolge", href: "/#kundenergebnisse", desktopQuick: { sm: true} },
   { label: "Portfolio", href: "/portfolio", desktopQuick: { md: true} },
-  { label: "Videoproduktion", href: "/#einblicke", desktopQuick: { lg: true} },
   { label: "Kontakt", href: "/#kontakt", desktopQuick: { md: false} },
   { label: "Über uns", href: "/#team", desktopQuick: false},
   { label: "Häufig gestellte Fragen", href: "/#faq", desktopQuick: false},
@@ -296,7 +295,7 @@ export function Navbar() {
                           key={service.href}
                           href={service.href}
                           onClick={() => setIsServicesOpen(false)}
-                          className="px-6 py-3 text-right font-medium text-[white] transition-colors duration-200 hover:bg-[#0a1424] hover:text-[#00ffc4]"
+                          className="px-6 py-3 text-right font-medium text-[white] transition-colors duration-200 hover:text-[#00ffc4]"
                         >
                           {service.label}
                         </NavMenuLink>
