@@ -124,7 +124,7 @@ function SlideMedia({
         )}
 
         <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/40"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/40 border border-white/15 overflow-hidden rounded-3xl"
           aria-hidden
         />
 

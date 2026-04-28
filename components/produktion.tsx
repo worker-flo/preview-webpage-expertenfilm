@@ -5,6 +5,7 @@ import { Camera, ClipboardCheck, Handshake } from "lucide-react"
 import { AnimatePresence, motion } from "framer-motion"
 
 import { KontaktCta } from "@/components/buttons"
+import { BentoGridImages, type BentoGridImage } from "@/components/asset-components/bento_grid-images"
 import { ImageGridSlider, type ImageGridSlide } from "@/components/asset-components/slider-image_grid"
 
 const BENTO_IMAGES = [
@@ -109,7 +110,7 @@ const impressionenSlides: ImageGridSlide[] = [
 ]
 
 export function Produktion() {
-  const [activeImage, setActiveImage] = useState<(typeof BENTO_IMAGES)[number] | null>(null)
+  const [activeImage, setActiveImage] = useState<BentoGridImage | null>(null)
 
   return (
     <section
@@ -117,7 +118,7 @@ export function Produktion() {
       className="section-spotlight section-spotlight--mixed border-y border-t border-white/10 py-20 font-sans text-white md:py-24"
     >
       <div className="mx-auto max-w-6xl px-6 sm:px-7 lg:px-8">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
+        <div className="grid min-h-[100svh] grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-14 xl:gap-16">
           <div className="min-w-0 max-w-[65ch]">
             <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-4xl">
               Mehr Einblicke in unsere Produktionstage:
@@ -153,75 +154,7 @@ export function Produktion() {
             />
           </div>
 
-          <div className="min-h-0 min-w-0">
-            <div className="grid h-[min(520px,70vh)] grid-cols-2 grid-rows-6 gap-3 sm:h-[min(580px,72vh)] sm:gap-4 md:h-[min(640px,75vh)] md:gap-5">
-              <button
-                type="button"
-                onClick={() => setActiveImage(BENTO_IMAGES[0])}
-                className="cursor-pointer relative col-start-1 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
-                aria-label={`${BENTO_IMAGES[0].alt} vergroessern`}
-              >
-                <img
-                  src={BENTO_IMAGES[0].src}
-                  alt={BENTO_IMAGES[0].alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveImage(BENTO_IMAGES[1])}
-                className="cursor-pointer relative col-start-2 row-span-2 row-start-1 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
-                aria-label={`${BENTO_IMAGES[1].alt} vergroessern`}
-              >
-                <img
-                  src={BENTO_IMAGES[1].src}
-                  alt={BENTO_IMAGES[1].alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveImage(BENTO_IMAGES[2])}
-                className="cursor-pointer relative col-span-2 row-span-2 row-start-3 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
-                aria-label={`${BENTO_IMAGES[2].alt} vergroessern`}
-              >
-                <img
-                  src={BENTO_IMAGES[2].src}
-                  alt={BENTO_IMAGES[2].alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveImage(BENTO_IMAGES[3])}
-                className="cursor-pointer relative col-start-1 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
-                aria-label={`${BENTO_IMAGES[3].alt} vergroessern`}
-              >
-                <img
-                  src={BENTO_IMAGES[3].src}
-                  alt={BENTO_IMAGES[3].alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveImage(BENTO_IMAGES[4])}
-                className="cursor-pointer relative col-start-2 row-span-2 row-start-5 overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 md:rounded-3xl"
-                aria-label={`${BENTO_IMAGES[4].alt} vergroessern`}
-              >
-                <img
-                  src={BENTO_IMAGES[4].src}
-                  alt={BENTO_IMAGES[4].alt}
-                  className="h-full w-full object-cover"
-                  loading="lazy"
-                />
-              </button>
-            </div>
-          </div>
+          <BentoGridImages images={BENTO_IMAGES} onImageClick={setActiveImage} />
         </div>
 
         <div className="mt-12 pt-10 md:mt-16 md:pt-14">
