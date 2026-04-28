@@ -12,7 +12,7 @@ type BentoGridImagesProps = {
 
 export function BentoGridImages({ images, onImageClick }: BentoGridImagesProps) {
   return (
-    <div className="min-h-0 min-w-0 h-[75svh] w-full ">
+    <div className="min-h-0 min-w-0 h-[75svh] w-full">
       <div className="grid h-full grid-cols-2 grid-rows-6 gap-3 sm:gap-4 md:gap-5">
         <button
           type="button"

@@ -58,7 +58,7 @@ function SlideGrid({
           key={`${img.src}-${img.alt}`}
           onClick={() => onImageClick(img)}
           className={cn(
-            "relative overflow-hidden rounded-2xl ring-1 ring-white/10 transition hover:ring-white/30 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60",
+            "border border-white/15 relative overflow-hidden rounded-2xl transition",
             cardAspectClassName,
           )}
           aria-label={`${img.alt} vergroessern`}
