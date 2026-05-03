@@ -24,7 +24,7 @@ import {
 const services: ServiceSlide[] = [
   {
     icon: Video,
-    title: "Videoproduktion",
+    title: "High-End-Videoproduktion",
     href: "/videoproduktion",
     features: [
       { icon: Play, text: "Professionelle Videoproduktion" },
